@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -21,16 +22,23 @@ class Product extends Model
         'deleted_status',
         'status',
         'description',
+        'mockup_image',
+        'length', 
+        'id_category',
     ];
 
     // Tentukan kolom yang harus di-cast
     protected $casts = [
-        'deleted_status' => 'boolean', // memastikan deleted_status diperlakukan sebagai boolean
+        'deleted_status' => 'boolean',
     ];
-
-    // Soft delete menggunakan deleted_status
+    
     public function scopeNotDeleted($query)
     {
         return $query->where('deleted_status', false);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'id_category');
     }
 }

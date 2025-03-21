@@ -16,7 +16,19 @@
         <flux:navlist variant="outline">
             <flux:navlist.group :heading="__('Platform')" class="grid">
                 <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()-> routeIs('dashboard')"
-                    wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    wire:navigate>{{ __('Dashboard') }}
+                </flux:navlist.item>
+
+                <!-- Kategori Produk -->
+                <flux:navlist.item icon="folder" :href="route('categories.index')" :current="request()->routeIs('categories.index')"
+                    wire:navigate>{{ __('Category') }}
+                </flux:navlist.item>      
+
+                <!-- Submenu Produk -->
+                <flux:navlist.group :heading="__('Produk Management')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('products.create')" :current="request()->routeIs('products.create')" wire:navigate>{{ __('Buat Produk Baru') }}</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('products.index')" :current="request()->routeIs('products.index')" wire:navigate>{{ __('Daftar Produk') }}</flux:navlist.item>
+                </flux:navlist.group>
             </flux:navlist.group>
         </flux:navlist>
 
@@ -35,7 +47,7 @@
 
         <!-- Desktop User Menu -->
         <flux:dropdown position="bottom" align="start">
-            <flux:profile :name="auth()-> user()-> name" :initials="auth()->user()->initials()"
+            <flux:profile :name="auth()-> user()-> name" :initials="auth()-> user()-> initials()"
                 icon-trailing="chevrons-up-down" />
 
             <flux:menu class="w-[220px]">
@@ -83,7 +95,7 @@
         <flux:spacer />
 
         <flux:dropdown position="top" align="end">
-            <flux:profile :initials="auth()->user()->initials()" icon-trailing="chevron-down" />
+            <flux:profile :initials="auth()-> user()-> initials()" icon-trailing="chevron-down" />
 
             <flux:menu>
                 <flux:menu.radio.group>
