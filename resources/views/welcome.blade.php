@@ -52,6 +52,9 @@
 
             @component('components.gallery.gallery')
             @endcomponent
+
+            @component('components.product.product')
+            @endcomponent
         </main>
     </div>
 
