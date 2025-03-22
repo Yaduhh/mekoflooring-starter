@@ -13,6 +13,10 @@
 
     <!-- Styles / Scripts -->
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex items-center lg:justify-center min-h-screen flex-col">
@@ -53,7 +57,7 @@
             @component('components.gallery.gallery')
             @endcomponent
 
-            @component('components.product.product')
+            @component('components.product.product', ['products' => $products])
             @endcomponent
         </main>
     </div>
@@ -79,6 +83,8 @@
             });
         });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 </body>
 
 </html>
