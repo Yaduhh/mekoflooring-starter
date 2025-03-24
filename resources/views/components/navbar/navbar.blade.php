@@ -16,9 +16,9 @@
                 class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] hover:cursor-pointer">
                 Product
             </a>
-            <a href="#longue"
+            <a href="{{ route('floor.index') }}"
                 class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] hover:cursor-pointer">
-                Longue
+                Floor View
             </a>
         </div>
 

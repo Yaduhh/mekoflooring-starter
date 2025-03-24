@@ -1,4 +1,4 @@
-<section>
+<section id="produk">
     <div class="w-full flex flex-col gap-6  mx-auto lg:max-w-4xl pb-10">
         <div>
             <h1 class="text-xl font-semibold capitalize">
@@ -15,13 +15,15 @@
                             <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
 
                             <!-- Menampilkan Gambar Produk -->
-                            <div class="relative w-full h-full">
-                                @if ($product->image_produk)
-                                    <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover rounded-lg transition duration-300 group-hover:scale-105 group-hover:opacity-75">
-                                @else
-                                    <p class="absolute inset-0 flex items-center justify-center text-white bg-gray-600 bg-opacity-60 text-lg">{{ __('Tidak ada gambar produk') }}</p>
-                                @endif
-                            </div>
+                            <a href="{{ route('product.show', ['slug' => $product->slug_produk]) }}" class="relative w-full h-full block">
+                                <div class="relative w-full h-full">
+                                    @if ($product->image_produk)
+                                        <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover rounded-lg transition duration-300 group-hover:scale-105 group-hover:opacity-75">
+                                    @else
+                                        <p class="absolute inset-0 flex items-center justify-center text-white bg-gray-600 bg-opacity-60 text-lg">{{ __('Tidak ada gambar produk') }}</p>
+                                    @endif
+                                </div>
+                            </a>
 
                             <!-- Nama Produk -->
                             <div class="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center bg-gradient-to-t from-black to-transparent">
@@ -58,13 +60,15 @@
                             <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
 
                             <!-- Menampilkan Gambar Produk -->
-                            <div class="relative w-full h-full">
-                                @if ($product->image_produk)
-                                    <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover rounded-lg transition duration-300 group-hover:scale-105 group-hover:opacity-75">
-                                @else
-                                    <p class="absolute inset-0 flex items-center justify-center text-white bg-gray-600 bg-opacity-60 text-lg">{{ __('Tidak ada gambar produk') }}</p>
-                                @endif
-                            </div>
+                            <a href="{{ route('product.show', ['slug' => $product->slug_produk]) }}" class="relative w-full h-full block">
+                                <div class="relative w-full h-full">
+                                    @if ($product->image_produk)
+                                        <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover rounded-lg transition duration-300 group-hover:scale-105 group-hover:opacity-75">
+                                    @else
+                                        <p class="absolute inset-0 flex items-center justify-center text-white bg-gray-600 bg-opacity-60 text-lg">{{ __('Tidak ada gambar produk') }}</p>
+                                    @endif
+                                </div>
+                            </a>
 
                             <!-- Nama Produk -->
                             <div class="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center bg-gradient-to-t from-black to-transparent">

@@ -25,6 +25,12 @@ class Category extends Model
         'deleted_status' => 'boolean',
     ];
 
+    public function scopeNotDeleted($query)
+    {
+        return $query->where('deleted_status', false);
+    }
+
+
     public function products()
     {
         return $this->hasMany(Product::class, 'id_category');

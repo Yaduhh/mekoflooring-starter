@@ -5,12 +5,16 @@ use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FloorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('product/{slug}', [HomeController::class, 'show'])->name('product.show');
+Route::get('floor/view-simulation', [FloorController::class, 'index'])->name('floor.index');
+Route::get('floor/view-simulation/show', [FloorController::class, 'show'])->name('floor.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

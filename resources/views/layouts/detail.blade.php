@@ -15,8 +15,10 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
-    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    {{-- ICONS --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex items-center lg:justify-center min-h-screen flex-col">
@@ -46,25 +48,14 @@
         @endauth
     </div>
 
-    <div class="w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-        <main>
-            @component('components.home.home')
-            @endcomponent
+    <main class="w-full mx-auto lg:max-w-4xl">
+        @yield('content')
+    </main>
 
-            @component('components.hilightProduk.hilightProduk')
-            @endcomponent
-
-            @component('components.gallery.gallery')
-            @endcomponent
-            
-            @component('components.product.product', ['products' => $products])
-            @endcomponent
-        </main>
-    </div>
     @component('components.footer.footer')
     @endcomponent
-    
-    <script>
+
+      <script>
         document.addEventListener("DOMContentLoaded", function() {
             const html = document.documentElement;
             const darkModeToggle = document.getElementById("darkModeToggle");
@@ -88,5 +79,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 </body>
-
 </html>
