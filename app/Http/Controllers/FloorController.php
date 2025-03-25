@@ -17,4 +17,12 @@ class FloorController extends Controller
         $categories = Category::notDeleted()->get();
         return view('floor.showFloor', compact('categories'));
     }
+
+    public function showByCategory($slug)
+    {
+        $category = Category::where('slug_category', $slug)->firstOrFail();
+        $products = Product::where('id_category', $category->id)->get();
+
+        return view('floor.productShow', compact('products', 'category'));
+    }
 }

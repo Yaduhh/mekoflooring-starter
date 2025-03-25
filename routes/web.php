@@ -15,6 +15,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('product/{slug}', [HomeController::class, 'show'])->name('product.show');
 Route::get('floor/view-simulation', [FloorController::class, 'index'])->name('floor.index');
 Route::get('floor/view-simulation/show', [FloorController::class, 'show'])->name('floor.show');
+// Add a route to show products by category slug
+Route::get('floor/view-simulation/show/category/{slug}', [FloorController::class, 'showByCategory'])->name('floor.product.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

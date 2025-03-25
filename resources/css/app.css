@@ -64,3 +64,12 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+
+.hide-scrollbar {
+    overflow: auto; /* Atau overflow-x: auto untuk hanya mengatur horizontal */
+    scrollbar-width: none; /* Untuk Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Untuk Chrome, Safari, dan Edge */
+}
