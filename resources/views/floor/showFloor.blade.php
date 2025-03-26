@@ -3,7 +3,7 @@
 @section('title', 'Floor View')
 
 @section('content')
-    <section class="h-screen w-full flex flex-col items-start justify-center overflow-hidden relative z-0">
+    <section class="min-h-screen w-full flex flex-col items-start justify-center relative z-0">
         <header class="p-6 w-46">
             <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-full object-cover" />
         </header>

@@ -1,21 +1,21 @@
 <section id="home" class="w-full flex items-center justify-center h-screen relative z-0 overflow-hidden">
-    <div class="absolute top-0 -z-10 w-auto h-screen left-0">
+    <div class="absolute top-0 -z-10 w-auto h-screen left-0" data-aos="fade-up" data-aos-duration="500">
         <img src="{{ asset('assets/img/backgroundHome.jpg') }}" alt="logo" class="w-auto min-h-screen" />
     </div>
     <div class="w-full mx-auto lg:max-w-4xl flex flex-col gap-10">
         <div>
-            <h1 class="text-4xl font-bold text-white">MEKO FLOORING</h1>
-            <p class="font-medium text-white text-lg">One - Stop solution for SPC Flooring</p>
+            <h1 class="text-4xl font-bold text-white" data-aos="fade-up" data-aos-duration="1000">MEKO FLOORING</h1>
+            <p class="font-medium text-white text-lg" data-aos="fade-up" data-aos-duration="1200">One - Stop solution for SPC Flooring</p>
         </div>
 
-        <div class="w-96 text-justify">
+        <div class="w-96 text-justify" data-aos="fade-up" data-aos-duration="1500">
             <p class="text-white">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                 been the industry's standard dummy text ever since the 1500s.
             </p>
         </div>
 
-        <a
+        <a data-aos="fade-up" data-aos-duration="1600"
             class="bg-white px-8 py-4 rounded-full w-fit text-[#131010] flex items-center gap-2 font-semibold hover:scale-110 duration-150 transition-all hover:cursor-pointer">
             <svg width="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

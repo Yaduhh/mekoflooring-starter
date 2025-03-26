@@ -13,7 +13,7 @@ class ProductController extends Controller
     // Menampilkan semua produk
     public function index()
     {
-        $products = Product::notDeleted()->paginate(10);
+        $products = Product::notDeleted()->get();
         return view('admin.products.index', compact('products'));
     }
 
@@ -30,8 +30,8 @@ class ProductController extends Controller
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
             'slug_produk' => 'required|string|unique:products,slug_produk',
-            'image_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'mockup_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:4048',
+            'mockup_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:4048',
             'id_category' => 'required|exists:categories,id',
             'description' => 'nullable|string',
             'width' => 'required|numeric',
@@ -75,8 +75,8 @@ class ProductController extends Controller
             'nama' => 'required|string|max:255',
             'slug_produk' => 'required|string|max:255',
             'id_category' => 'required|exists:categories,id',
-            'image_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'mockup_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:4048',
+            'mockup_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:4048',
             'width' => 'required|numeric',
             'length' => 'required|numeric',
             'thickness' => 'required|numeric',

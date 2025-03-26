@@ -17,11 +17,11 @@
                                 <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-auto rounded-md group-hover:scale-125 duration-110">
                             </div>
                         @endif
-                        <input type="file" hidden name="image_produk" id="image_produk" class="absolute inset-0 mt-1 block w-full text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-md shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" accept="image/*" >
                         <div class="absolute z-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-t from-black to-transparent w-full h-full">
                             <p class="hover:cursor-pointer select-none">Change Image</p>
                         </div>
                         @error('image_produk') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                        <input type="file" name="image_produk" id="image_produk" class="absolute inset-0 mt-1 block w-full text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-md shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" accept="image/*" >
                     </div>
 
                     <!-- Nama Produk -->

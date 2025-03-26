@@ -55,7 +55,7 @@
 
                     <!-- Tombol aksi -->
                     <div class="mt-6 flex gap-4">
-                        <a href="/#produk" class="bg-[#543A14] text-white hover:scale-110 duration-150 transition-all px-4 py-1.5 rounded-xl">
+                        <a href="{{ route('floor.product.show', ['slug' => $product->category->slug_category]) }}" class="bg-[#543A14] text-white hover:scale-110 duration-150 transition-all px-4 py-1.5 rounded-xl">
                             <i class="fas fa-object-group mr-2"></i>
                             Floor View
                         </a>

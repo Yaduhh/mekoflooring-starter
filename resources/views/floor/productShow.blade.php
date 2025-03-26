@@ -47,6 +47,10 @@
                     <div id="hasil" class=""></div>
                 </div>
 
+                <!-- WhatsApp Button -->
+                <a id="whatsappBtn" href="#" target="_blank" class="mt-6 bg-[#25d366] text-white py-2 px-4 rounded-xl hidden">
+                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                </a>
             </div>
 
             <!-- Kolom Kategori -->
@@ -71,19 +75,11 @@
 
             productItems.forEach(item => {
                 item.addEventListener('click', function() {
-                    // Ambil data gambar mockup dari atribut data-image
                     const imageUrl = this.getAttribute('data-image');
                     
-                    // Update gambar kategori dengan gambar produk
                     categoryImage.src = imageUrl;
-
-                    // Hapus kelas 'active' dari semua produk
                     productItems.forEach(p => p.classList.remove('border-black', 'bg-blue-50'));
-
-                    // Tambahkan kelas 'active' pada produk yang diklik
-                    this.classList.add('border-black', 'bg-blue-50'); // Menandai produk yang dipilih
-
-                    // Tampilkan gambar kategori jika ada produk yang diklik
+                    this.classList.add('border-black', 'bg-blue-50');
                     categoryImage.classList.remove('hidden');
                 });
             });
@@ -111,23 +107,23 @@
                 const area = length * width;
 
                 // Luas per box adalah 2.2 m²
-                const boxArea = 2.2;
+                const boxArea = 2.22;
 
-                // Pembagian luas dengan luas per box (2.2 m²)
                 let areaDivided = area / boxArea;
                 let beforeArea = area / boxArea;
                 beforeArea = beforeArea.toFixed(2);
-                // Pembulatan ke atas dengan faktor pembulatan
                 areaDivided = Math.ceil(areaDivided);
 
-                // Tampilkan hasil perhitungan
                 box.textContent = ` ${areaDivided} Box`;
                 rumus.textContent = `= ${length}m x ${width}m = ${area} m²`;
                 result.textContent = `= ${area} m² / ${boxArea} m²/box`;
                 hasil.textContent = `= ${beforeArea} = ${areaDivided} Box.`;
 
-                // Menampilkan Estimated setelah perhitungan
                 estimated.classList.remove('hidden');
+                const message = `Hi, Admin\nPanjang Ruangan = ${length}m\nLebar Ruangan = ${width}m\nJumlah Box = ${areaDivided}\n\nSaya ingin mengetahui informasi lebih lanjut`;
+
+                whatsappBtn.href = `https://wa.me/+628119112416?text=${encodeURIComponent(message)}`;
+                whatsappBtn.classList.remove('hidden');
             });
         });
     </script>
