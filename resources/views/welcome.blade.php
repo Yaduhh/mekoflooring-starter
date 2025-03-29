@@ -59,6 +59,9 @@
             
             @component('components.product.product', ['products' => $products])
             @endcomponent
+
+            @component('components.articles.article', ['articles' => $articles])
+            @endcomponent
         </main>
     </div>
     @component('components.footer.footer')

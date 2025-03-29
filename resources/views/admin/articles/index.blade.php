@@ -30,18 +30,17 @@
 
                     <h3 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $article->title }}</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-300">{{ $article->sinopsis }}</p>
-                    <div class="mt-4 flex justify-end gap-4">
+                    <div class="mt-4 flex justify-end gap-8">
                         <!-- Edit Button with Icon -->
                         <a href="{{ route('articles.edit', $article) }}" class="text-white hover:underline">
-                            <i class="fas fa-edit"></i> <!-- Icon Edit -->
+                            <i class="fas fa-edit mr-2"></i>Edit
                         </a>
-
                         <!-- Delete Button with Icon -->
                         <form action="{{ route('articles.destroy', $article) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 hover:underline hover:cursor-pointer">
-                                <i class="fas fa-trash-alt"></i> <!-- Icon Delete -->
+                                <i class="fas fa-trash-alt mr-2"></i> Delete
                             </button>
                         </form>
                     </div>
