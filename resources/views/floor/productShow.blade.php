@@ -57,10 +57,10 @@
             <div class="h-screen overflow-hidden flex items-end justify-end w-full">
                 <div class="relative z-0 top-0 right-0 h-screen">
                     <img src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
-                        class="w-auto h-full group-hover:scale-110 duration-150 transition-all border object-contain">
+                        class="w-auto h-screen object-cover">
                     <div class="absolute bottom-0 -z-10 w-full">
                         <img id="category-image" src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
-                            class="w-full h-auto group-hover:scale-110 duration-150 transition-all hidden object-contain">
+                            class="w-full h-auto hidden object-cover">
                     </div>
                 </div>
             </div>

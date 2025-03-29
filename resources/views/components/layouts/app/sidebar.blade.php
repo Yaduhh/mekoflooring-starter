@@ -25,9 +25,14 @@
                 </flux:navlist.item>      
 
                 <!-- Submenu Produk -->
-                <flux:navlist.group :heading="__('Produk Management')" class="pt-8">
+                <flux:navlist.group :heading="__('Produk Manajemen')" class="pt-8">
                     <flux:navlist.item icon="folder" :href="route('products.create')" :current="request()->routeIs('products.create')" wire:navigate>{{ __('Buat Produk Baru') }}</flux:navlist.item>
                     <flux:navlist.item icon="folder" :href="route('products.index')" :current="request()->routeIs('products.index')" wire:navigate>{{ __('Daftar Produk') }}</flux:navlist.item>
+                </flux:navlist.group>
+
+                <!-- Submenu Produk -->
+                <flux:navlist.group :heading="__('Artikel Manajemen')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('articles.index')" :current="request()->routeIs('articles.index')" wire:navigate>{{ __('Daftar Artikel') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist.group>
         </flux:navlist>

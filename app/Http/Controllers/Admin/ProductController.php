@@ -114,13 +114,18 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Produk berhasil diupdate!');
     }
 
-
-    // Menghapus produk (soft delete)
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        $product = Product::findOrFail($id);
-        $product->update(['deleted_status' => true]);
+        try {
+            // Mengubah deleted_status menjadi true
+            $article->update(['deleted_status' => 1]);
 
-        return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
+            return redirect()->route('articles.index')
+                ->with('success', 'Artikel berhasil dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->route('articles.index')
+                ->with('error', 'Gagal menghapus artikel.');
+        }
     }
+
 }

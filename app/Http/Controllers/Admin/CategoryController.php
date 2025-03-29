@@ -79,9 +79,7 @@ class CategoryController extends Controller
     // Menghapus kategori (mengubah deleted_status menjadi true)
     public function destroy(Category $category)
     {
-        // Mengubah deleted_status menjadi true
         $category->update(['deleted_status' => true]);
-
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
     }
 }
