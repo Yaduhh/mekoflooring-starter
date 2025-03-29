@@ -7,10 +7,10 @@
         <div class="flex justify-between">
             <!-- Kolom Produk -->
             <div class="px-10">
-                <div class="w-full">
-                    <header class="py-6 w-32">
-                        <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-full object-cover" />
-                    </header>
+                <div class="w-56 py-6">
+                    <a href="/">
+                        <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-auto object-cover" />
+                    </a>
                 </div>
                 <div class="grid grid-cols-3 gap-4 w-full">
                     @foreach ($products as $product)

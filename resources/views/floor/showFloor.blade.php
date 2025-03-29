@@ -4,9 +4,9 @@
 
 @section('content')
     <section class="min-h-screen w-full flex flex-col items-start justify-center relative z-0">
-        <header class="p-6 w-46">
+        <a href="/" class="p-6 w-46">
             <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-full object-cover" />
-        </header>
+        </a>
         <div class="grid auto-rows-min md:grid-cols-3">
             @foreach ($categories as $category)
                 <a href="{{ route('floor.product.show', ['slug' => $category->slug_category]) }}" class="relative overflow-hidden border border-neutral-200 dark:border-neutral-700 group">

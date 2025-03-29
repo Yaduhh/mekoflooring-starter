@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex items-center lg:justify-center min-h-screen flex-col">
-    <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 pt-6">
+<body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#1b1b18] flex items-center lg:justify-between min-h-screen flex-col">
+    <header class="w-full lg:max-w-7xl max-w-[335px] text-sm mb-6 pt-6">
         @component('components.navbar.navbar')
         @endcomponent
     </header>
     <!-- Mobile Menu -->
     <div id="mobileMenu"
-        class="lg:hidden hidden bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] dark:text-[#EDEDEC] w-full py-4 px-6">
+        class="lg:hidden hidden bg-[#FDFDFC] dark:bg-[#131010] text-[#131010] dark:text-white w-full py-4 px-6">
         @auth
             <a href="{{ url('/dashboard') }}"
                 class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035]">
@@ -48,7 +48,7 @@
         @endauth
     </div>
 
-    <main class="w-full mx-auto lg:max-w-4xl">
+    <main class="w-full mx-auto lg:max-w-7xl">
         @yield('content')
     </main>
 
