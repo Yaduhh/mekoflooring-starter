@@ -7,7 +7,7 @@
             </a>
         </div>
 
-        <div class="flex items-center gap-6 font-semibold text-lg">
+        <div class="hidden lg:flex items-center gap-6 font-semibold text-lg">
             <a href="#home"
                 class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] hover:cursor-pointer">
                 Home

@@ -19,8 +19,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#131010] dark:text-white flex items-center lg:justify-center min-h-screen flex-col">
-    <header class="w-full lg:max-w-7xl text-sm pb-6 pt-6">
+<body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#131010] dark:text-white flex items-center min-h-screen flex-col">
+    <header class="w-full lg:max-w-7xl text-sm pb-6 pt-6 max-sm:px-6">
         @component('components.navbar.navbar')
         @endcomponent
     </header>

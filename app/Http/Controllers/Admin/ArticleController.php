@@ -91,10 +91,4 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with('success', 'Article deleted successfully.');
     }
-
-    // Menampilkan artikel
-    public function show(Article $article)
-    {
-        return view('admin.articles.show', compact('article'));
-    }
 }

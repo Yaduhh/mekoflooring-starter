@@ -9,7 +9,7 @@
         </div>
 
         <div class="flex flex-col justify-center items-center w-full gap-2">
-            <div class="w-[20%]">
+            <div class="w-[70%] lg:w-[20%]">
                 <img src="{{ asset('assets/img/flooringView.png') }}" alt="logo" class="w-full h-auto"/>
             </div>
 

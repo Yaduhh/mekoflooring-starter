@@ -17,6 +17,8 @@ Route::get('product/{slug}', [HomeController::class, 'show'])->name('product.sho
 Route::get('floor/view-simulation', [FloorController::class, 'index'])->name('floor.index');
 Route::get('floor/view-simulation/show', [FloorController::class, 'show'])->name('floor.show');
 Route::get('floor/view-simulation/show/category/{slug}', [FloorController::class, 'showByCategory'])->name('floor.product.show');
+// Rute untuk melihat artikel secara publik (tanpa login)
+Route::get('artikel/{slug}', [HomeController::class, 'showArticle'])->name('articles.public.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

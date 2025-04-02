@@ -1,11 +1,11 @@
-<footer class="w-full bg-[#543A14] dark:bg-[#131010] dark:border-t-2 dark:border-white">
-    <div class="w-full lg:max-w-7xl max-w-[335px] text-sm mb-6 mx-auto flex justify-between">
-        <div class="w-fit bg-white px-4 pt-12 pb-16 rounded-b-full">
+<footer class="w-full bg-[#543A14] dark:bg-[#131010] dark:border-t-2 dark:border-white max-sm:px-6">
+    <div class="w-full lg:max-w-7xl text-sm mb-6 mx-auto flex flex-col lg:flex-row justify-between">
+        <div class="w-fit bg-white px-4 pt-12 pb-16 rounded-b-full max-sm:mx-auto">
             <img src="{{ asset('assets/img/logoMekoFlooring.png') }}" alt="logo" />
         </div>
 
         <div class="w-full">
-            <div class="flex justify-between w-full">
+            <div class="flex justify-between max-sm:items-center w-full flex-col md:flex-row">
                 <div></div>
                 <div class="flex gap-10 pt-12 text-xl font-semibold text-white">
                     <a class="hover:text-[#F0BB78] hover:cursor-pointer">Home</a>
@@ -33,9 +33,9 @@
                 </div>
             </div>
 
-            <div class="flex justify-end pt-6 text-end text-white">
-                <div class="w-80">
-                    <div class="flex items-center gap-4 justify-end">
+            <div class="flex justify-end pt-10 lg:pt-6 text-end text-white">
+                <div class="w-full lg:w-80 max-sm:text-center">
+                    <div class="flex items-center gap-4 justify-end max-sm:justify-center">
                         <img src="{{ asset('assets/icons/ilocation.svg') }}" alt="ilocation" />
                         <p class="text-lg font-semibold">ADDRESS</p>
                     </div>

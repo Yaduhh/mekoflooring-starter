@@ -3,16 +3,35 @@
 @section('title', 'Produk dalam Kategori: ' . $category->name_category)
 
 @section('content')
-    <section class="w-full min-h-screen overflow-auto hide-scrollbar">
-        <div class="flex justify-between">
-            <!-- Kolom Produk -->
-            <div class="px-10">
-                <div class="w-56 py-6">
+    <section class="w-full lg:min-h-screen overflow-auto hide-scrollbar">
+        <div class="flex flex-col lg:flex-row justify-between">
+            <!-- Kolom Kategori -->
+            <div class="w-full">
+                <div class="w-36 p-6">
                     <a href="/">
                         <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-auto object-cover" />
                     </a>
                 </div>
-                <div class="grid grid-cols-3 gap-4 w-full">
+                <div class="lg:h-screen overflow-hidden lg:hidden flex items-end justify-end w-full">
+                    <div class="relative z-0 top-0 right-0 lg:h-screen">
+                        <img src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
+                            class="w-auto lg:h-screen object-cover">
+                        <div class="absolute bottom-0 -z-10 w-full">
+                            <img id="category-image" src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
+                                class="w-full h-auto hidden object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom Produk -->
+            <div class="px-6 lg:px-10 max-sm:pb-6">
+                <div class="w-56 py-6 hidden lg:flex">
+                    <a href="/">
+                        <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-auto object-cover" />
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full max-sm:mt-6">
                     @foreach ($products as $product)
                         <div class="flex border-2 flex-col items-center gap-2 product-item cursor-pointer relative z-0 justify-center w-full" data-image="{{ Storage::url($product->mockup_image) }}">
                             <img src="{{ Storage::url($product->mockup_image) }}" alt="{{ $product->mockup_image }}" class="w-full h-12 object-cover">                        
@@ -25,19 +44,19 @@
                     <h1 class="text-black uppercase text-xl font-bold mb-4">Floor Calculation</h1>
 
                     <!-- Form untuk input panjang dan lebar ruangan -->
-                    <div class="flex justify-between items-end gap-4">
-                        <div class="w-fit">
+                    <div class="flex flex-col md:flex-row justify-between items-start lg:items-end gap-4">
+                        <div class="lg:w-fit w-full">
                             <label for="length" class="text-xs font-semibold">Long (m)</label>
-                            <input type="number" id="length" class="px-4 py-1.5 border rounded-xl w-44" placeholder="type long here..." />
+                            <input type="number" id="length" class="px-4 py-1.5 border rounded-xl w-full lg:w-44" placeholder="type long here..." />
                         </div>
 
-                        <div class="w-fit">
+                        <div class="lg:w-fit w-full">
                             <label for="length" class="text-xs font-semibold">Wide (m)</label>
-                            <input type="number" id="width" class="px-4 py-1.5 border rounded-xl w-44" placeholder="type wide here..." />
+                            <input type="number" id="width" class="px-4 py-1.5 border rounded-xl w-full lg:w-44" placeholder="type wide here..." />
                         </div>
 
-                        <div class="w-fit">
-                            <button id="calculateBtn" class="mt-4 bg-[#131010] hover:cursor-pointer text-white hover:scale-110 duration-200 transition-all hover:bg-[#543A14] px-4 py-2 rounded-xl">Calculate</button>                
+                        <div class="lg:w-fit w-full">
+                            <button id="calculateBtn" class="lg:mt-4 bg-[#131010] hover:cursor-pointer text-white hover:scale-110 duration-200 transition-all hover:bg-[#543A14] px-4 py-2 rounded-xl">Calculate</button>                
                         </div>
                     </div>                    
                     <p id="estimated" class="mt-4 font-bold text-sm hidden">Estimated Required Quantity</p>
@@ -54,10 +73,10 @@
             </div>
 
             <!-- Kolom Kategori -->
-            <div class="h-screen overflow-hidden flex items-end justify-end w-full">
-                <div class="relative z-0 top-0 right-0 h-screen">
+            <div class="lg:h-screen overflow-hidden hidden lg:flex items-end justify-end w-full">
+                <div class="relative z-0 top-0 right-0 lg:h-screen">
                     <img src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
-                        class="w-auto h-screen object-cover">
+                        class="w-auto lg:h-screen object-cover">
                     <div class="absolute bottom-0 -z-10 w-full">
                         <img id="category-image" src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
                             class="w-full h-auto hidden object-cover">

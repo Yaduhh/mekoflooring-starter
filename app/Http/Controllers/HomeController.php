@@ -23,4 +23,21 @@ class HomeController extends Controller
         return view('products.detail', compact('product'));
     }
 
+    public function showArticle($slug)
+    {
+        // Ambil artikel berdasarkan slug dengan status 'published' dan deleted_status 0
+        $article = Article::where('slug', $slug)
+            ->where('status', 'published')
+            ->where('deleted_status', 0)
+            ->firstOrFail();
+            
+        // Ambil artikel terkait berdasarkan kategori atau kriteria lainnya
+        $relatedArticles = Article::where('status', 'published')
+            ->where('deleted_status', 0)
+            ->where('slug', '!=', $slug) // Menghindari artikel yang sama
+            ->limit(3) // Ambil 3 artikel terkait
+            ->get();
+
+        return view('articles.detail', compact('article', 'relatedArticles'));
+    }
 }

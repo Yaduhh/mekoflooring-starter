@@ -29,7 +29,7 @@
                     @endif
 
                     <h3 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $article->title }}</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-300">{{ $article->sinopsis }}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 text-justify line-clamp-2 mt-4">{{ $article->sinopsis }}</p>
                     <div class="mt-4 flex justify-end gap-8">
                         <!-- Edit Button with Icon -->
                         <a href="{{ route('articles.edit', $article) }}" class="text-white hover:underline">

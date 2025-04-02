@@ -3,11 +3,11 @@
 @section('title', 'Detail Produk - ' . $product->nama)
 
 @section('content')
-    <div class="bg-gray-50 dark:bg-[#131010] py-10 w-full">
+    <div class="bg-white dark:bg-[#131010] lg:py-10 max-sm:px-6 w-full">
         <div class="container mx-auto w-full">
             <div class="flex flex-col lg:flex-row gap-8 w-full">
                 <!-- Gambar Produk -->
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2 hidden lg:flex">
                     <div class="relative h-full bg-gray-200 overflow-hidden">
                         <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover">
                     </div>
@@ -26,6 +26,13 @@
                         <p class="mt-2 text-gray-400 text-sm font-semibold">{{ $product->category->name_category }}</p>
                     </div>
                     <h1 class="text-3xl font-semibold text-gray-900 dark:text-[#FFF0DC]">{{ $product->nama }}</h1>
+
+                    <!-- Gambar Produk -->
+                    <div class="lg:w-1/2 lg:hidden py-6">
+                        <div class="relative h-full bg-gray-200 overflow-hidden">
+                            <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover">
+                        </div>
+                    </div>
 
                     <div class="mt-4 text-lg text-gray-700 dark:text-[#FFF0DC]">
                         <h3 class="text-xl text-gray-800 dark:text-[#F0BB78] font-semibold">Deskripsi</h3>
@@ -54,7 +61,7 @@
                     </div>
 
                     <!-- Tombol aksi -->
-                    <div class="mt-6 flex gap-4">
+                    <div class="mt-6 flex gap-4 max-sm:mb-10">
                         <a href="{{ route('floor.product.show', ['slug' => $product->category->slug_category]) }}" class="bg-[#543A14] text-white hover:scale-110 duration-150 transition-all px-4 py-1.5 rounded-xl">
                             <i class="fas fa-object-group mr-2"></i>
                             Floor View

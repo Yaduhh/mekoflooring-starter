@@ -1,7 +1,7 @@
 <section id="produk">
     <div class="w-full flex flex-col gap-6  mx-auto lg:max-w-7xl pb-10">
-        <div data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="text-xl font-semibold capitalize">
+        <div data-aos="fade-up" data-aos-duration="2000">
+            <h1 class="text-xl font-semibold capitalize max-sm:px-6">
                 MekoFlooring SPC Product
             </h1>
         </div>
@@ -27,7 +27,7 @@
 
                             <!-- Nama Produk -->
                             <div class="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center">
-                                <div class="text-xs grid grid-cols-2 p-4 place-content-between w-full text-white bg-[#543A14]">
+                                <div class="text-xs grid grid-cols-1 lg:grid-cols-2 p-4 place-content-between w-full text-white bg-[#543A14]">
                                     <p>Width : {{ $product->width }}mm</p>
                                     <p>Length : {{ $product->length }}mm</p>
                                     <p>Thickness : {{ $product->thickness }}mm</p>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="w-full mx-auto lg:max-w-7xl" data-aos="fade-up" data-aos-duration="1800">
-            <h1 class="text-xl font-semibold capitalize">
+            <h1 class="text-xl font-semibold capitalize max-sm:px-6">
                 MekoFlooring Vinyl Product
             </h1>
         </div>
@@ -67,7 +67,7 @@
 
                             <!-- Nama Produk -->
                             <div class="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center">
-                                <div class="text-xs grid grid-cols-2 p-4 place-content-between w-full text-white bg-[#543A14]">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 text-xs p-4 place-content-between w-full text-white bg-[#543A14]">
                                     <p>Width : {{ $product->width }}mm</p>
                                     <p>Length : {{ $product->length }}mm</p>
                                     <p>Thickness : {{ $product->thickness }}mm</p>
