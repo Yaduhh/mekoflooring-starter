@@ -1,20 +1,23 @@
 <section id="home" class="w-full flex items-center justify-center h-screen relative z-0 overflow-hidden">
     <div class="absolute top-0 -z-10 w-auto h-screen left-0 dark:hidden" data-aos="fade-up" data-aos-duration="500">
-        <img src="{{ asset('assets/img/backgroundHome.jpg') }}" alt="logo" class="w-auto min-h-screen max-sm:object-cover" />
+        <img src="{{ asset('assets/img/backgroundHome.jpg') }}" alt="logo"
+            class="w-auto h-full max-sm:object-cover lg:min-h-screen" />
     </div>
     <div class="absolute top-0 -z-10 w-auto h-screen left-0 hidden dark:block" data-aos="fade-up" data-aos-duration="500">
-        <img src="{{ asset('assets/img/backgroundHomeDark.jpg') }}" alt="logo" class="w-auto min-h-screen" />
+        <img src="{{ asset('assets/img/backgroundHomeDark.jpg') }}" alt="logo"
+            class="w-auto h-full max-sm:object-cover lg:min-h-screen" />
     </div>
-    <div class="w-full mx-auto lg:max-w-7xl flex flex-col gap-10 max-sm:text-center">
+    <div class="w-full mx-auto lg:max-w-7xl flex flex-col justify-center gap-10 max-sm:text-center max-sm:pt-10">
         <div>
             <h1 class="text-4xl font-bold text-white" data-aos="fade-up" data-aos-duration="1000">MEKO FLOORING</h1>
-            <p class="font-medium text-white text-lg" data-aos="fade-up" data-aos-duration="1200">One - Stop solution for SPC Flooring</p>
+            <p class="font-medium text-white text-lg" data-aos="fade-up" data-aos-duration="1200">One - Stop solution
+                for SPC Flooring</p>
         </div>
 
-        <div class="w-96 max-sm:mx-auto text-justify max-sm:text-center" data-aos="fade-up" data-aos-duration="1500">
+        <div class="w-full max-sm:px-6 lg:w-[50%] max-sm:mx-auto text-justify" data-aos="fade-up" data-aos-duration="1500">
             <p class="text-white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s.
+                Meko Flooring is here as the solution for high-quality, durable, and eco-friendly flooring. With
+                the latest SPC technology from Germany, stunning designs, and outstanding performance.
             </p>
         </div>
 

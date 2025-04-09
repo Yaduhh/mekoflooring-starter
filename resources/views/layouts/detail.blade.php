@@ -14,6 +14,7 @@
     <!-- Styles / Scripts -->
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    @vite('resources/js/navbar.js')
 
     {{-- ICONS --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -22,26 +23,26 @@
 </head>
 
 <body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#1b1b18] flex items-center lg:justify-between min-h-screen flex-col">
-    <header class="w-full lg:max-w-7xl max-w-[335px] text-sm mb-6 pt-6">
+    <header class="w-full lg:max-w-7xl text-sm pb-6 pt-6 max-sm:px-6">
         @component('components.navbar.navbar')
         @endcomponent
     </header>
     <!-- Mobile Menu -->
     <div id="mobileMenu"
-        class="lg:hidden hidden bg-[#FDFDFC] dark:bg-[#131010] text-[#131010] dark:text-white w-full py-4 px-6">
+       class="lg:hidden hidden bg-[#FDFDFC] dark:bg-[#131010] text-[#1b1b18] dark:text-[#EDEDEC] w-full py-4 px-6 transition-all duration-300 ease-in-out transform -translate-y-0">
         @auth
             <a href="{{ url('/dashboard') }}"
-                class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035]">
+                class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] dark:hover:text-gray-400">
                 Dashboard
             </a>
         @else
             <a href="{{ route('login') }}"
-                class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035]">
+                class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] dark:hover:text-gray-400">
                 Log in
             </a>
             @if (Route::has('register'))
                 <a href="{{ route('register') }}"
-                    class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035]">
+                    class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] dark:hover:text-gray-400">
                     Register
                 </a>
             @endif

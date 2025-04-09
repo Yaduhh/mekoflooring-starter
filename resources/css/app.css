@@ -77,3 +77,11 @@ select:focus[data-flux-control] {
     overflow-y: auto;
     color: black;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#moonIcon, #sunIcon {
+    transition: transform 0.5s ease;  /* Rotasi bertahap dengan durasi 0.5 detik */
+}

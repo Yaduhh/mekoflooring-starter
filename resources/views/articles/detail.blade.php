@@ -3,8 +3,8 @@
 @section('title', 'Artikel - ' . $article->title)
 
 @section('content')
-<section class="py-12">
-    <div class="max-w-7xl mx-auto">
+<section class="pt-6 pb-12">
+    <div class="max-w-7xl mx-auto max-sm:px-6">
         <!-- Artikel Utama -->
         <div class="mb-12">
             <!-- Title -->
@@ -23,7 +23,7 @@
             <!-- Tombol Share Social Media dengan Teks Menarik -->
             <div class="mt-8">
                 <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Bagikan Artikel Ini!</h2>
-                <div class="flex space-x-12 justify-start items-center">
+                <div class="flex max-sm:flex-wrap max-sm:gap-6 max-sm:mt-6 lg:space-x-12 justify-center lg:justify-start items-center">
                     <!-- WhatsApp -->
                     <a href="https://wa.me/?text={{ urlencode('Check out this article: ' . url()->current()) }}" target="_blank" class="flex items-center gap-4 text-green-500 hover:text-green-600 dark:text-white">
                         <i class="fab fa-whatsapp fa-2x"></i> WhatsApp
@@ -45,7 +45,7 @@
                     </a>
 
                     <!-- TikTok -->
-                    <a href="https://www.tiktok.com/share?url={{ urlencode(url()->current()) }}" target="_blank" class="flex items-center gap-4 text-black dark:text-white hover:text-gray-800">
+                    <a href="https://www.tiktok.com/share?url={{ urlencode(url()->current()) }}" target="_blank" class="flex items-center gap-4 text-black dark:text-white hover:text-gray-800 dark:hover:text-gray-300">
                         <i class="fab fa-tiktok fa-2x"></i> TikTok
                     </a>
                 </div>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Artikel Terkait -->
-        <div class="mt-12">
+        <div class="mt-20">
             <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-400 mb-6">Artikel Lainnya</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($relatedArticles as $relatedArticle)
@@ -63,7 +63,7 @@
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $relatedArticle->title }}</h3>
                             <p class="text-sm text-gray-600 mt-2 dark:text-gray-400">{{ Str::limit($relatedArticle->sinopsis, 100) }}</p>
                             <a href="{{ route('articles.public.show', $relatedArticle->slug) }}" class="text-[#1D72B8] dark:text-[#F0BB78] font-semibold hover:underline mt-4 inline-block">
-                                Baca Selengkapnya
+                                Read More
                             </a>
                         </div>
                     </div>

@@ -5,20 +5,21 @@
 @section('content')
     <section class="w-full lg:min-h-screen overflow-auto hide-scrollbar">
         <div class="flex flex-col lg:flex-row justify-between">
-            <!-- Kolom Kategori -->
-            <div class="w-full">
+            <!-- Kolom Kategori Mobile-->
+            <div class="w-full lg:hidden block">
                 <div class="w-36 p-6">
                     <a href="/">
-                        <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-auto object-cover" />
+                        <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo"
+                            class="w-full h-auto object-cover" />
                     </a>
                 </div>
-                <div class="lg:h-screen overflow-hidden lg:hidden flex items-end justify-end w-full">
+                <div class="lg:h-screen overflow-hidden lg:hidden flex items-end justify-end">
                     <div class="relative z-0 top-0 right-0 lg:h-screen">
                         <img src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
                             class="w-auto lg:h-screen object-cover">
                         <div class="absolute bottom-0 -z-10 w-full">
-                            <img id="category-image" src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
-                                class="w-full h-auto hidden object-cover">
+                            <img id="category-image-mobile" src="{{ Storage::url($category->image_category) }}"
+                                alt="{{ $category->name_category }}" class="w-full h-auto hidden object-cover">
                         </div>
                     </div>
                 </div>
@@ -28,13 +29,16 @@
             <div class="px-6 lg:px-10 max-sm:pb-6">
                 <div class="w-56 py-6 hidden lg:flex">
                     <a href="/">
-                        <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo" class="w-full h-auto object-cover" />
+                        <img src="{{ asset('assets/img/flooringViewLight.png') }}" alt="logo"
+                            class="w-full h-auto object-cover" />
                     </a>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full max-sm:mt-6">
                     @foreach ($products as $product)
-                        <div class="flex border-2 flex-col items-center gap-2 product-item cursor-pointer relative z-0 justify-center w-full" data-image="{{ Storage::url($product->mockup_image) }}">
-                            <img src="{{ Storage::url($product->mockup_image) }}" alt="{{ $product->mockup_image }}" class="w-full h-12 object-cover">                        
+                        <div class="flex border-2 flex-col items-center gap-2 product-item cursor-pointer relative z-0 justify-center w-full"
+                            data-image="{{ Storage::url($product->mockup_image) }}">
+                            <img src="{{ Storage::url($product->mockup_image) }}" alt="{{ $product->mockup_image }}"
+                                class="w-full h-12 object-cover">
                             <h2 class="text-lg font-semibold text-black absolute z-0">{{ $product->nama }}</h2>
                         </div>
                     @endforeach
@@ -47,18 +51,21 @@
                     <div class="flex flex-col md:flex-row justify-between items-start lg:items-end gap-4">
                         <div class="lg:w-fit w-full">
                             <label for="length" class="text-xs font-semibold">Long (m)</label>
-                            <input type="number" id="length" class="px-4 py-1.5 border rounded-xl w-full lg:w-44" placeholder="type long here..." />
+                            <input type="number" id="length" class="px-4 py-1.5 border rounded-xl w-full lg:w-44"
+                                placeholder="type long here..." />
                         </div>
 
                         <div class="lg:w-fit w-full">
                             <label for="length" class="text-xs font-semibold">Wide (m)</label>
-                            <input type="number" id="width" class="px-4 py-1.5 border rounded-xl w-full lg:w-44" placeholder="type wide here..." />
+                            <input type="number" id="width" class="px-4 py-1.5 border rounded-xl w-full lg:w-44"
+                                placeholder="type wide here..." />
                         </div>
 
                         <div class="lg:w-fit w-full">
-                            <button id="calculateBtn" class="lg:mt-4 bg-[#131010] hover:cursor-pointer text-white hover:scale-110 duration-200 transition-all hover:bg-[#543A14] px-4 py-2 rounded-xl">Calculate</button>                
+                            <button id="calculateBtn"
+                                class="lg:mt-4 bg-[#131010] hover:cursor-pointer text-white hover:scale-110 duration-200 transition-all hover:bg-[#543A14] px-4 py-2 rounded-xl">Calculate</button>
                         </div>
-                    </div>                    
+                    </div>
                     <p id="estimated" class="mt-4 font-bold text-sm hidden">Estimated Required Quantity</p>
                     <div id="box" class="mt-4 text-4xl text-[#543A14] font-bold"></div>
                     <div id="rumus" class="mt-4"></div>
@@ -67,19 +74,20 @@
                 </div>
 
                 <!-- WhatsApp Button -->
-                <a id="whatsappBtn" href="#" target="_blank" class="mt-6 bg-[#25d366] text-white py-2 px-4 rounded-xl hidden">
+                <a id="whatsappBtn" href="#" target="_blank"
+                    class="mt-6 bg-[#25d366] text-white py-2 px-4 rounded-xl hidden">
                     <i class="fab fa-whatsapp"></i> Chat via WhatsApp
                 </a>
             </div>
 
-            <!-- Kolom Kategori -->
+            <!-- Kolom Kategori Desktop-->
             <div class="lg:h-screen overflow-hidden hidden lg:flex items-end justify-end w-full">
                 <div class="relative z-0 top-0 right-0 lg:h-screen">
                     <img src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
                         class="w-auto lg:h-screen object-cover">
                     <div class="absolute bottom-0 -z-10 w-full">
-                        <img id="category-image" src="{{ Storage::url($category->image_category) }}" alt="{{ $category->name_category }}"
-                            class="w-full h-auto hidden object-cover">
+                        <img id="category-image-desktop" src="{{ Storage::url($category->image_category) }}"
+                            alt="{{ $category->name_category }}" class="w-full h-auto hidden object-cover">
                     </div>
                 </div>
             </div>
@@ -88,23 +96,36 @@
 
     <!-- Tambahkan JavaScript untuk menangani klik produk -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const productItems = document.querySelectorAll('.product-item');
-            const categoryImage = document.getElementById('category-image');
+            const categoryImageDesktop = document.getElementById('category-image-desktop');
+            const categoryImageMobile = document.getElementById('category-image-mobile');
 
             productItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const imageUrl = this.getAttribute('data-image');
-                    
-                    categoryImage.src = imageUrl;
+
+                    // Ganti source dan tampilkan untuk desktop
+                    if (categoryImageDesktop) {
+                        categoryImageDesktop.src = imageUrl;
+                        categoryImageDesktop.classList.remove('hidden');
+                    }
+
+                    // Ganti source dan tampilkan untuk mobile
+                    if (categoryImageMobile) {
+                        categoryImageMobile.src = imageUrl;
+                        categoryImageMobile.classList.remove('hidden');
+                    }
+
+                    // Highlight produk yang dipilih
                     productItems.forEach(p => p.classList.remove('border-black', 'bg-blue-50'));
                     this.classList.add('border-black', 'bg-blue-50');
-                    categoryImage.classList.remove('hidden');
                 });
             });
         });
 
-       document.addEventListener('DOMContentLoaded', function () {
+
+        document.addEventListener('DOMContentLoaded', function() {
             const calculateBtn = document.getElementById('calculateBtn');
             const result = document.getElementById('result');
             const box = document.getElementById('box');
@@ -139,7 +160,8 @@
                 hasil.textContent = `= ${beforeArea} = ${areaDivided} Box.`;
 
                 estimated.classList.remove('hidden');
-                const message = `Hi, Admin\nPanjang Ruangan = ${length}m\nLebar Ruangan = ${width}m\nJumlah Box = ${areaDivided}\n\nSaya ingin mengetahui informasi lebih lanjut`;
+                const message =
+                    `Hi, Admin\nPanjang Ruangan = ${length}m\nLebar Ruangan = ${width}m\nJumlah Box = ${areaDivided}\n\nSaya ingin mengetahui informasi lebih lanjut`;
 
                 whatsappBtn.href = `https://wa.me/+628119112416?text=${encodeURIComponent(message)}`;
                 whatsappBtn.classList.remove('hidden');
