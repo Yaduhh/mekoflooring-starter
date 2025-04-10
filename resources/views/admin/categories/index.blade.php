@@ -1,8 +1,8 @@
 <x-layouts.app :title="__('Kategori')">
     <div class="flex h-full w-full flex-1 flex-col gap-6 rounded-xl">
-        <div class="flex justify-between items-center mb-6">
+        <div class="flex justify-between items-center mb-2 lg:mb-6">
             <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">{{ __('Kategori') }}</h2>
-            <a href="{{ route('categories.create') }}" class="btn btn-primary text-white px-4 py-2 rounded-md">{{ __('Tambah Kategori Baru') }}</a>
+            <a href="{{ route('categories.create') }}" class="btn btn-primary bg-amber-800 text-white px-4 py-2 rounded-md">{{ __('Create') }}</a>
         </div>
         <!-- Notifikasi Success -->
         @if (session('success'))

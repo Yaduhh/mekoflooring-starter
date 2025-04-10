@@ -1,8 +1,8 @@
 <x-layouts.app :title="__('Artikel')">
-    <div class="mx-auto p-8">
-        <div class="flex justify-between items-center">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">{{ __('Daftar Artikel') }}</h2>
-            <a href="{{ route('articles.create') }}" class="bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-500">{{ __('Tambah Artikel Baru') }}</a>
+    <div class="mx-auto lg:p-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">{{ __('Daftar Artikel') }}</h2>
+            <a href="{{ route('articles.create') }}" class="bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-500 text-sm lg:text-base">{{ __('Create') }}</a>
         </div>
 
         <!-- Alert Success or Error -->

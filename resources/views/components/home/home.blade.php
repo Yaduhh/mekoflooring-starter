@@ -21,7 +21,7 @@
             </p>
         </div>
 
-        <a data-aos="fade-up" data-aos-duration="1600"
+        <a href="https://wa.me/628119112416" target="_blank" data-aos="fade-up" data-aos-duration="1600"
             class="bg-white max-sm:mx-auto px-8 py-4 rounded-full w-fit text-[#131010] flex items-center gap-2 font-semibold hover:scale-110 duration-150 transition-all hover:cursor-pointer">
             <svg width="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

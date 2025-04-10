@@ -4,8 +4,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('assets/favicon.ico') }}" type="image/x-icon">
 
-    <title>Meko Flooring</title>
+    <!-- Title -->
+    <title>Meko Flooring - Quality Flooring Solutions for Your Home</title>
+
+    <!-- Meta Description -->
+    <meta name="description"
+        content="Meko Flooring offers premium flooring solutions for residential and commercial spaces. Discover a variety of high-quality materials, installation services, and custom designs to transform your space.">
+
+    <!-- Meta Keywords -->
+    <meta name="keywords"
+        content="flooring, flooring solutions, flooring installation, home flooring, commercial flooring, high-quality flooring, Meko Flooring">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Meko Flooring - Quality Flooring Solutions for Your Home">
+    <meta property="og:description"
+        content="Meko Flooring offers premium flooring solutions with a variety of materials and expert installation services. Enhance your living or working space today!">
+    <meta property="og:image" content="URL_to_image.jpg">
+    <meta property="og:url" content="https://www.mekoflooring.com">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meko Flooring - Quality Flooring Solutions for Your Home">
+    <meta name="twitter:description"
+        content="Meko Flooring provides top-notch flooring solutions and installation services for homes and businesses. Explore a range of high-quality flooring options.">
+    <meta name="twitter:image" content="URL_to_image.jpg">
+
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

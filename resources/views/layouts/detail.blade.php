@@ -23,61 +23,123 @@
 </head>
 
 <body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#1b1b18] flex items-center lg:justify-between min-h-screen flex-col">
-    <header class="w-full lg:max-w-7xl text-sm pb-6 pt-6 max-sm:px-6">
+    <header
+        class="w-full lg:max-w-[90rem] text-sm pb-6 pt-6 px-6 lg:px-12 lg:rounded-2xl fixed top-0 lg:top-5 z-10 bg-transparent transition-all duration-300"
+        id="navbar">
         @component('components.navbar.navbar')
         @endcomponent
     </header>
-    <!-- Mobile Menu -->
-    <div id="mobileMenu"
-       class="lg:hidden hidden bg-[#FDFDFC] dark:bg-[#131010] text-[#1b1b18] dark:text-[#EDEDEC] w-full py-4 px-6 transition-all duration-300 ease-in-out transform -translate-y-0">
-        @auth
-            <a href="{{ url('/dashboard') }}"
-                class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] dark:hover:text-gray-400">
-                Dashboard
-            </a>
-        @else
-            <a href="{{ route('login') }}"
-                class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] dark:hover:text-gray-400">
-                Log in
-            </a>
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}"
-                    class="block px-5 py-1.5 text-[#1b1b18] dark:text-[#EDEDEC] hover:text-[#19140035] dark:hover:text-gray-400">
-                    Register
-                </a>
-            @endif
-        @endauth
-    </div>
 
-    <main class="w-full mx-auto lg:max-w-7xl">
+    <main class="w-full mx-auto lg:max-w-7xl py-32">
         @yield('content')
     </main>
 
     @component('components.footer.footer')
     @endcomponent
 
-      <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             const html = document.documentElement;
             const darkModeToggle = document.getElementById("darkModeToggle");
+            const moonIcon = document.getElementById("moonIcon");
+            const sunIcon = document.getElementById("sunIcon");
+            const modeText = document.getElementById("modeText");
 
             // Cek status dark mode dari localStorage
             if (localStorage.getItem("theme") === "dark") {
                 html.classList.add("dark");
+                sunIcon.classList.add("hidden");
+                moonIcon.classList.remove("hidden");
+                modeText.innerText = "Dark Mode";
+            } else {
+                html.classList.remove("dark");
+                sunIcon.classList.remove("hidden");
+                moonIcon.classList.add("hidden");
+                modeText.innerText = "Light Mode";
             }
 
             darkModeToggle.addEventListener("click", function() {
-                if (html.classList.contains("dark")) {
-                    html.classList.remove("dark");
-                    localStorage.setItem("theme", "light");
-                } else {
-                    html.classList.add("dark");
-                    localStorage.setItem("theme", "dark");
-                }
+                moonIcon.style.transform = "rotate(180deg)";
+                sunIcon.style.transform = "rotate(180deg)";
+                setTimeout(function() {
+                    if (html.classList.contains("dark")) {
+                        html.classList.remove("dark");
+                        localStorage.setItem("theme", "light");
+                        sunIcon.classList.remove("hidden");
+                        moonIcon.classList.add("hidden");
+                        modeText.innerText = "Light Mode";
+                    } else {
+                        html.classList.add("dark");
+                        localStorage.setItem("theme", "dark");
+                        sunIcon.classList.add("hidden");
+                        moonIcon.classList.remove("hidden");
+                        modeText.innerText = "Dark Mode";
+                    }
+                    moonIcon.style.transform = "rotate(0deg)";
+                    sunIcon.style.transform = "rotate(0deg)";
+
+                    // Update navbar background when theme changes
+                    updateNavbarBackground();
+                }, 300);
             });
+
+            // Function to update navbar background based on theme
+            function updateNavbarBackground() {
+                const navbar = document.getElementById('navbar');
+                const darkModeActive = html.classList.contains("dark");
+                let backgroundColor = darkModeActive ? '#543A14' : 'rgba(255, 255, 255, 0)';
+                navbar.style.backgroundColor = backgroundColor;
+                navbar.classList.remove("backdrop-blur");
+            }
+
+            // Initial navbar background update based on theme
+            updateNavbarBackground();
         });
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbar = document.getElementById('navbar');
+            const html = document.documentElement;
+
+            // Function to update navbar background based on theme
+            function updateNavbarBackground() {
+                const darkModeActive = html.classList.contains("dark");
+                let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
+                navbar.style.backgroundColor = backgroundColor;
+            }
+            navbar.classList.add("text-white");
+
+            // Ketika halaman di-scroll
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                if (scrollPosition > 0) {
+                    navbar.classList.add("backdrop-blur");
+                    navbar.classList.add("shadow-lg");
+                    const opacityValue = Math.min(scrollPosition / 200, 0.7);
+                    const darkModeActive = html.classList.contains("dark");
+                    navbar.classList.remove("text-white");
+
+                    if (darkModeActive) {
+                        navbar.style.backgroundColor = `rgba(84, 58, 20, ${opacityValue})`;
+                    } else {
+                        navbar.style.backgroundColor = `rgba(255, 255, 255, ${opacityValue})`;
+                    }
+                } else {
+                    navbar.classList.remove("backdrop-blur");
+                    navbar.classList.remove("shadow-lg");
+                    navbar.classList.add("text-white");
+                    updateNavbarBackground();
+                }
+            });
+
+            // Initial navbar background update based on theme
+            updateNavbarBackground();
+        });
+    </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 </body>
+
 </html>
