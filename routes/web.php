@@ -56,4 +56,20 @@ Route::get('product-image/{filename}', function ($filename) {
     ]);
 })->name('product.image');
 
+Route::get('article-image/{filename}', function ($filename) {
+    $path = storage_path('app/public/' . $filename);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    $file = file_get_contents($path);
+    $mimeType = mime_content_type($path);
+
+    return Response::make($file, 200, [
+        'Content-Type' => $mimeType,
+        'Content-Disposition' => 'inline; filename="' . $filename . '"'
+    ]);
+})->name('article.image');
+
 require __DIR__.'/auth.php';

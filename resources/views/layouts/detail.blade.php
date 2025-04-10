@@ -5,7 +5,49 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Meko Flooring</title>
+    @if (isset($product))
+        <title>Meko Flooring - {{ $product->nama }}</title>
+        <!-- Meta Description for Product -->
+        <meta name="description" content="{{ $product->description }}">
+
+        <!-- Meta Keywords for Product -->
+        <meta name="keywords"
+            content="{{ $product->category->name_category }}, {{ $product->nama }}, flooring, {{ $product->category->name_category }}, wood flooring, premium flooring">
+
+        <!-- Open Graph Meta Tags for Product -->
+        <meta property="og:title" content="Meko Flooring - {{ $product->nama }}">
+        <meta property="og:description" content="{{ $product->description }}">
+        <meta property="og:image"
+            content="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+
+        <!-- Twitter Card Meta Tags for Product -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Meko Flooring - {{ $product->nama }}">
+        <meta name="twitter:description" content="{{ $product->description }}">
+        <meta name="twitter:image"
+            content="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}">
+    @elseif (isset($article))
+        <title>{{ $article->title }} - Meko Flooring</title>
+        <!-- Meta Description for Article -->
+        <meta name="description" content="{{ $article->content }}">
+
+        <!-- Meta Keywords for Article -->
+        <meta name="keywords"
+            content="{{ $article->title }}, flooring tips, flooring articles">
+
+        <!-- Open Graph Meta Tags for Article -->
+        <meta property="og:title" content="{{ $article->title }} - Meko Flooring">
+        <meta property="og:description" content="{{ $article->content }}">
+        <meta property="og:image" content="{{ route('article.image', ['filename' => basename($article->thumbnail)]) }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+
+        <!-- Twitter Card Meta Tags for Article -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $article->title }} - Meko Flooring">
+        <meta name="twitter:description" content="{{ $article->content }}">
+        <meta name="twitter:image" content="{{ route('article.image', ['filename' => basename($article->thumbnail)]) }}">
+    @endif
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -30,7 +72,7 @@
         @endcomponent
     </header>
 
-    <main class="w-full mx-auto lg:max-w-7xl py-32">
+    <main class="w-full mx-auto lg:max-w-7xl py-24 lg:py-32">
         @yield('content')
     </main>
 

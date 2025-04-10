@@ -1,5 +1,5 @@
 <section id="about" class="w-full min-h-[300px] bg-[#FDFDFC] dark:bg-[#131010]">
-    <div class="w-full flex flex-col gap-6 mx-auto lg:max-w-7xl py-20 max-sm:px-6">
+    <div class="w-full flex flex-col gap-6 mx-auto lg:max-w-7xl my-20 max-sm:px-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="col-span-1 lg:col-span-4"  data-aos="fade-up" data-aos-duration="2000">
                 <!-- Logo or Brand Name -->
@@ -45,7 +45,7 @@
                             </svg>
                             <p>wpcmegakomposit</p>
                         </a>
-                        <a target="_blank"
+                        <a href="https://www.tiktok.com/@wpc_mki" target="_blank"
                             class="text-[#543A14] dark:text-[#FDFDFC] hover:text-[#F0BB78] flex gap-2 hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                             <svg width="25" height="28" viewBox="0 0 17 20" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
