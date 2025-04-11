@@ -170,7 +170,7 @@
                 } else {
                     navbar.classList.remove("backdrop-blur");
                     navbar.classList.remove("shadow-lg");
-                    navbar.classList.add("text-white");
+                    navbar.classList.add("text-[#543A14]");
                     updateNavbarBackground();
                 }
             });

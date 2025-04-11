@@ -91,4 +91,59 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with('success', 'Article deleted successfully.');
     }
+
+     public function uploadImage(Request $request)
+    {
+        // Validasi file yang diunggah
+        $request->validate([
+            'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4048',
+        ]);
+
+        // Simpan file jika valid
+        if ($request->hasFile('upload')) {
+            // Simpan ke folder "public/images"
+            $path = $request->file('upload')->store('articles', 'public');
+
+            // Generate URL untuk file
+            $url = asset('storage/' . $path);
+
+            // Kirim respons JSON ke CKEditor
+            return response()->json([
+                'uploaded' => true,
+                'url' => $url,
+            ]);
+        }
+
+        // Kalau file tidak ditemukan
+        return response()->json([
+            'uploaded' => false,
+            'error' => [
+                'message' => 'Gagal mengunggah file.',
+            ],
+        ]);
+    }
+
+    public function removeImage(Request $request)
+    {
+        $request->validate([
+            'image_url' => 'required|string'
+        ]);
+    
+        // Parse path dari URL
+        $imagePath = parse_url($request->image_url, PHP_URL_PATH);
+        $relativePath = str_replace('/storage/', '', $imagePath);
+    
+        // Hapus file jika ada
+        $filePath = storage_path('app/public/' . $relativePath);
+        if (file_exists($filePath)) {
+            unlink($filePath); // Hapus file dari server
+            return response()->json([
+                'message' => 'Gambar berhasil dihapus.'
+            ], 200);
+        }
+    
+        return response()->json([
+            'error' => 'Gambar tidak ditemukan atau gagal dihapus.'
+        ], 400);
+    }
 }

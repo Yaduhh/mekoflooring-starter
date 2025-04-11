@@ -19,10 +19,12 @@ Route::get('floor/view-simulation/show', [FloorController::class, 'show'])->name
 Route::get('floor/view-simulation/show/category/{slug}', [FloorController::class, 'showByCategory'])->name('floor.product.show');
 // Rute untuk melihat artikel secara publik (tanpa login)
 Route::get('artikel/{slug}', [HomeController::class, 'showArticle'])->name('articles.public.show');
+Route::post('/articles/upload-image', [ArticleController::class, 'uploadImage'])->name('articles.uploadImage');
+Route::delete('/articles/delete-image', [ArticleController::class, 'deleteImage'])->name('articles.deleteImage');
 
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+->middleware(['auth', 'verified'])
+->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('products', ProductController::class);

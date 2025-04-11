@@ -21,7 +21,7 @@ class FloorController extends Controller
     public function showByCategory($slug)
     {
         $category = Category::where('slug_category', $slug)->firstOrFail();
-        $products = Product::where('id_category', $category->id)->get();
+        $products = Product::where('id_category', $category->id)->notDeleted()->get();
 
         return view('floor.productShow', compact('products', 'category'));
     }

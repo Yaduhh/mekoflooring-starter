@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::notDeleted()->get();
-        $articles = Article::notDeleted()->get();
+        $articles = Article::notDeleted()->paginate(4);
         return view('welcome', compact('products', 'articles'));
     }
 

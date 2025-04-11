@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -27,7 +28,7 @@ class CategoryController extends Controller
         $validated = $request->validate([
             'slug_category' => 'nullable|string|unique:categories,slug_category',
             'name_category' => 'required|string',
-            'image_category' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_category' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:9048',
         ]);
 
         // Buat slug otomatis berdasarkan name_category jika slug_category tidak diberikan
@@ -55,26 +56,35 @@ class CategoryController extends Controller
         return view('admin.categories.edit', compact('category'));
     }
 
-    // Mengupdate kategori
     public function update(Request $request, Category $category)
     {
         // Validasi input
         $request->validate([
             'slug_category' => 'required|string|unique:categories,slug_category,' . $category->id,
             'name_category' => 'required|string',
-            'image_category' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_category' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:9048',
         ]);
 
+        // Update nama kategori dan slug
         $category->update($request->only(['slug_category', 'name_category']));
 
         // Menyimpan gambar kategori jika ada
         if ($request->hasFile('image_category')) {
+            // Hapus gambar lama jika ada
+            if ($category->image_category) {
+                Storage::disk('public')->delete($category->image_category);
+            }
+
+            // Simpan gambar baru
             $imagePath = $request->file('image_category')->store('category', 'public');
             $category->image_category = $imagePath;
         }
 
+        $category->save();
+
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');
     }
+
 
     // Menghapus kategori (mengubah deleted_status menjadi true)
     public function destroy(Category $category)
