@@ -1,7 +1,7 @@
 <section id="hilight">
     <div class="w-full mx-auto lg:max-w-7xl flex flex-col gap-10 lg:py-14 py-6">
         <div class="grid grid-cols-12 gap-6">
-            <div class="col-span-12 lg:col-span-5 space-y-6 flex flex-col justify-center max-sm:px-6">
+            <div class="col-span-12 lg:col-span-5 space-y-6 flex flex-col justify-center max-lg:px-6">
                 <h1 class="text-[#131010] dark:text-white text-2xl font-bold capitalize" data-aos="fade-up" data-aos-duration="1000">Keindahan yang tahan lama</h1>
                 <p class="text-justify capitalize" data-aos="fade-up" data-aos-duration="1500">
                     menyediakan lantai SPC berkualitas tinggi, tahan lama, dan ramah lingkungan dengan
@@ -41,7 +41,7 @@
                 </a>
             </div>
 
-            <div class="col-span-12 lg:col-span-7 max-sm:px-6 max-sm:mt-6">
+            <div class="col-span-12 lg:col-span-7 max-lg:px-6 max-lg:mt-6">
                 <div class="flex flex-row justify-between lg:gap-8 gap-2">
                     <div class="w-full" data-aos="fade-up" data-aos-duration="2000">
                         <img src="{{ asset('assets/img/hilightProduk1.jpg') }}" alt="logo" class="w-full h-auto" />

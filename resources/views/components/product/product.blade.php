@@ -1,7 +1,7 @@
 <section id="produk">
     <div class="w-full flex flex-col gap-6  mx-auto lg:max-w-7xl pb-10">
         <div data-aos="fade-up" data-aos-duration="2000">
-            <h1 class="text-xl font-semibold capitalize max-sm:px-6">
+            <h1 class="text-xl font-semibold capitalize max-lg:px-6">
                 MekoFlooring SPC Product
             </h1>
         </div>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="w-full mx-auto lg:max-w-7xl" data-aos="fade-up" data-aos-duration="1800">
-            <h1 class="text-xl font-semibold capitalize max-sm:px-6">
+            <h1 class="text-xl font-semibold capitalize max-lg:px-6">
                 MekoFlooring Vinyl Product
             </h1>
         </div>
