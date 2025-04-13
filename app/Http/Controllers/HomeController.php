@@ -34,8 +34,8 @@ class HomeController extends Controller
         // Ambil artikel terkait berdasarkan kategori atau kriteria lainnya
         $relatedArticles = Article::where('status', 'published')
             ->where('deleted_status', 0)
-            ->where('slug', '!=', $slug) // Menghindari artikel yang sama
-            ->limit(3) // Ambil 3 artikel terkait
+            ->where('slug', '!=', $slug)
+            ->limit(3)
             ->get();
 
         return view('articles.detail', compact('article', 'relatedArticles'));

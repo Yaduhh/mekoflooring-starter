@@ -9,7 +9,8 @@
                 <!-- Gambar Produk -->
                 <div class="lg:w-1/2 hidden lg:flex">
                     <div class="relative h-full bg-gray-200 overflow-hidden">
-                        <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover">
+                        <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}"
+                            alt="{{ $product->nama }}" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -30,7 +31,8 @@
                     <!-- Gambar Produk -->
                     <div class="lg:w-1/2 lg:hidden py-6">
                         <div class="relative h-full bg-gray-200 overflow-hidden">
-                            <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover">
+                            <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}"
+                                alt="{{ $product->nama }}" class="w-full h-full object-cover">
                         </div>
                     </div>
 
@@ -62,11 +64,15 @@
 
                     <!-- Tombol aksi -->
                     <div class="mt-6 flex gap-4 max-sm:mb-10">
-                        <a href="{{ route('floor.product.show', ['slug' => $product->category->slug_category]) }}" class="bg-[#543A14] text-white hover:scale-110 duration-150 transition-all px-4 py-1.5 rounded-xl">
+                        <a href="{{ route('floor.product.show', ['slug' => $product->category->slug_category]) }}?product={{ urlencode($product->nama) }}"
+                            class="bg-[#543A14] text-white hover:scale-110 duration-150 transition-all px-4 py-1.5 rounded-xl">
                             <i class="fas fa-object-group mr-2"></i>
                             Floor View
                         </a>
-                        <a target="_blank" href="https://wa.me/08990656996?text=Halo%2C%20saya%20tertarik%20dengan%20{{ urlencode($product->nama) }}%2C%20saya%20ingin%20menanyakan%20hal%20terkait%20lebih%20lanjut." class="bg-emerald-600 text-white hover:scale-110 duration-150 transition-all px-4 py-1.5 rounded-xl">
+
+                        <a target="_blank"
+                            href="https://wa.me/08990656996?text=Halo%2C%20saya%20tertarik%20dengan%20{{ urlencode($product->nama) }}%2C%20saya%20ingin%20menanyakan%20hal%20terkait%20lebih%20lanjut."
+                            class="bg-emerald-600 text-white hover:scale-110 duration-150 transition-all px-4 py-1.5 rounded-xl">
                             <i class="fab fa-whatsapp mr-2"></i>
                             Whatsapp
                         </a>

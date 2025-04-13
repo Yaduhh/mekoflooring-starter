@@ -33,20 +33,21 @@
         <meta name="description" content="{{ $article->content }}">
 
         <!-- Meta Keywords for Article -->
-        <meta name="keywords"
-            content="{{ $article->title }}, flooring tips, flooring articles">
+        <meta name="keywords" content="{{ $article->title }}, flooring tips, flooring articles">
 
         <!-- Open Graph Meta Tags for Article -->
         <meta property="og:title" content="{{ $article->title }} - Meko Flooring">
         <meta property="og:description" content="{{ $article->content }}">
-        <meta property="og:image" content="{{ route('article.image', ['filename' => basename($article->thumbnail)]) }}">
+        <meta property="og:image"
+            content="{{ route('article.image', ['filename' => basename($article->thumbnail)]) }}">
         <meta property="og:url" content="{{ url()->current() }}">
 
         <!-- Twitter Card Meta Tags for Article -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $article->title }} - Meko Flooring">
         <meta name="twitter:description" content="{{ $article->content }}">
-        <meta name="twitter:image" content="{{ route('article.image', ['filename' => basename($article->thumbnail)]) }}">
+        <meta name="twitter:image"
+            content="{{ route('article.image', ['filename' => basename($article->thumbnail)]) }}">
     @endif
 
     <!-- Fonts -->
@@ -82,24 +83,46 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const html = document.documentElement;
+            const navbar = document.getElementById('navbar');
             const darkModeToggle = document.getElementById("darkModeToggle");
             const moonIcon = document.getElementById("moonIcon");
             const sunIcon = document.getElementById("sunIcon");
             const modeText = document.getElementById("modeText");
 
-            // Cek status dark mode dari localStorage
+            // Function to update navbar background and text color based on theme
+            function updateNavbarBackground() {
+                const darkModeActive = html.classList.contains("dark");
+
+                // Only change the background color after scroll
+                if (window.scrollY > 0) {
+                    let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
+                    navbar.style.backgroundColor = backgroundColor;
+                }
+
+                // Update text color based on the mode
+                if (darkModeActive) {
+                    navbar.classList.add("text-white"); // Text white in dark mode
+                    navbar.classList.remove("text-[#543A14]"); // Remove default text color in dark mode
+                } else {
+                    navbar.classList.remove("text-white"); // Remove text-white in light mode
+                    navbar.classList.add("text-[#543A14]"); // Text color in light mode
+                }
+            }
+
+            // Check dark mode status from localStorage
             if (localStorage.getItem("theme") === "dark") {
                 html.classList.add("dark");
                 sunIcon.classList.add("hidden");
                 moonIcon.classList.remove("hidden");
-                modeText.innerText = "Dark Mode";
+                modeText.innerText = "Dark";
             } else {
                 html.classList.remove("dark");
                 sunIcon.classList.remove("hidden");
                 moonIcon.classList.add("hidden");
-                modeText.innerText = "Light Mode";
+                modeText.innerText = "Light";
             }
 
+            // Dark mode toggle
             darkModeToggle.addEventListener("click", function() {
                 moonIcon.style.transform = "rotate(180deg)";
                 sunIcon.style.transform = "rotate(180deg)";
@@ -109,59 +132,34 @@
                         localStorage.setItem("theme", "light");
                         sunIcon.classList.remove("hidden");
                         moonIcon.classList.add("hidden");
-                        modeText.innerText = "Light Mode";
+                        modeText.innerText = "Light";
                     } else {
                         html.classList.add("dark");
                         localStorage.setItem("theme", "dark");
                         sunIcon.classList.add("hidden");
                         moonIcon.classList.remove("hidden");
-                        modeText.innerText = "Dark Mode";
+                        modeText.innerText = "Dark";
                     }
                     moonIcon.style.transform = "rotate(0deg)";
                     sunIcon.style.transform = "rotate(0deg)";
 
-                    // Update navbar background when theme changes
+                    // Update navbar background and text color when theme changes (but only after scroll)
                     updateNavbarBackground();
                 }, 300);
             });
 
-            // Function to update navbar background based on theme
-            function updateNavbarBackground() {
-                const navbar = document.getElementById('navbar');
-                const darkModeActive = html.classList.contains("dark");
-                let backgroundColor = darkModeActive ? '#543A14' : 'rgba(255, 255, 255, 0)';
-                navbar.style.backgroundColor = backgroundColor;
-                navbar.classList.remove("backdrop-blur");
-            }
-
-            // Initial navbar background update based on theme
-            updateNavbarBackground();
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const navbar = document.getElementById('navbar');
-            const html = document.documentElement;
-
-            // Function to update navbar background based on theme
-            function updateNavbarBackground() {
-                const darkModeActive = html.classList.contains("dark");
-                let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
-                navbar.style.backgroundColor = backgroundColor;
-            }
-            navbar.classList.add("text-white");
-
-            // Ketika halaman di-scroll
+            // Add event listener for scroll
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
+
+                // Adjust navbar background opacity based on scroll position
                 if (scrollPosition > 0) {
                     navbar.classList.add("backdrop-blur");
                     navbar.classList.add("shadow-lg");
                     const opacityValue = Math.min(scrollPosition / 200, 0.7);
                     const darkModeActive = html.classList.contains("dark");
-                    navbar.classList.remove("text-white");
 
+                    // Adjust background color opacity based on scroll position and dark mode
                     if (darkModeActive) {
                         navbar.style.backgroundColor = `rgba(84, 58, 20, ${opacityValue})`;
                     } else {
@@ -170,12 +168,11 @@
                 } else {
                     navbar.classList.remove("backdrop-blur");
                     navbar.classList.remove("shadow-lg");
-                    navbar.classList.add("text-[#543A14]");
-                    updateNavbarBackground();
+                    updateNavbarBackground(); // Keep background update when scrolled to top
                 }
             });
 
-            // Initial navbar background update based on theme
+            // Initial navbar background update based on theme and scroll
             updateNavbarBackground();
         });
     </script>

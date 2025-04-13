@@ -1,7 +1,7 @@
 <section id="about" class="w-full min-h-[300px] bg-[#FDFDFC] dark:bg-[#131010]">
     <div class="w-full flex flex-col gap-6 mx-auto lg:max-w-7xl my-20 max-lg:px-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div class="col-span-1 lg:col-span-4"  data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-span-1 lg:col-span-4" data-aos="fade-up" data-aos-duration="2000">
                 <!-- Logo or Brand Name -->
                 <a href="#" class="w-full dark:hidden">
                     <img src="{{ asset('assets/img/aboutLight.png') }}" alt="logo about" class="w-full" />
@@ -19,7 +19,7 @@
                     </h1>
                 </div>
 
-                <div class="flex flex-col gap-6"  data-aos="fade-up" data-aos-duration="2000">
+                <div class="flex flex-col gap-6" data-aos="fade-up" data-aos-duration="2000">
                     <p class="text-justify text-pretty">
                         Meko Flooring is here as the solution for high-quality, durable, and eco-friendly flooring. With
                         the latest SPC technology from Germany, stunning designs, and outstanding performance, we ensure
@@ -68,6 +68,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="mt-6 w-full" data-aos="fade-up" data-aos-duration="1000">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.500808363296!2d106.67778067586936!3d-6.329092861930787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e50d7f0a62c9%3A0x471141ad8c8c6eb4!2sPT.%20MEGA%20KOMPOSIT%20INDONESIA!5e0!3m2!1sen!2sid!4v1744523777720!5m2!1sen!2sid"
+                width="100%" height="250" style="border:10px; border-radius:10px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
 </section>

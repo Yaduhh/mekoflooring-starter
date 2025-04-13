@@ -36,12 +36,13 @@
                 <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full max-sm:mt-6">
                     @foreach ($products as $product)
                         <div class="flex border-2 flex-col items-center gap-2 product-item cursor-pointer relative z-0 justify-center w-full"
-                            data-image="{{ Storage::url($product->mockup_image) }}">
+                            data-image="{{ Storage::url($product->mockup_image) }}" data-name="{{ $product->nama }}">
                             <img src="{{ Storage::url($product->mockup_image) }}" alt="{{ $product->mockup_image }}"
                                 class="w-full h-12 object-cover">
                             <h2 class="text-lg font-semibold text-black absolute z-0">{{ $product->nama }}</h2>
                         </div>
                     @endforeach
+
                 </div>
 
                 <div class="py-6 w-full">
@@ -101,9 +102,59 @@
             const categoryImageDesktop = document.getElementById('category-image-desktop');
             const categoryImageMobile = document.getElementById('category-image-mobile');
 
+            // Fungsi untuk highlight produk berdasarkan nama
+            function highlightProduct(productName) {
+                productItems.forEach(item => {
+                    const currentProductName = item.getAttribute('data-name');
+
+                    // Cek jika nama produk sesuai dengan parameter di URL
+                    if (decodeURIComponent(currentProductName) === productName) {
+                        // Jika cocok, tambahkan highlight
+                        item.classList.add('border-black', 'bg-blue-50');
+
+                        // Update gambar produk
+                        const imageUrl = item.getAttribute('data-image');
+                        if (categoryImageDesktop) {
+                            categoryImageDesktop.src = imageUrl;
+                            categoryImageDesktop.classList.remove('hidden');
+                        }
+                        if (categoryImageMobile) {
+                            categoryImageMobile.src = imageUrl;
+                            categoryImageMobile.classList.remove('hidden');
+                        }
+                    } else {
+                        // Hapus highlight untuk produk lain
+                        item.classList.remove('border-black', 'bg-blue-50');
+                    }
+                });
+            }
+
+            // Ambil query parameter 'product' dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedProductName = urlParams.get('product');
+
+            if (selectedProductName) {
+                // Jika ada query 'product', maka highlight produk sesuai
+                highlightProduct(selectedProductName);
+            }
+
+            // Event listener untuk klik produk
             productItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const imageUrl = this.getAttribute('data-image');
+                    const productName = this.getAttribute('data-name'); // Mendapatkan nama produk
+
+                    // Ambil URL saat ini tanpa parameter query apapun
+                    const currentUrl = window.location.href.split('?')[0];
+
+                    // Encode product name dan ganti '+' dengan '%20'
+                    const encodedProductName = encodeURIComponent(productName).replace(/%20/g, '+');
+
+                    // Ganti URL dengan parameter query yang baru sesuai produk yang dipilih
+                    const newUrl = currentUrl + '?product=' + encodedProductName;
+
+                    // Ganti URL di browser dengan produk yang dipilih tanpa reload halaman
+                    window.history.replaceState({}, '', newUrl);
 
                     // Ganti source dan tampilkan untuk desktop
                     if (categoryImageDesktop) {
@@ -123,7 +174,6 @@
                 });
             });
         });
-
 
         document.addEventListener('DOMContentLoaded', function() {
             const calculateBtn = document.getElementById('calculateBtn');
