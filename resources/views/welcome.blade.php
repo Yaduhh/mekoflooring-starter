@@ -86,7 +86,6 @@
             const sunIcon = document.getElementById("sunIcon");
             const modeText = document.getElementById("modeText");
 
-            // Cek status dark mode dari localStorage
             if (localStorage.getItem("theme") === "dark") {
                 html.classList.add("dark");
                 sunIcon.classList.add("hidden");
@@ -119,12 +118,10 @@
                     moonIcon.style.transform = "rotate(0deg)";
                     sunIcon.style.transform = "rotate(0deg)";
 
-                    // Update navbar background when theme changes
                     updateNavbarBackground();
                 }, 300);
             });
 
-            // Function to update navbar background based on theme
             function updateNavbarBackground() {
                 const navbar = document.getElementById('navbar');
                 const darkModeActive = html.classList.contains("dark");
@@ -133,7 +130,6 @@
                 navbar.classList.remove("backdrop-blur");
             }
 
-            // Initial navbar background update based on theme
             updateNavbarBackground();
         });
     </script>
@@ -143,7 +139,6 @@
             const navbar = document.getElementById('navbar');
             const html = document.documentElement;
 
-            // Function to update navbar background based on theme
             function updateNavbarBackground() {
                 const darkModeActive = html.classList.contains("dark");
                 let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
@@ -151,7 +146,6 @@
             }
             navbar.classList.add("text-white");
 
-            // Ketika halaman di-scroll
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
                 if (scrollPosition > 0) {
@@ -174,7 +168,6 @@
                 }
             });
 
-            // Initial navbar background update based on theme
             updateNavbarBackground();
         });
     </script>

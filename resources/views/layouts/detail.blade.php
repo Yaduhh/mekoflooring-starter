@@ -93,23 +93,20 @@
             function updateNavbarBackground() {
                 const darkModeActive = html.classList.contains("dark");
 
-                // Only change the background color after scroll
                 if (window.scrollY > 0) {
                     let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
                     navbar.style.backgroundColor = backgroundColor;
                 }
 
-                // Update text color based on the mode
                 if (darkModeActive) {
-                    navbar.classList.add("text-white"); // Text white in dark mode
-                    navbar.classList.remove("text-[#543A14]"); // Remove default text color in dark mode
+                    navbar.classList.add("text-white");
+                    navbar.classList.remove("text-[#543A14]");
                 } else {
-                    navbar.classList.remove("text-white"); // Remove text-white in light mode
-                    navbar.classList.add("text-[#543A14]"); // Text color in light mode
+                    navbar.classList.remove("text-white");
+                    navbar.classList.add("text-[#543A14]");
                 }
             }
 
-            // Check dark mode status from localStorage
             if (localStorage.getItem("theme") === "dark") {
                 html.classList.add("dark");
                 sunIcon.classList.add("hidden");
@@ -142,24 +139,20 @@
                     }
                     moonIcon.style.transform = "rotate(0deg)";
                     sunIcon.style.transform = "rotate(0deg)";
-
-                    // Update navbar background and text color when theme changes (but only after scroll)
+                    
                     updateNavbarBackground();
                 }, 300);
             });
 
-            // Add event listener for scroll
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
 
-                // Adjust navbar background opacity based on scroll position
                 if (scrollPosition > 0) {
                     navbar.classList.add("backdrop-blur");
                     navbar.classList.add("shadow-lg");
                     const opacityValue = Math.min(scrollPosition / 200, 0.7);
                     const darkModeActive = html.classList.contains("dark");
 
-                    // Adjust background color opacity based on scroll position and dark mode
                     if (darkModeActive) {
                         navbar.style.backgroundColor = `rgba(84, 58, 20, ${opacityValue})`;
                     } else {
@@ -168,11 +161,10 @@
                 } else {
                     navbar.classList.remove("backdrop-blur");
                     navbar.classList.remove("shadow-lg");
-                    updateNavbarBackground(); // Keep background update when scrolled to top
+                    updateNavbarBackground(); 
                 }
             });
-
-            // Initial navbar background update based on theme and scroll
+            
             updateNavbarBackground();
         });
     </script>
