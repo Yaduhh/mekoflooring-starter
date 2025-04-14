@@ -1,5 +1,5 @@
 <footer class="w-full bg-[#543A14] dark:bg-[#131010] dark:border-t-2 dark:border-white max-lg:px-6">
-    <div class="w-full lg:max-w-7xl text-sm mb-6 mx-auto flex flex-col xl:flex-row justify-between">
+    <div class="w-full lg:xl:max-w-6xl 2xl:max-w-7xl text-sm mb-6 mx-auto flex flex-col xl:flex-row justify-between">
         <div class="w-fit bg-white px-4 pt-12 pb-10 xl:pb-16 rounded-b-full max-lg:mx-auto">
             <img src="{{ asset('assets/img/logoMekoFlooring.png') }}" alt="logo" />
         </div>

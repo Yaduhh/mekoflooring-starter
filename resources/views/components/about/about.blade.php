@@ -1,5 +1,5 @@
 <section id="about" class="w-full min-h-[300px] bg-[#FDFDFC] dark:bg-[#131010]">
-    <div class="w-full flex flex-col gap-6 mx-auto lg:max-w-7xl my-20 max-lg:px-6">
+    <div class="w-full flex flex-col gap-6 mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl my-20 max-lg:px-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="col-span-1 lg:col-span-4" data-aos="fade-up" data-aos-duration="2000">
                 <!-- Logo or Brand Name -->

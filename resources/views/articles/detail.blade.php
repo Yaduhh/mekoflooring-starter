@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="pt-6 pb-12">
-        <div class="max-w-7xl mx-auto max-sm:px-6">
+        <div class="xl:max-w-6xl 2xl:max-w-7xl mx-auto max-sm:px-6">
             <!-- Artikel Utama -->
             <div class="mb-12">
                 <!-- Thumbnail Image -->

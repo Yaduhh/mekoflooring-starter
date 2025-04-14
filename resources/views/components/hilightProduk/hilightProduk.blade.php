@@ -1,5 +1,5 @@
 <section id="hilight">
-    <div class="w-full mx-auto lg:max-w-7xl flex flex-col gap-10 lg:py-14 py-6">
+    <div class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl flex flex-col gap-10 lg:py-14 py-6">
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12 lg:col-span-5 space-y-6 flex flex-col justify-center max-lg:px-6">
                 <h1 class="text-[#131010] dark:text-white text-2xl font-bold capitalize" data-aos="fade-up"

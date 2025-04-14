@@ -1,5 +1,5 @@
 <section id="article" class="w-full min-h-[300px] dark:bg-[#131010] bg-[#543A14]">
-    <div class="w-full flex flex-col gap-6 mx-auto lg:max-w-7xl py-16 max-lg:px-6">
+    <div class="w-full flex flex-col gap-6 mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl py-16 max-lg:px-6">
         <div data-aos="fade-up" data-aos-duration="1000">
             <h1 class="text-xl font-semibold capitalize text-white">
                 Articles

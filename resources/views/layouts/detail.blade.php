@@ -67,13 +67,13 @@
 
 <body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#1b1b18] flex items-center lg:justify-between min-h-screen flex-col">
     <header
-        class="w-full lg:max-w-[90rem] text-sm pb-6 pt-6 px-6 lg:px-12 lg:rounded-2xl fixed top-0 lg:top-5 z-10 bg-transparent transition-all duration-300"
+        class="w-full lg:max-w-[90rem] xl:max-w-[75rem] 2xl:max-w-[90rem] text-sm pb-6 pt-6 px-6 lg:px-12 lg:rounded-2xl fixed top-0 lg:top-5 z-10 bg-transparent transition-all duration-300"
         id="navbar">
         @component('components.navbar.navbar')
         @endcomponent
     </header>
 
-    <main class="w-full mx-auto lg:max-w-7xl py-24 lg:py-32">
+    <main class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl py-24 lg:py-32">
         @yield('content')
     </main>
 

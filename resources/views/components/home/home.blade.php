@@ -7,7 +7,7 @@
         <img src="{{ asset('assets/img/backgroundHomeDark.jpg') }}" alt="logo"
             class="w-auto h-full max-lg:object-cover lg:min-h-screen" />
     </div>
-    <div class="w-full mx-auto xl:max-w-7xl flex flex-col justify-center gap-10 max-lg:text-center max-sm:pt-10">
+    <div class="w-full mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col justify-center gap-10 max-lg:text-center max-sm:pt-10">
         <div>
             <h1 class="text-4xl font-bold text-white" data-aos="fade-up" data-aos-duration="1000">MEKO FLOORING</h1>
             <p class="font-medium text-white text-lg" data-aos="fade-up" data-aos-duration="1200">One - Stop solution
