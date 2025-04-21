@@ -1,13 +1,13 @@
 <section id="produk">
-    <div class="w-full flex flex-col gap-6  mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl pb-10">
-        <div data-aos="fade-up" data-aos-duration="2000">
+    <div class="w-full flex flex-col gap-6  mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl pb-10"  data-aos="fade-up" data-aos-duration="1500">
+        <div>
             <h1 class="text-xl font-semibold capitalize max-lg:px-6">
                 MekoFlooring SPC Product
             </h1>
         </div>
         
         <!-- Carousel 1 -->
-        <div id="product-carousel-1" class="splide" data-aos="fade-up" data-aos-duration="1500">
+        <div id="product-carousel-1" class="splide">
             <div class="splide__track">
                 <ul class="splide__list">
                     @foreach ($products as $product)
@@ -41,13 +41,13 @@
             </div>
         </div>
 
-        <div class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl" data-aos="fade-up" data-aos-duration="1800">
+        <div class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl">
             <h1 class="text-xl font-semibold capitalize max-lg:px-6">
                 MekoFlooring Vinyl Product
             </h1>
         </div>
         <!-- Carousel 2 -->
-        <div id="product-carousel-2" class="splide" data-aos="fade-up" data-aos-duration="2000">
+        <div id="product-carousel-2" class="splide">
             <div class="splide__track">
                 <ul class="splide__list">
                     @foreach ($products as $product)
