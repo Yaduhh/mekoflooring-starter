@@ -24,6 +24,7 @@ class Product extends Model
         'description',
         'mockup_image',
         'length', 
+        'product_type', 
         'id_category',
     ];
 

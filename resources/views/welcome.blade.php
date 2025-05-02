@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+    
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,28 +8,28 @@
     <link rel="icon" href="{{ asset('assets/favicon.ico') }}" type="image/x-icon">
 
     <!-- Title -->
-    <title>Meko Flooring - Quality Flooring Solutions for Your Home</title>
+    <title>Meko Flooring - Solusi Lantai Berkualitas untuk Rumah Anda</title>
 
     <!-- Meta Description -->
     <meta name="description"
-        content="Meko Flooring offers premium flooring solutions for residential and commercial spaces. Discover a variety of high-quality materials, installation services, and custom designs to transform your space.">
+        content="Meko Flooring menawarkan solusi lantai premium untuk ruang rumah dan komersial. Temukan berbagai material berkualitas tinggi, layanan pemasangan, dan desain kustom untuk mengubah ruang Anda.">
 
     <!-- Meta Keywords -->
     <meta name="keywords"
-        content="flooring, flooring solutions, flooring installation, home flooring, commercial flooring, high-quality flooring, Meko Flooring">
+        content="lantai, solusi lantai, pemasangan lantai, lantai rumah, lantai komersial, lantai berkualitas tinggi, Meko Flooring">
 
     <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Meko Flooring - Quality Flooring Solutions for Your Home">
+    <meta property="og:title" content="Meko Flooring - Solusi Lantai Berkualitas untuk Rumah Anda">
     <meta property="og:description"
-        content="Meko Flooring offers premium flooring solutions with a variety of materials and expert installation services. Enhance your living or working space today!">
+        content="Meko Flooring menawarkan solusi lantai premium dengan berbagai material dan layanan pemasangan profesional. Tingkatkan ruang hidup atau kerja Anda hari ini!">
     <meta property="og:image" content="URL_to_image.jpg">
     <meta property="og:url" content="https://www.mekoflooring.com">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Meko Flooring - Quality Flooring Solutions for Your Home">
+    <meta name="twitter:title" content="Meko Flooring - Solusi Lantai Berkualitas untuk Rumah Anda">
     <meta name="twitter:description"
-        content="Meko Flooring provides top-notch flooring solutions and installation services for homes and businesses. Explore a range of high-quality flooring options.">
+        content="Meko Flooring menyediakan solusi lantai terbaik dan layanan pemasangan untuk rumah dan bisnis. Jelajahi berbagai pilihan lantai berkualitas tinggi.">
     <meta name="twitter:image" content="URL_to_image.jpg">
 
     <!-- Fonts -->
@@ -43,10 +43,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 </head>
 
-<body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#131010] dark:text-white flex items-center min-h-screen flex-col">
+<body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#131010] dark:text-white flex items-center min-h-screen flex-col relative z-0">
     <header
         class="w-full lg:max-w-[90rem] xl:max-w-[75rem] 2xl:max-w-[90rem] text-sm pb-6 pt-6 px-6 lg:px-12 lg:rounded-2xl fixed top-0 lg:top-5 z-10 bg-transparent transition-all duration-300"
         id="navbar">
@@ -65,7 +64,7 @@
             @component('components.gallery.gallery')
             @endcomponent
 
-            @component('components.product.product', ['products' => $products])
+            @component('components.product.product', ['productsSPC' => $productsSPC, 'productsVinyl' => $productsVinyl])
             @endcomponent
 
             @component('components.articles.article', ['articles' => $articles])
@@ -75,6 +74,9 @@
             @endcomponent
         </main>
     </div>
+    @component('components.wa.wa')
+    @endcomponent
+
     @component('components.footer.footer')
     @endcomponent
 

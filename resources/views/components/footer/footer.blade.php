@@ -10,16 +10,16 @@
                 <div class="pt-12 text-xl font-semibold text-white">
                     <div class="hidden lg:flex items-center gap-10 font-semibold text-lg">
                         <a href="#home" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
-                            Home
+                            Beranda
                         </a>
                         <a href="#gallery" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
-                            Gallery
+                            Galeri
                         </a>
                         <a href="#produk" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
-                            Product
+                            Produk
                         </a>
                         <a href="#about" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
-                            About Us
+                            Tentang
                         </a>
                         <a href="{{ route('floor.index') }}"
                             class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">

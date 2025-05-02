@@ -13,8 +13,14 @@ class ProductController extends Controller
     // Menampilkan semua produk
     public function index()
     {
-        $products = Product::notDeleted()->get();
+        $products = Product::notDeleted()->paginate(8);
         return view('admin.products.index', compact('products'));
+    }
+
+    public function recycle()
+    {
+        $products = Product::where('deleted_status', true)->get();
+        return view('admin.recycle.product', compact('products'));
     }
 
     // Menampilkan form untuk membuat produk baru
@@ -37,6 +43,7 @@ class ProductController extends Controller
             'width' => 'required|numeric',
             'length' => 'required|numeric',
             'thickness' => 'required|numeric',
+            'product_type' => 'required|numeric',
             'status' => 'required|boolean',
         ]);
 
@@ -80,6 +87,7 @@ class ProductController extends Controller
             'width' => 'required|numeric',
             'length' => 'required|numeric',
             'thickness' => 'required|numeric',
+            'product_type' => 'required|boolean',
             'description' => 'required|string',
             'status' => 'required|boolean',
         ]);
@@ -114,18 +122,29 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Produk berhasil diupdate!');
     }
 
-    public function destroy(Article $article)
+    public function destroy(Request $request, Product $product)
     {
         try {
             // Mengubah deleted_status menjadi true
-            $article->update(['deleted_status' => 1]);
+            $product->update(['deleted_status' => 1]);
 
-            return redirect()->route('articles.index')
-                ->with('success', 'Artikel berhasil dihapus.');
+            return redirect()->route('products.index')
+                ->with('success', 'Produk berhasil dihapus.');
         } catch (\Exception $e) {
-            return redirect()->route('articles.index')
-                ->with('error', 'Gagal menghapus artikel.');
+            return redirect()->route('products.index')
+                ->with('error', 'Gagal menghapus Produk.');
         }
     }
+
+    // Method untuk memulihkan produk
+    public function restore(Product $product)
+    {
+        // Mengubah deleted_status menjadi false (memulihkan produk)
+        $product->update(['deleted_status' => false]);
+
+        // Redirect ke halaman recycle produk dengan pesan sukses
+        return redirect()->route('admin.product.recycle')->with('success', 'Produk berhasil dipulihkan.');
+    }
+
 
 }

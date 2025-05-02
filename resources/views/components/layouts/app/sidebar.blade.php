@@ -19,10 +19,16 @@
                     wire:navigate>{{ __('Dashboard') }}
                 </flux:navlist.item>
 
+                <!-- Katalog Produk -->
+                <flux:navlist.item icon="folder" :href="route('admin.catalogue.index')" :current="request()->routeIs('admin.catalogue.index')"
+                    wire:navigate>{{ __('Catalogue') }}
+                </flux:navlist.item>      
+
                 <!-- Kategori Produk -->
                 <flux:navlist.item icon="folder" :href="route('categories.index')" :current="request()->routeIs('categories.index')"
                     wire:navigate>{{ __('Category') }}
-                </flux:navlist.item>      
+                </flux:navlist.item>    
+
 
                 <!-- Submenu Produk -->
                 <flux:navlist.group :heading="__('Produk Manajemen')" class="pt-8">
@@ -33,6 +39,17 @@
                 <!-- Submenu Produk -->
                 <flux:navlist.group :heading="__('Artikel Manajemen')" class="pt-8">
                     <flux:navlist.item icon="folder" :href="route('articles.index')" :current="request()->routeIs('articles.index')" wire:navigate>{{ __('Daftar Artikel') }}</flux:navlist.item>
+                </flux:navlist.group>
+                
+                <!-- Recycle Produk -->
+                <flux:navlist.group :heading="__('Recycle')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('admin.category.recycle')" :current="request()->routeIs('admin.category.recycle')" wire:navigate>{{ __('Category') }}</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.product.recycle')" :current="request()->routeIs('admin.product.recycle')" wire:navigate>{{ __('Product') }}</flux:navlist.item>
+                </flux:navlist.group>
+
+                {{-- Google Index --}}
+                <flux:navlist.group :heading="__('Google Analytics')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('google.analytics')" :current="request()->routeIs('google.analytics')" wire:navigate>{{ __('Google Analytics') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist.group>
         </flux:navlist>

@@ -1,6 +1,6 @@
 <section id="gallery" class="w-full mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col gap-2 md:gap-8 py-6 lg:py-14">
     <div data-aos="fade-up" data-aos-duration="1000">
-        <h1 class="text-2xl font-bold uppercase max-sm:text-center max-lg:px-6 max-md:px-0">GALLERY MEKO FLOORING</h1>
+        <h1 class="text-2xl font-bold uppercase max-sm:text-center max-lg:px-6 max-md:px-0">GALLERI MEKO FLOORING</h1>
     </div>
 
     <div class="grid grid-cols-12 gap-2 md:gap-8 max-lg:px-6">

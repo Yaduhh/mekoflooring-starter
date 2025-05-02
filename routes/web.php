@@ -11,16 +11,22 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ArticleController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\GoogleAnalyticsController;
+use App\Http\Controllers\Admin\CatalogueController;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('product/{slug}', [HomeController::class, 'show'])->name('product.show');
 Route::get('floor/view-simulation', [FloorController::class, 'index'])->name('floor.index');
 Route::get('floor/view-simulation/show', [FloorController::class, 'show'])->name('floor.show');
 Route::get('floor/view-simulation/show/category/{slug}', [FloorController::class, 'showByCategory'])->name('floor.product.show');
+
 // Rute untuk melihat artikel secara publik (tanpa login)
 Route::get('artikel/{slug}', [HomeController::class, 'showArticle'])->name('articles.public.show');
 Route::post('/articles/upload-image', [ArticleController::class, 'uploadImage'])->name('articles.uploadImage');
 Route::delete('/articles/delete-image', [ArticleController::class, 'deleteImage'])->name('articles.deleteImage');
+
+Route::get('show-catalogue', [HomeController::class, 'showCatalogue'])->name('catalogue.public.show');
 
 Route::view('dashboard', 'dashboard')
 ->middleware(['auth', 'verified'])
@@ -33,13 +39,20 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
-});
-
-Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard/recycle/categories', [CategoryController::class, 'recycle'])->name('admin.category.recycle');
+    Route::get('dashboard/recycle/product', [ProductController::class, 'recycle'])->name('admin.product.recycle');
+    Route::put('/categories/{category}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
+    Route::put('/products/{product}/restore', [ProductController::class, 'restore'])->name('products.restore');
+    
     Route::redirect('settings', 'settings/profile');
     Route::get('settings/profile', Profile::class)->name('settings.profile');
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
+    Route::get('admin/google/analytics', [GoogleAnalyticsController::class, 'index'])->name('google.analytics');
+});
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('catalogue', CatalogueController::class);
 });
 
 Route::get('product-image/{filename}', function ($filename) {

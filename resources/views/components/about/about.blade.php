@@ -1,5 +1,5 @@
 <section id="about" class="w-full min-h-[300px] bg-[#FDFDFC] dark:bg-[#131010]">
-    <div class="w-full flex flex-col gap-6 mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl my-20 max-lg:px-6"  data-aos="fade-up" data-aos-duration="2000">
+    <div class="w-full flex flex-col gap-6 mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl my-20 max-lg:px-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="col-span-1 lg:col-span-4">
                 <!-- Logo or Brand Name -->
@@ -13,25 +13,26 @@
             </div>
 
             <div class="col-span-1 lg:col-span-8">
-                <div class="mb-6" data-aos="fade-up" data-aos-duration="1000">
+                <div class="mb-6">
                     <h1 class="text-xl font-semibold capitalize text-[#1b1b18] dark:text-[#FDFDFC]">
-                        About Us
+                        Tentang Kami
                     </h1>
                 </div>
 
                 <div class="flex flex-col gap-6">
                     <p class="text-justify text-pretty">
-                        Meko Flooring is here as the solution for high-quality, durable, and eco-friendly flooring. With
-                        the latest SPC technology from Germany, stunning designs, and outstanding performance, we ensure
-                        the best quality and durability. Our SPC flooring is resistant to scratches, water, stains, and
-                        extreme conditions, making it the perfect choice for both residential and commercial spaces.
+                        Meko Flooring hadir sebagai solusi untuk lantai berkualitas tinggi, tahan lama, dan ramah
+                        lingkungan. Dengan teknologi SPC terbaru dari Jerman, desain yang memukau, dan kinerja yang luar
+                        biasa, kami memastikan kualitas dan daya tahan terbaik. Lantai SPC kami tahan terhadap goresan,
+                        air, noda, dan kondisi ekstrem, menjadikannya pilihan yang sempurna untuk ruang hunian dan
+                        komersial.
                     </p>
 
                     <p class="text-justify text-pretty">
-                        In addition to quality products, we also offer exceptional service. Our team of experts is ready
-                        to help you choose the SPC flooring that matches your style and needs, while also providing
-                        satisfying after-sales support. Meko Flooring represents our dedication to creating floors that
-                        combine beauty and functionality.
+                        Selain produk berkualitas, kami juga menawarkan layanan yang luar biasa. Tim ahli kami siap
+                        membantu Anda memilih lantai SPC yang sesuai dengan gaya dan kebutuhan Anda, sekaligus
+                        memberikan dukungan purnajual yang memuaskan. Meko Flooring merupakan perwujudan dedikasi kami
+                        dalam menciptakan lantai yang memadukan keindahan dan fungsionalitas.
                     </p>
 
                     <div class="flex flex-wrap gap-6 lg:gap-16 font-semibold italic lg:mt-6">

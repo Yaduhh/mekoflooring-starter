@@ -16,6 +16,13 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
+    // Menampilkan semua kategori
+    public function recycle()
+    {
+        $categories = Category::where('deleted_status', true)->get();
+        return view('admin.recycle.category', compact('categories'));
+    }
+
     // Menampilkan form untuk membuat kategori baru
     public function create()
     {
@@ -92,4 +99,15 @@ class CategoryController extends Controller
         $category->update(['deleted_status' => true]);
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
     }
+
+    // Menambahkan fungsi untuk memulihkan kategori
+    public function restore(Category $category)
+    {
+        // Mengubah status deleted_status menjadi false
+        $category->update(['deleted_status' => false]);
+
+        // Redirect ke halaman recycle kategori dengan pesan sukses
+        return redirect()->route('admin.category.recycle')->with('success', 'Kategori berhasil dipulihkan.');
+    }
+
 }

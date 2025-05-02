@@ -3,10 +3,10 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12 lg:col-span-5 space-y-6 flex flex-col justify-center max-lg:px-6">
                 <h1 class="text-[#131010] dark:text-white text-2xl font-bold capitalize" data-aos="fade-up"
-                    data-aos-duration="1000">Long lasting beauty</h1>
+                    data-aos-duration="1000">Keindahan Yang Tahan Lama</h1>
                 <p class="text-justify capitalize" data-aos="fade-up" data-aos-duration="1500">
-                    provides high quality, durable and environmentally friendly SPC flooring with the latest technology
-                    from Germany.
+                    menyediakan lantai SPC berkualitas tinggi, tahan lama, dan ramah lingkungan dengan teknologi terkini
+                    dari Jerman.
                 </p>
 
                 <div class="py-6 flex gap-8">
@@ -59,7 +59,7 @@
 
                 <a href="#produk" class="px-6 py-3 rounded-full text-white bg-[#131010] dark:bg-[#543A14] w-fit text-sm"
                     data-aos="fade-up" data-aos-duration="2200">
-                    More Product
+                    Produk Kami
                 </a>
             </div>
 

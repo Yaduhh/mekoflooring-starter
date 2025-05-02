@@ -7,17 +7,19 @@
         <img src="{{ asset('assets/img/backgroundHomeDark.jpg') }}" alt="logo"
             class="w-auto h-full max-lg:object-cover lg:min-h-screen" />
     </div>
-    <div class="w-full mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col justify-center gap-10 max-lg:text-center max-sm:pt-10">
+    <div
+        class="w-full mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col justify-center gap-10 max-lg:text-center max-sm:pt-10">
         <div>
             <h1 class="text-4xl font-bold text-white" data-aos="fade-up" data-aos-duration="1000">MEKO FLOORING</h1>
             <p class="font-medium text-white text-lg" data-aos="fade-up" data-aos-duration="1200">One - Stop solution
                 for SPC Flooring</p>
         </div>
 
-        <div class="w-full max-lg:px-6 lg:w-[50%] max-lg:mx-auto text-justify" data-aos="fade-up" data-aos-duration="1500">
+        <div class="w-full max-lg:px-6 lg:w-[50%] max-lg:mx-auto text-justify" data-aos="fade-up"
+            data-aos-duration="1500">
             <p class="text-white">
-                Meko Flooring is here as the solution for high-quality, durable, and eco-friendly flooring. With
-                the latest SPC technology from Germany, stunning designs, and outstanding performance.
+                Meko Flooring hadir sebagai solusi untuk lantai berkualitas tinggi, tahan lama, dan ramah lingkungan.
+                Dengan teknologi SPC terbaru dari Jerman, desain yang memukau, dan kinerja yang luar biasa.
             </p>
         </div>
 
@@ -29,7 +31,7 @@
                     fill="#131010" />
             </svg>
             <p>
-                Contact Me
+                Hubungi Kami
             </p>
         </a>
     </div>

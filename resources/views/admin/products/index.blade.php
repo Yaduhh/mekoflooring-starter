@@ -1,6 +1,25 @@
 <x-layouts.app :title="__('Produk')">
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <h1>All Product</h1>
+
+        <!-- Notifikasi Success -->
+        @if (session('success'))
+            <div id="successNotification"
+                class="bg-emerald-700 text-white dark:text-black p-4 rounded-xl shadow-md flex items-center space-x-3 opacity-100 transition-opacity duration-500 mb-4">
+                <i class="fas fa-check-circle text-2xl"></i>
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
+        <!-- Notifikasi Error -->
+        @if (session('error'))
+            <div id="errorNotification"
+                class="bg-red-600 text-white dark:text-black p-4 rounded-xl shadow-md flex items-center space-x-3 opacity-100 transition-opacity duration-500 mb-4">
+                <i class="fas fa-exclamation-circle text-2xl"></i>
+                <span>{{ session('error') }}</span>
+            </div>
+        @endif
+
         <div class="grid auto-rows-min gap-6 md:grid-cols-4">
             @foreach ($products as $product)
                 <div class="relative z-0 flex items-center justify-center w-full min-h-[380px] overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 group">
@@ -49,6 +68,12 @@
         </div>
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
             <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
+        </div>
+ 
+       <!-- Pagination Sederhana -->
+        <div class="mt-6">
+            <!-- Pagination akan muncul disini -->
+            {{ $products->links() }}
         </div>
     </div>
 </x-layouts.app>
