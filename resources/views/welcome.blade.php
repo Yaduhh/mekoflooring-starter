@@ -16,7 +16,7 @@
 
     <!-- Meta Keywords -->
     <meta name="keywords"
-        content="lantai, solusi lantai, pemasangan lantai, lantai rumah, lantai komersial, lantai berkualitas tinggi, Meko Flooring">
+        content="lantai, solusi lantai, spc termurah, spc premium berkualitas, lantai spc, lantai komersial, lantai vinyl, Meko Flooring">
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Meko Flooring - Solusi Lantai Berkualitas untuk Rumah Anda">
