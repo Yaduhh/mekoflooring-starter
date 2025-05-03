@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="pt-12 flex gap-8">
-                    <a href="https://www.instagram.com/wpcmegakomposit/" target="_blank"
+                    <a href="https://www.instagram.com/wpcmegakomposit/" target="_blank" aria-label="Instagram Meko Flooring"
                         class="text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                         <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@
                                 fill="currentColor" />
                         </svg>
                     </a>
-                    <a href="https://www.tiktok.com/@wpc_mki" target="_blank"
+                    <a href="https://www.tiktok.com/@wpc_mki" target="_blank" aria-label="Tiktok Mega Komposit"
                         class="text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                         <svg width="25" height="28" viewBox="0 0 17 20" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@
                                 fill="currentColor" />
                         </svg>
                     </a>
-                    <a href="https://megakomposit.com/" target="_blank"
+                    <a href="https://megakomposit.com/" target="_blank" aria-label="Kunjungi Website Utama Kami"
                         class="text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                         <svg width="30" height="30" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="https://wa.me/+628119112416" target="_blank"
+                    <a href="https://wa.me/+628119112416" target="_blank" aria-label="Hubungi kami melalui whatsapp"
                         class="text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                         <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">

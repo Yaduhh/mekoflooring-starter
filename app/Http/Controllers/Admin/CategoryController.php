@@ -100,6 +100,13 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
     }
 
+    public function delete(Category $category)
+    {
+        $category->update(['deleted_status' => '2']);
+        $category->save(); 
+        return redirect()->route('admin.category.recycle')->with('success', 'Kategori berhasil dihapus.');
+    }
+
     // Menambahkan fungsi untuk memulihkan kategori
     public function restore(Category $category)
     {

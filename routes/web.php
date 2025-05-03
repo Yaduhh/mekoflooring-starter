@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard/recycle/categories', [CategoryController::class, 'recycle'])->name('admin.category.recycle');
     Route::get('dashboard/recycle/product', [ProductController::class, 'recycle'])->name('admin.product.recycle');
     Route::put('/categories/{category}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
+    Route::put('/categories/{category}/delete', [CategoryController::class, 'delete'])->name('categories.delete');
     Route::put('/products/{product}/restore', [ProductController::class, 'restore'])->name('products.restore');
     
     Route::redirect('settings', 'settings/profile');

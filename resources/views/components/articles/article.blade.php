@@ -37,12 +37,12 @@
                 {{-- Previous Button --}}
                 @if ($articles->currentPage() > 1)
                     <a href="{{ $articles->previousPageUrl() }}"
-                        class="px-4 py-2 text-sm font-medium text-[#F0BB78] dark:text-[#F0BB78] border border-[#F0BB78] dark:border-[#F0BB78] rounded-lg hover:bg-[#F0BB78] hover:text-white transition duration-300">
+                        class="px-4 py-2 text-sm font-medium text-white bg-[#F0BB78] border border-[#F0BB78] rounded-lg hover:bg-[#F0A34B] hover:text-white transition duration-300">
                         &laquo; Previous
                     </a>
                 @else
                     <span
-                        class="px-4 py-2 text-sm font-medium text-[#999] border border-[#ddd] rounded-lg cursor-not-allowed">
+                        class="px-4 py-2 text-sm font-medium text-white bg-transparent border border-[#ddd] rounded-lg cursor-not-allowed">
                         &laquo; Previous
                     </span>
                 @endif
@@ -50,7 +50,8 @@
                 {{-- Page Numbers --}}
                 @for ($i = 1; $i <= $articles->lastPage(); $i++)
                     <a href="{{ $articles->url($i) }}"
-                        class="px-4 py-2 text-sm font-medium text-[#F0BB78] dark:text-white border border-[#F0BB78] dark:border-[#F0BB78] rounded-lg hover:bg-[#F0BB78] hover:text-white transition duration-300 {{ $i == $articles->currentPage() ? 'bg-[#F0BB78] text-white' : '' }}">
+                        class="px-4 py-2 text-sm font-medium text-[#F0BB78] dark:text-white border border-[#F0BB78] dark:border-[#F0BB78] rounded-lg hover:bg-[#F0BB78] hover:text-white transition duration-300 
+                {{ $i == $articles->currentPage() ? 'bg-[#F0BB78] text-white' : 'bg-transparent' }}">
                         {{ $i }}
                     </a>
                 @endfor
@@ -58,12 +59,12 @@
                 {{-- Next Button --}}
                 @if ($articles->hasMorePages())
                     <a href="{{ $articles->nextPageUrl() }}"
-                        class="px-4 py-2 text-sm font-medium text-[#F0BB78] dark:text-[#F0BB78] border border-[#F0BB78] dark:border-[#F0BB78] rounded-lg hover:bg-[#F0BB78] hover:text-white transition duration-300">
+                        class="px-4 py-2 text-sm font-medium text-white bg-[#F0BB78] border border-[#F0BB78] rounded-lg hover:bg-[#F0A34B] hover:text-white transition duration-300">
                         Next &raquo;
                     </a>
                 @else
                     <span
-                        class="px-4 py-2 text-sm font-medium text-[#999] border border-[#ddd] rounded-lg cursor-not-allowed">
+                        class="px-4 py-2 text-sm font-medium text-white bg-transparent border border-[#ddd] rounded-lg cursor-not-allowed">
                         Next &raquo;
                     </span>
                 @endif

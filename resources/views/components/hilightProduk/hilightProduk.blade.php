@@ -10,7 +10,7 @@
                 </p>
 
                 <div class="py-6 flex gap-8">
-                    <a href="https://www.instagram.com/wpcmegakomposit/" target="_blank"
+                    <a href="https://www.instagram.com/wpcmegakomposit/" target="_blank" aria-label="Instagram Kami"
                         class="text-[#131010] dark:text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer"
                         data-aos="fade-up" data-aos-duration="2000">
                         <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor"
@@ -20,7 +20,7 @@
                                 fill="currentColor" />
                         </svg>
                     </a>
-                    <a href="https://www.tiktok.com/@wpc_mki" target="_blank"
+                    <a href="https://www.tiktok.com/@wpc_mki" target="_blank" aria-label="Tiktok Kami"
                         class="text-[#131010] dark:text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer"
                         data-aos="fade-up" data-aos-duration="2200">
                         <svg width="25" height="28" viewBox="0 0 17 20" fill="currentColor"
@@ -30,7 +30,7 @@
                                 fill="currentColor" />
                         </svg>
                     </a>
-                    <a href="https://megakomposit.com/" target="_blank"
+                    <a href="https://megakomposit.com/" target="_blank" aria-label="Kunjungi Website Utama Kami"
                         class="text-[#131010] dark:text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer"
                         data-aos="fade-up" data-aos-duration="2500">
                         <svg width="30" height="30" viewBox="0 0 22 22" fill="none"
@@ -45,7 +45,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="https://wa.me/+628119112416" target="_blank"
+                    <a href="https://wa.me/+628119112416" target="_blank" aria-label="Hubungi Kami melalui whatsapp"
                         class="text-[#131010] dark:text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer"
                         data-aos="fade-up" data-aos-duration="2500">
                         <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor"

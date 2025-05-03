@@ -20,7 +20,7 @@ class Category extends Model
     ];
 
     protected $casts = [
-        'deleted_status' => 'boolean',
+        'deleted_status' => 'integer',
     ];
 
     public function scopeNotDeleted($query)

@@ -13,7 +13,7 @@
     <!-- Meta Description -->
     <meta name="description"
         content="Meko Flooring menawarkan solusi lantai premium untuk ruang rumah dan komersial. Temukan berbagai material berkualitas tinggi, layanan pemasangan, dan desain kustom untuk mengubah ruang Anda.">
-
+    <meta name="author" content="Meko Flooring">
     <!-- Meta Keywords -->
     <meta name="keywords"
         content="lantai, solusi lantai, spc termurah, spc premium berkualitas, lantai spc, lantai komersial, lantai vinyl, Meko Flooring">
@@ -22,15 +22,16 @@
     <meta property="og:title" content="Meko Flooring - Solusi Lantai Berkualitas untuk Rumah Anda">
     <meta property="og:description"
         content="Meko Flooring menawarkan solusi lantai premium dengan berbagai material dan layanan pemasangan profesional. Tingkatkan ruang hidup atau kerja Anda hari ini!">
-    <meta property="og:image" content="URL_to_image.jpg">
-    <meta property="og:url" content="https://www.mekoflooring.com">
+    <meta property="og:image" content="https://mekoflooring.id/assets/img/logoMekoFlooring.png">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Meko Flooring - Solusi Lantai Berkualitas untuk Rumah Anda">
     <meta name="twitter:description"
         content="Meko Flooring menyediakan solusi lantai terbaik dan layanan pemasangan untuk rumah dan bisnis. Jelajahi berbagai pilihan lantai berkualitas tinggi.">
-    <meta name="twitter:image" content="URL_to_image.jpg">
+    <meta name="twitter:image" content="https://mekoflooring.id/assets/img/logoMekoFlooring.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
