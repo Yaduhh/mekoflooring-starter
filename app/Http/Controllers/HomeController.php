@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         $productsSPC = Product::notDeleted()->where('product_type', 0)->get();
         $productsVinyl = Product::notDeleted()->where('product_type',10)->get();
-        $articles = Article::notDeleted()->paginate(4);
+        $articles = Article::notDeleted()->orderBy('created_at', 'desc')->paginate(4);
         return view('welcome', compact('productsSPC', 'productsVinyl', 'articles'));
     }
 
