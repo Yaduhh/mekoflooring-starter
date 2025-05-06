@@ -50,6 +50,6 @@
                     class="w-full h-auto max-lg:object-cover" />
             </div>
             <p class="font-light max-sm:text-sm max-sm:text-left">Part Of Mega<br />Komposit Indonesia</p>
-    </div>
+        </a>
     </div>
 </section>
