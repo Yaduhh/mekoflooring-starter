@@ -13,10 +13,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $productsSPC = Product::notDeleted()->where('product_type', 0)->get();
-        $productsVinyl = Product::notDeleted()->where('product_type',10)->get();
+        $categories = Category::notDeleted()->get();
+        $productsSPC = Product::notDeleted()->get();
         $articles = Article::notDeleted()->orderBy('created_at', 'desc')->paginate(4);
-        return view('welcome', compact('productsSPC', 'productsVinyl', 'articles'));
+        return view('welcome', compact('categories', 'productsSPC', 'articles'));
     }
 
     public function showCatalogue()

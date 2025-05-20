@@ -48,7 +48,7 @@
 
 <body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#131010] dark:text-white flex items-center min-h-screen flex-col relative z-0">
     <header
-        class="w-full lg:max-w-[90rem] xl:max-w-[75rem] 2xl:max-w-[90rem] text-sm pb-6 pt-6 px-6 lg:px-12 lg:rounded-2xl fixed top-0 lg:top-5 z-10 bg-transparent transition-all duration-300"
+        class="w-full lg:max-w-[90rem] xl:max-w-[75rem] 2xl:max-w-[90rem] text-sm pb-6 pt-6 px-6 lg:px-12 lg:rounded-full fixed top-0 lg:top-5 z-10 bg-transparent transition-all duration-300"
         id="navbar">
         @component('components.navbar.navbar')
         @endcomponent
@@ -61,11 +61,17 @@
 
             @component('components.hilightProduk.hilightProduk')
             @endcomponent
-
-            @component('components.gallery.gallery')
+            
+            @component('components.product.product', ['categories' => $categories, 'productsSPC' => $productsSPC])
             @endcomponent
-
-            @component('components.product.product', ['productsSPC' => $productsSPC, 'productsVinyl' => $productsVinyl])
+            
+            @component('components.mockup.mockup')
+            @endcomponent
+            
+            @component('components.hilightProduk.hilightSection')
+            @endcomponent
+            
+            @component('components.gallery.gallery')
             @endcomponent
 
             @component('components.articles.article', ['articles' => $articles])

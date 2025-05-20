@@ -3,7 +3,7 @@
         <div class="flex items-center gap-6">
             <!-- Logo or Brand Name -->
             <a href="/" class="text-2xl font-semibold text-[#1b1b18] dark:text-[#EDEDEC] w-16 lg:w-auto">
-                <img src="{{ asset('assets/img/logoMekoFlooring.png') }}" alt="logo" />
+                <img src="{{ asset('assets/img/logoMegadoor.png') }}" alt="logo" />
             </a>
         </div>
 
