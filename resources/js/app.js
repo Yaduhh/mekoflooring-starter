@@ -21,6 +21,47 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
     });
-
     splide2.mount({ AutoScroll });
+
+    const splide1 = new Splide("#product-carousel-1", {
+        type: "loop",
+        drag: "free",
+        focus: "center",
+        gap: "50px",
+        autoStart: true,
+        perPage: 5,
+        autoScroll: {
+            speed: -1,
+        },
+        pauseOnHover: true,
+        breakpoints: {
+            768: {
+                perPage: 2,
+                gap: "10px",
+            },
+        },
+    });
+
+    splide1.mount({ AutoScroll });
+
+    const splide3 = new Splide("#product-carousel-3", {
+        type: "loop",
+        drag: "free",
+        focus: "center",
+        gap: "50px",
+        autoStart: true,
+        perPage: 5,
+        autoScroll: {
+            speed: 1,
+        },
+        pauseOnHover: true,
+        breakpoints: {
+            768: {
+                perPage: 2,
+                gap: "10px",
+            },
+        },
+    });
+
+    splide3.mount({ AutoScroll });
 });

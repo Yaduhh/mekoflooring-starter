@@ -1,4 +1,4 @@
-<section id="home" class="w-full flex items-center justify-center h-screen relative z-0 overflow-hidden">
+<section id="home" class="w-full flex items-center lg:items-end justify-center min-h-screen relative z-0 overflow-hidden max-sm:py-20">
     <div class="absolute top-0 -z-10 w-full h-screen left-0 dark:hidden" data-aos="fade-up" data-aos-duration="500">
         <img src="{{ asset('assets/img/backgroundHome.jpg') }}" alt="logo"
             class="w-full h-full max-lg:object-cover lg:min-h-screen" />
@@ -8,9 +8,9 @@
             class="w-full h-full max-lg:object-cover lg:min-h-screen" />
     </div>
 
-    <div class="mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex justify-between items-end h-full gap-20 max-sm:pt-10">
+    <div class="mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col lg:flex-row justify-between items-end h-full gap-20 max-sm:pt-10">
         <div
-            class="w-full flex flex-col justify-center h-full gap-10 max-lg:text-center">
+            class="w-full flex flex-col justify-center h-full gap-10 max-lg:text-center lg:pb-64">
             <div>
                 <h1 class="text-4xl 2xl:text-5xl font-bold text-[#131010]" data-aos="fade-up" data-aos-duration="1000">{{ __('Mega Door') }}
                 </h1>
@@ -20,27 +20,29 @@
     
             <div class="w-full max-lg:px-6 lg:w-[50%] max-lg:mx-auto text-justify" data-aos="fade-up"
                 data-aos-duration="1500">
-                <p class="text-[#555555]">
+                <p class="text-[#555555] max-sm:text-center">
                     {{ __('Minimalist') }} <br>
                     {{ __('Simple') }} <br>
                     {{ __('Elegant') }}
                 </p>
             </div>
     
-            <div class="w-[80%]" data-aos="fade-up" data-aos-duration="1500">
-                <p class="text-[#131010] text-lg">
+            <div class="w-full lg:w-[80%]" data-aos="fade-up" data-aos-duration="1500">
+                <p class="text-[#131010] max-sm:px-6 lg:text-lg">
                     {{ __('Pintu WPC punya karakteristik serat yang mirip dengan kayu dan bisa dilakukan finishing dengan multi material') }}
                 </p>
             </div>
     
             <!-- Form input untuk menghubungi via WhatsApp -->
             <div class="w-full max-lg:px-6 lg:max-w-2xl max-lg:mx-auto" data-aos="fade-up" data-aos-duration="1600">
-                <form id="whatsapp-form" action="https://wa.me/628119112416" method="get" target="_blank">
-                    <div class="bg-white/70 dark:bg-[#131010]/30 backdrop-blur flex items-center p-2 rounded-full">
-                        <input id="whatsapp-message" name="text" class="w-full px-6 py-2 lg:py-4 rounded-l-full"
+                <form id="wa-form" target="_blank">
+                    <div class="bg-white dark:bg-[#131010]/30 backdrop-blur flex items-center p-2 rounded-2xl">
+                        <input id="wa-input" name="text"
+                            class="w-full px-6 py-2 lg:py-4 rounded-l-2xl text-black focus:border-none focus:outline-0"
                             placeholder="Mau nanya apa nih?" required />
+
                         <button type="submit"
-                            class="bg-[#543A14] dark:bg-[#131010] px-4 lg:px-8 py-2 max-sm:pt-3 lg:py-4 rounded-r-full w-fit text-white flex items-center gap-2 font-semibold hover:scale-110 duration-150 transition-all hover:cursor-pointer">
+                            class="bg-[#543A14] dark:bg-[#131010] text-white px-4 lg:px-8 py-2 max-sm:pt-3 lg:py-4 rounded-r-2xl w-fit flex items-center gap-2 font-semibold hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                             <svg width="22" height="25" viewBox="0 0 22 25" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -53,7 +55,7 @@
                 </form>
             </div>
     
-            <div class="flex items-center gap-10" data-aos="fade-up" data-aos-duration="1600">
+            <div class="flex max-sm:justify-center items-center gap-10" data-aos="fade-up" data-aos-duration="1600">
                 <svg class="w-10 hover:fill-white hover:scale-125 duration-200 hover:cursor-pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.8 0H14.2C17.4 0 20 2.6 20 5.8V14.2C20 15.7383 19.3889 17.2135 18.3012 18.3012C17.2135 19.3889 15.7383 20 14.2 20H5.8C2.6 20 0 17.4 0 14.2V5.8C0 4.26174 0.61107 2.78649 1.69878 1.69878C2.78649 0.61107 4.26174 0 5.8 0ZM5.6 2C4.64522 2 3.72955 2.37928 3.05442 3.05442C2.37928 3.72955 2 4.64522 2 5.6V14.4C2 16.39 3.61 18 5.6 18H14.4C15.3548 18 16.2705 17.6207 16.9456 16.9456C17.6207 16.2705 18 15.3548 18 14.4V5.6C18 3.61 16.39 2 14.4 2H5.6ZM15.25 3.5C15.5815 3.5 15.8995 3.6317 16.1339 3.86612C16.3683 4.10054 16.5 4.41848 16.5 4.75C16.5 5.08152 16.3683 5.39946 16.1339 5.63388C15.8995 5.8683 15.5815 6 15.25 6C14.9185 6 14.6005 5.8683 14.3661 5.63388C14.1317 5.39946 14 5.08152 14 4.75C14 4.41848 14.1317 4.10054 14.3661 3.86612C14.6005 3.6317 14.9185 3.5 15.25 3.5ZM10 5C11.3261 5 12.5979 5.52678 13.5355 6.46447C14.4732 7.40215 15 8.67392 15 10C15 11.3261 14.4732 12.5979 13.5355 13.5355C12.5979 14.4732 11.3261 15 10 15C8.67392 15 7.40215 14.4732 6.46447 13.5355C5.52678 12.5979 5 11.3261 5 10C5 8.67392 5.52678 7.40215 6.46447 6.46447C7.40215 5.52678 8.67392 5 10 5ZM10 7C9.20435 7 8.44129 7.31607 7.87868 7.87868C7.31607 8.44129 7 9.20435 7 10C7 10.7956 7.31607 11.5587 7.87868 12.1213C8.44129 12.6839 9.20435 13 10 13C10.7956 13 11.5587 12.6839 12.1213 12.1213C12.6839 11.5587 13 10.7956 13 10C13 9.20435 12.6839 8.44129 12.1213 7.87868C11.5587 7.31607 10.7956 7 10 7Z" fill="#131010"/>
                 </svg>
@@ -75,8 +77,26 @@
             </a>
         </div>
     
-        <div class="w-[50%] h-auto">
+        <div class="w-[50%] h-auto max-sm:mx-auto max-sm:hidden">
             <img src="{{ asset('assets/img/pintu.png') }}" alt="logo" class="w-full h-auto" />
         </div>
     </div>
 </section>
+
+<script>
+    document.getElementById('wa-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+  
+      const userMessage = document.getElementById('wa-input').value.trim();
+      if (!userMessage) {
+          alert('Tolong isi pesan dulu ya!');
+          return;
+      }
+      const fullMessage = `Hi, Saya dari Megadoor.id,\n\n${userMessage}`;
+      const encodedMessage = encodeURIComponent(fullMessage);
+      
+      const waUrl = `https://wa.me/628119112416?text=${encodedMessage}`;
+  
+      window.open(waUrl, '_blank');
+  });
+  </script>

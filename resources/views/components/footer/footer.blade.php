@@ -23,13 +23,14 @@
                     </div>
 
                     <!-- Form input untuk menghubungi via WhatsApp -->
-                    <div class="w-full max-lg:px-6 lg:max-w-xl max-lg:mx-auto" data-aos="fade-up"
-                        data-aos-duration="1600">
-                        <form id="whatsapp-form" action="https://wa.me/628119112416" method="get" target="_blank">
+                    <div class="w-full lg:max-w-xl max-lg:mx-auto" data-aos="fade-up" data-aos-duration="1600">
+                        <form id="wa-form" target="_blank">
                             <div class="bg-white dark:bg-[#131010]/30 backdrop-blur flex items-center p-2 rounded-2xl">
-                                <input id="whatsapp-message" name="text"
-                                    class="w-full px-6 py-2 lg:py-4 rounded-l-2xl text-black"
+
+                                <input id="wa-input" name="text"
+                                    class="w-full px-6 py-2 lg:py-4 rounded-l-2xl text-black focus:border-none focus:outline-0"
                                     placeholder="Mau nanya apa nih?" required />
+
                                 <button type="submit"
                                     class="bg-[#543A14] dark:bg-[#131010] px-4 lg:px-8 py-2 max-sm:pt-3 lg:py-4 rounded-r-2xl w-fit flex items-center gap-2 font-semibold hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                                     <svg width="22" height="25" viewBox="0 0 22 25" fill="none"
@@ -45,8 +46,8 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col w-full text-lg items-center">
-                    <p class="mb-4 font-semibold">{{'Halaman'}}</p>
+                <div class="flex flex-col w-full text-lg items-center max-sm:hidden">
+                    <p class="mb-4 font-semibold">{{ 'Halaman' }}</p>
 
                     <div class="text-gray-400">
                         <a href="/#home" class="block hover:text-[#F0BB78] hover:cursor-pointer">
@@ -65,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-between max-lg:items-center flex-col lg:flex-row gap-6">
+                <div class="flex justify-between items-center flex-row gap-6 max-sm:mx-auto max-sm:pt-10">
                     <a href="https://www.instagram.com/wpcmegakomposit/" target="_blank"
                         aria-label="Instagram Meko Flooring"
                         class="text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer">
@@ -111,8 +112,26 @@
                 </div>
             </div>
         </div>
-        <div class="text-center font-bold py-8 max-sm:px-10 text-white">
-            <p>Copyright &copy; 2025 Meko Flooring. All rights reserved.</p>
+        <div class="text-center font-bold py-4 lg:py-8 max-sm:px-0 text-white">
+            <p>Copyright &copy; 2025 Mega Door. Powered by Mega Komposit Indonesia. All rights reserved.</p>
         </div>
     </div>
 </footer>
+
+<script>
+  document.getElementById('wa-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const userMessage = document.getElementById('wa-input').value.trim();
+    if (!userMessage) {
+        alert('Tolong isi pesan dulu ya!');
+        return;
+    }
+    const fullMessage = `Hi, Saya dari Megadoor.id,\n\n${userMessage}`;
+    const encodedMessage = encodeURIComponent(fullMessage);
+    
+    const waUrl = `https://wa.me/628119112416?text=${encodedMessage}`;
+
+    window.open(waUrl, '_blank');
+});
+</script>

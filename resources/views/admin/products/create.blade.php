@@ -77,9 +77,9 @@
                             class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none py-2 px-4"
                             required>
                             <option value="0" {{ old('product_type') == '0' ? 'selected' : '' }}
-                                class="dark:bg-zinc-700 dark:text-white">{{ __('SPC') }}</option>
+                                class="dark:bg-zinc-700 dark:text-white">{{ __('Produk') }}</option>
                             <option value="1" {{ old('product_type') == '1' ? 'selected' : '' }}
-                                class="dark:bg-zinc-700 dark:text-white">{{ __('Vinyl') }}</option>
+                                class="dark:bg-zinc-700 dark:text-white">{{ __('Aksesoris') }}</option>
                         </select>
                     </div>
 
@@ -111,7 +111,7 @@
                         <!-- Width Produk -->
                         <div class="w-full">
                             <label for="width"
-                                class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Length (mm)') }}</label>
+                                class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Tall (cm)') }}</label>
                             <input type="number" name="width" id="width" value="{{ old('width') }}"
                                 class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none py-2 px-4"
                                 required>
@@ -122,8 +122,8 @@
 
                         <!-- Length -->
                         <div class="w-full">
-                            <label for="length"
-                                class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Width (mm)') }}</label>
+                            <label for="width"
+                                class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Width (cm)') }}</label>
                             <input type="number" name="length" id="length" value="{{ old('length') }}"
                                 class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none py-2 px-4"
                                 required>
@@ -135,7 +135,7 @@
                         <!-- Thickness Produk -->
                         <div class="w-full">
                             <label for="thickness"
-                                class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Thickness (mm)') }}</label>
+                                class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Thickness (cm)') }}</label>
                             <input type="number" name="thickness" id="thickness" value="{{ old('thickness') }}"
                                 class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500 focus:outline-none py-2 px-4"
                                 required>

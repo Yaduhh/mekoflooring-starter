@@ -11,13 +11,28 @@ use App\Models\Category;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::notDeleted()->get();
-        $productsSPC = Product::notDeleted()->get();
+        // Mengambil semua kategori
+        $categories = Category::notDeleted()
+            ->where('id', '!=', 8) // Tambahkan kondisi untuk mengecualikan id 8
+            ->get();
+        $aksesories = Product::notDeleted()->where('product_type', 1)->get();
+
+        if ($request->has('category')) {
+            $productsSPC = Product::notDeleted()
+                ->where('id_category', $request->category)
+                ->where('product_type', 0)
+                ->get();
+        } else {
+            $productsSPC = Product::notDeleted()
+                ->where('product_type', 0)
+                ->get();
+        }
         $articles = Article::notDeleted()->orderBy('created_at', 'desc')->paginate(4);
-        return view('welcome', compact('categories', 'productsSPC', 'articles'));
+        return view('welcome', compact('categories', 'productsSPC', 'articles', 'aksesories'));
     }
+
 
     public function showCatalogue()
     {

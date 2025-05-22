@@ -64,8 +64,11 @@
             
             @component('components.product.product', ['categories' => $categories, 'productsSPC' => $productsSPC])
             @endcomponent
-            
+  
             @component('components.mockup.mockup')
+            @endcomponent
+
+            @component('components.product.aksesoris', ['categories' => $categories, 'aksesories' => $aksesories])
             @endcomponent
             
             @component('components.hilightProduk.hilightSection')

@@ -85,3 +85,18 @@ html {
 #moonIcon, #sunIcon {
     transition: transform 0.5s ease;  /* Rotasi bertahap dengan durasi 0.5 detik */
 }
+
+/* Untuk mencegah scrollbar pada elemen tertentu, seperti container */
+.no-scrollbar {
+    overflow: hidden; /* Mencegah scrollbar muncul */
+}
+
+/* Kalau ingin tetap bisa scroll tanpa scrollbar, gunakan berikut */
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Sembunyikan scrollbar untuk Webkit-based browsers */
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;  /* Untuk IE/Edge */
+    scrollbar-width: none;  /* Untuk Firefox */
+}

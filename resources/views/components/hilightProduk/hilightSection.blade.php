@@ -1,4 +1,4 @@
-<section id="produk" class="bg-[#FFF0DC] pt-6 pb-10">
+<section id="produk" class="bg-[#FFF0DC] pt-6 pb-10 max-sm:px-6">
     <div class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl grid grid-cols-12 gap-6 py-20" data-aos="fade-up"
         data-aos-duration="1500">
         <div class="col-span-12 text-3xl font-bold mb-4">
@@ -6,7 +6,7 @@
             <h1>{{ 'Produk Kami' }}</h1>
         </div>
 
-        <div class="col-span-6">
+        <div class="col-span-12 lg:col-span-6">
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-3 space-y-6 hover:cursor-pointer hover:bg-[#131010] hover:text-white hover:scale-105 duration-200 bg-white rounded-xl p-6">
                     <p class="text-7xl font-bold">{{ '3K+' }}</p>
@@ -35,9 +35,9 @@
             </div>
         </div>
 
-        <div class="col-span-6 bg-white p-6 rounded-xl">
+        <div class="col-span-12 lg:col-span-6 bg-white p-6 rounded-xl">
             <div class="grid grid-cols-12">
-                <div class="col-span-6 flex flex-col justify-between">
+                <div class="col-span-6 flex flex-col justify-between max-sm:space-y-4">
                     <div class="space-y-6">
                         <p class="font-semibold text-xl">{{'Mega Komposit Indonesia'}}</p>
                         <p class="text-pretty">{{'WPC adalah material komposit yang terdiri dari serat polimer termoplastik dengan serat kayu.'}}</p>
