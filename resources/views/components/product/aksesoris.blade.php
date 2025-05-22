@@ -15,7 +15,7 @@
         </div>
         @else
         <!-- Carousel for products -->
-        <div id="product-carousel-1" class="splide" aria-live="polite">
+        <div id="product-carousel-1" class="splide pb-6" aria-live="polite">
             <div class="splide__track">
                 <ul class="splide__list">
                     @foreach ($aksesories as $product)
@@ -33,7 +33,7 @@
                             </a>
                             <div class="absolute bottom-5 z-0 text-white">
                                 <p class="text-xl font-semibold">
-                                    {{ $product->category->name_category }}
+                                    {{ $product->nama }}
                                 </p>
                             </div>
                         </li>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <!-- Carousel for products -->
-        <div id="product-carousel-3" class="splide" aria-live="polite">
+        <div id="product-carousel-3" class="splide pb-6" aria-live="polite">
             <div class="splide__track">
                 <ul class="splide__list">
                     @foreach ($aksesories as $product)
@@ -60,7 +60,7 @@
                             </a>
                             <div class="absolute bottom-5 z-0 text-white">
                                 <p class="text-xl font-semibold">
-                                    {{ $product->category->name_category }}
+                                    {{ $product->nama }}
                                 </p>
                             </div>
                         </li>
