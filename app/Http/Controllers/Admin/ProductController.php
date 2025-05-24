@@ -13,8 +13,14 @@ class ProductController extends Controller
     // Menampilkan semua produk
     public function index()
     {
-        $products = Product::notDeleted()->paginate(8);
+        $products = Product::notDeleted()->where('product_type', 0)->paginate(12);
         return view('admin.products.index', compact('products'));
+    }
+
+    public function aksesoris()
+    {
+        $products = Product::notDeleted()->where('product_type', 1)->paginate(12);
+        return view('admin.products.aksesoris', compact('products'));
     }
 
     public function recycle()

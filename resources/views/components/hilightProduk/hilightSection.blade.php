@@ -1,6 +1,5 @@
 <section id="produk" class="bg-[#FFF0DC] pt-6 pb-10 max-sm:px-6">
-    <div class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl grid grid-cols-12 gap-6 py-20" data-aos="fade-up"
-        data-aos-duration="1500">
+    <div class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl grid grid-cols-12 gap-6 py-20">
         <div class="col-span-12 text-3xl font-bold mb-4">
             <h1>{{ 'Sekilas Tentang' }}</h1>
             <h1>{{ 'Produk Kami' }}</h1>
@@ -17,7 +16,7 @@
                     <p class="text-lg font-medium">{{ 'Tahun Pengalaman' }}</p>
                 </div>
                 <div class="col-span-3 space-y-6 hover:cursor-pointer hover:bg-[#131010] hover:text-white hover:scale-105 duration-200 bg-[#F0BB78]/30 rounded-xl p-6">
-                    <div class="flex gap-4 items-end">
+                    <div class="flex gap-4 lg:items-end max-sm:flex-col">
                         <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M43.2112 14.9C39.8927 7.3062 32.315 2 23.5 2C14.685 2 7.10624 7.3062 3.78879 14.9" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M23.5 12.75C21.4549 14.7495 19.8306 17.1381 18.7229 19.7751C17.6152 22.4121 17.0464 25.244 17.05 28.1042C17.05 28.6417 17.0697 29.1749 17.1091 29.7038C19.1366 31.7015 20.7459 34.0829 21.8431 36.7091C22.9404 39.3353 23.5036 42.1538 23.5 45C23.4962 42.1536 24.0594 39.3349 25.1567 36.7085C26.254 34.0821 27.8633 31.7005 29.8909 29.7028C29.9303 29.1753 29.95 28.6424 29.95 28.1042C29.9536 25.244 29.3848 22.4121 28.2771 19.7751C27.1694 17.1381 25.5451 14.7495 23.5 12.75Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>

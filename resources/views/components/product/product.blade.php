@@ -1,5 +1,5 @@
 <section id="produk" class="h-auto lg:min-h-screen bg-[#131010] flex flex-col justify-center overflow-hidden">
-    <div class="w-full flex flex-col py-10 lg:py-20" data-aos="fade-up" data-aos-duration="1500">
+    <div class="w-full flex flex-col py-10 lg:py-20">
         <div class="text-center">
             <p class="text-sm text-[#F0BB78] font-semibold capitalize max-lg:px-6">
                 {{ __('Our Products') }}
@@ -31,7 +31,7 @@
         </div>
         @else
         <!-- Carousel for products -->
-        <div id="product-carousel-2" class="splide" aria-live="polite">
+        <div id="product-carousel-2" class="splide pb-10" aria-live="polite">
             <div class="splide__track">
                 <ul class="splide__list">
                     @foreach ($productsSPC as $product)

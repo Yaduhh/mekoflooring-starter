@@ -27,6 +27,7 @@ Route::post('/articles/upload-image', [ArticleController::class, 'uploadImage'])
 Route::delete('/articles/delete-image', [ArticleController::class, 'deleteImage'])->name('articles.deleteImage');
 
 Route::get('show-catalogue', [HomeController::class, 'showCatalogue'])->name('catalogue.public.show');
+Route::get('show-aksesoris/{slug}', [HomeController::class, 'showAksesoris'])->name('aksesoris.public.show');
 
 Route::view('dashboard', 'dashboard')
 ->middleware(['auth', 'verified'])
@@ -41,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::get('dashboard/recycle/categories', [CategoryController::class, 'recycle'])->name('admin.category.recycle');
     Route::get('dashboard/recycle/product', [ProductController::class, 'recycle'])->name('admin.product.recycle');
+    Route::get('dashboard/aksesoris/product', [ProductController::class, 'aksesoris'])->name('admin.product.aksesoris');
     Route::put('/categories/{category}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
     Route::put('/categories/{category}/delete', [CategoryController::class, 'delete'])->name('categories.delete');
     Route::put('/products/{product}/restore', [ProductController::class, 'restore'])->name('products.restore');

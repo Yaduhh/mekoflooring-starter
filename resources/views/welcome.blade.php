@@ -156,7 +156,7 @@
                 let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
                 navbar.style.backgroundColor = backgroundColor;
             }
-            navbar.classList.add("text-white");
+            navbar.classList.add("text-[#1b1b18]");
 
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
@@ -175,7 +175,7 @@
                 } else {
                     navbar.classList.remove("backdrop-blur");
                     navbar.classList.remove("shadow-lg");
-                    navbar.classList.add("text-white");
+                    navbar.classList.add("text-[#1b1b18]");
                     updateNavbarBackground();
                 }
             });

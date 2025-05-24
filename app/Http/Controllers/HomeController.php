@@ -47,9 +47,14 @@ class HomeController extends Controller
         return view('products.detail', compact('product'));
     }
 
+    public function showAksesoris($slug)
+    {
+        $product = Product::where('slug_produk', $slug)->firstOrFail();
+        return view('products.aksesorisDetail', compact('product'));
+    }
+
     public function showArticle($slug)
     {
-        // Ambil artikel berdasarkan slug dengan status 'published' dan deleted_status 0
         $article = Article::where('slug', $slug)
             ->where('status', 'published')
             ->where('deleted_status', 0)

@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
         type: "loop",
         drag: "free",
         focus: "center",
-        gap: "50px",
+        gap: "10px",
         autoStart: true,
-        perPage: 5,
+        perPage: 3,
         autoScroll: {
-            speed: -1,
+            speed: -0.5,
         },
         pauseOnHover: true,
         breakpoints: {
@@ -43,25 +43,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     splide1.mount({ AutoScroll });
-
-    const splide3 = new Splide("#product-carousel-3", {
-        type: "loop",
-        drag: "free",
-        focus: "center",
-        gap: "50px",
-        autoStart: true,
-        perPage: 5,
-        autoScroll: {
-            speed: 1,
-        },
-        pauseOnHover: true,
-        breakpoints: {
-            768: {
-                perPage: 2,
-                gap: "10px",
-            },
-        },
-    });
-
-    splide3.mount({ AutoScroll });
 });

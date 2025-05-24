@@ -1,5 +1,5 @@
 <section id="gallery" class="bg-[#FFF0DC]">
-    <div class="w-full mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col gap-2 md:gap-8 py-0 max-sm:pb-10 lg:py-14 max-sm:px-6" data-aos="fade-up" data-aos-duration="1000">
+    <div class="w-full mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col gap-2 md:gap-8 py-0 max-sm:pb-10 lg:py-14 max-sm:px-6">
         <div>
             <h1 class="text-2xl lg:text-3xl font-bold capitalize max-sm:text-center max-lg:px-6 max-md:px-0">
                 {{ 'Keindahan Alami untuk Kamu' }}
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div> 
-            <div class="col-span-12 lg:col-span-6 space-y-6 relative z-0" data-aos="fade-up" data-aos-duration="1000">
+            <div class="col-span-12 lg:col-span-6 space-y-6 relative z-0">
                 <img src="{{ asset('assets/img/galleryPic2.jpg') }}" alt="logo" class="w-full h-auto rounded-xl" />
                 <div class="absolute top-4 right-4 bg-[#FFF0DC] p-4 rounded-full">
                     <svg width="27" height="28" viewBox="0 0 27 28" fill="none"
@@ -43,7 +43,7 @@
                     </svg>
                 </div>
 
-                <div class="grid grid-cols-6 gap-6" data-aos="fade-up" data-aos-duration="1000">
+                <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-3 relative z-0">
                         <img src="{{ asset('assets/img/galleryPic3.jpg') }}" alt="logo"
                             class="w-full h-auto rounded-xl" />
