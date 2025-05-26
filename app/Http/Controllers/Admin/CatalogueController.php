@@ -46,7 +46,7 @@ class CatalogueController extends Controller
             'status' => 'required|string',
             'deskripsi' => 'required|string',
             'views' => 'nullable|integer',
-            'product_type' => 'required|boolean',
+            'product_type' => 'required|integer',
         ]);
 
         $imagePath = $request->file('images')->store('catalogue', 'public');
@@ -90,7 +90,7 @@ class CatalogueController extends Controller
             'status' => 'required|string',
             'deskripsi' => 'required|string',
             'views' => 'nullable|integer',
-            'product_type' => 'required|boolean',
+            'product_type' => 'required|integer',
         ]);
 
         // Memeriksa apakah ada file gambar yang diupload

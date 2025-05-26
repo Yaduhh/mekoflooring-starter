@@ -19,22 +19,25 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="kode_produk" class="block text-sm font-medium text-gray-700">{{ __('kode_produk') }}</label>
-                    <input type="text" name="kode_produk" id="kode_produk"
+                    <input type="text" name="kode_produk" id="kode_produk" placeholder="masukkan kode produk"
                         class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
                 </div>
 
                 <div>
                     <label for="images" class="block text-sm font-medium text-gray-700">{{ __('Image') }}</label>
-                    <input type="file" name="images" id="images"
+                    <input type="file" name="images" id="images" 
                         class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
                 </div>
 
                 <div>
                     <label for="product_type" class="block text-sm font-medium text-gray-700">{{ __('Type Product') }}</label>
                     <select name="product_type" id="product_type"
-                        class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                        <option value="0">{{ __('SPC') }}</option>
-                        <option value="1">{{ __('Vinyl') }}</option>
+                        class="mt-1 block w-full border border-gray-300 bg-accent-foreground rounded-md p-2" required>
+                        <option value="0">{{ __('Standar Color') }}</option>
+                        <option value="1">{{ __('Extra Finishing') }}</option>
+                        <option value="2">{{ __('Laminate Finishing') }}</option>
+                        <option value="3">{{ __('Door Handle') }}</option>
+                        <option value="4">{{ __('CNC Grafir Design') }}</option>
                     </select>
                 </div>
 

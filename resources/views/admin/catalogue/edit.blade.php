@@ -39,8 +39,11 @@
                 <div>
                     <label for="product_type" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('Tipe Produk') }}</label>
                     <select name="product_type" id="product_type" class="mt-1 block w-full border border-gray-300 dark:border-neutral-700 rounded-md p-3 shadow-sm focus:ring-amber-800 focus:border-amber-800" required>
-                        <option value="0" @if($catalogue->product_type == '0') selected @endif>{{ __('SPC') }}</option>
-                        <option value="1" @if($catalogue->product_type == '1') selected @endif>{{ __('Vinyl') }}</option>
+                        <option value="0" @if($catalogue->product_type == '0') selected @endif>{{ __('Standar Color') }}</option>
+                        <option value="1" @if($catalogue->product_type == '1') selected @endif>{{ __('Extra Finishing') }}</option>
+                        <option value="2" @if($catalogue->product_type == '2') selected @endif>{{ __('Laminate Finishing') }}</option>
+                        <option value="3" @if($catalogue->product_type == '3') selected @endif>{{ __('Door Handle') }}</option>
+                        <option value="4" @if($catalogue->product_type == '4') selected @endif>{{ __('CNC Grafir Design') }}</option>
                     </select>
                 </div>
 

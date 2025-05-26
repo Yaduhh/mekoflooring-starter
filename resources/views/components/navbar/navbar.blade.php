@@ -24,11 +24,11 @@
                 Tentang
             </a>
             <a href="{{ route('floor.index') }}" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
-                Floor View
+                Door View
             </a>
         </div>
 
-        <!-- Desktop Navigation Links -->
+        {{--<!-- Desktop Navigation Links -->
         <div class="hidden lg:flex items-center gap-4">
             <!-- Tombol Dark Mode -->
             <button id="darkModeToggle"
@@ -55,7 +55,7 @@
 
                 <span id="modeText"></span>
             </button>
-        </div>
+        </div>--}}
 
         <!-- Mobile Hamburger Menu -->
         <div class="lg:hidden">

@@ -45,7 +45,7 @@
 </head>
 
 
-<body class="bg-[#FDFDFC] dark:bg-[#131010] text-[#1b1b18] flex items-center lg:justify-between min-h-screen flex-col relative z-0">
+<body class="bg-[#FFF0DC] text-[#1b1b18] flex items-center lg:justify-between min-h-screen flex-col relative z-0">
     <header
         class="w-full lg:max-w-[90rem] xl:max-w-[75rem] 2xl:max-w-[90rem] text-sm pb-6 pt-6 px-6 lg:px-12 lg:rounded-2xl fixed top-0 lg:top-5 z-10 bg-transparent transition-all duration-300"
         id="navbar">
