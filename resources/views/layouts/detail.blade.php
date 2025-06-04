@@ -80,46 +80,26 @@
     @component('components.footer.footer')
     @endcomponent
 
-    <script>
+     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const html = document.documentElement;
-            const navbar = document.getElementById('navbar');
             const darkModeToggle = document.getElementById("darkModeToggle");
             const moonIcon = document.getElementById("moonIcon");
             const sunIcon = document.getElementById("sunIcon");
             const modeText = document.getElementById("modeText");
 
-            // Function to update navbar background and text color based on theme
-            function updateNavbarBackground() {
-                const darkModeActive = html.classList.contains("dark");
-
-                if (window.scrollY > 0) {
-                    let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
-                    navbar.style.backgroundColor = backgroundColor;
-                }
-
-                if (darkModeActive) {
-                    navbar.classList.add("text-white");
-                    navbar.classList.remove("text-[#543A14]");
-                } else {
-                    navbar.classList.remove("text-white");
-                    navbar.classList.add("text-[#543A14]");
-                }
-            }
-
             if (localStorage.getItem("theme") === "dark") {
                 html.classList.add("dark");
                 sunIcon.classList.add("hidden");
                 moonIcon.classList.remove("hidden");
-                modeText.innerText = "Dark";
+                modeText.innerText = "Dark Mode";
             } else {
                 html.classList.remove("dark");
                 sunIcon.classList.remove("hidden");
                 moonIcon.classList.add("hidden");
-                modeText.innerText = "Light";
+                modeText.innerText = "Light Mode";
             }
 
-            // Dark mode toggle
             darkModeToggle.addEventListener("click", function() {
                 moonIcon.style.transform = "rotate(180deg)";
                 sunIcon.style.transform = "rotate(180deg)";
@@ -129,29 +109,53 @@
                         localStorage.setItem("theme", "light");
                         sunIcon.classList.remove("hidden");
                         moonIcon.classList.add("hidden");
-                        modeText.innerText = "Light";
+                        modeText.innerText = "Light Mode";
                     } else {
                         html.classList.add("dark");
                         localStorage.setItem("theme", "dark");
                         sunIcon.classList.add("hidden");
                         moonIcon.classList.remove("hidden");
-                        modeText.innerText = "Dark";
+                        modeText.innerText = "Dark Mode";
                     }
                     moonIcon.style.transform = "rotate(0deg)";
                     sunIcon.style.transform = "rotate(0deg)";
-                    
+
                     updateNavbarBackground();
                 }, 300);
             });
 
+            function updateNavbarBackground() {
+                const navbar = document.getElementById('navbar');
+                const darkModeActive = html.classList.contains("dark");
+                let backgroundColor = darkModeActive ? '#543A14' : 'rgba(255, 255, 255, 0)';
+                navbar.style.backgroundColor = backgroundColor;
+                navbar.classList.remove("backdrop-blur");
+            }
+
+            updateNavbarBackground();
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbar = document.getElementById('navbar');
+            const html = document.documentElement;
+
+            function updateNavbarBackground() {
+                const darkModeActive = html.classList.contains("dark");
+                let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
+                navbar.style.backgroundColor = backgroundColor;
+            }
+            navbar.classList.add("text-[#1b1b18]");
+
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
-
                 if (scrollPosition > 0) {
                     navbar.classList.add("backdrop-blur");
                     navbar.classList.add("shadow-lg");
                     const opacityValue = Math.min(scrollPosition / 200, 0.7);
                     const darkModeActive = html.classList.contains("dark");
+                    navbar.classList.remove("text-white");
 
                     if (darkModeActive) {
                         navbar.style.backgroundColor = `rgba(84, 58, 20, ${opacityValue})`;
@@ -161,15 +165,14 @@
                 } else {
                     navbar.classList.remove("backdrop-blur");
                     navbar.classList.remove("shadow-lg");
-                    updateNavbarBackground(); 
+                    navbar.classList.add("text-[#1b1b18]");
+                    updateNavbarBackground();
                 }
             });
-            
+
             updateNavbarBackground();
         });
     </script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 </body>
 

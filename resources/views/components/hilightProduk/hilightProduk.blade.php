@@ -1,7 +1,7 @@
-<section id="hilight" class="w-full min-h-screen relative overflow-hidden z-0 flex flex-col justify-center bg-[#FFF0DC] max-sm:pt-10">
+<section id="hilight" class="w-full min-h-screen relative overflow-hidden z-0 flex flex-col justify-center bg-[#FFF0DC] max-sm:pt-10 2xl:py-20">
     <div class="w-full mx-auto lg:xl:max-w-6xl 2xl:max-w-7xl grid grid-cols-12">
-        <div class="max-sm:hidden col-span-4"></div>
-        <div class="col-span-12 lg:col-span-8 lg:pl-10 max-sm:px-6">
+        <div class="max-sm:hidden col-span-4 2xl:col-span-5"></div>
+        <div class="col-span-12 lg:col-span-8 2xl:col-span-7 lg:pl-10 max-sm:px-6">
             <div class="mb-4">
                 <img src="{{ asset('assets/img/logoWithoutText.png') }}" alt="logo" class="w-auto h-auto" />
             </div>

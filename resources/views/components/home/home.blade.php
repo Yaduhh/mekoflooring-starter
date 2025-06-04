@@ -1,16 +1,12 @@
-<section id="home" class="w-full flex items-center lg:items-end justify-center min-h-screen relative z-0 overflow-hidden max-sm:py-20">
+<section id="home" class="w-full flex items-center lg:items-center justify-center min-h-screen relative z-0 overflow-hidden max-sm:py-20">
     <div class="absolute top-0 -z-10 w-full h-screen left-0 dark:hidden" data-aos="fade-up" data-aos-duration="500">
         <img src="{{ asset('assets/img/backgroundHome.jpg') }}" alt="logo"
             class="w-full h-full max-lg:object-cover lg:min-h-screen" />
     </div>
-    <div class="absolute top-0 -z-10 w-full h-screen left-0 hidden dark:block" data-aos="fade-up" data-aos-duration="500">
-        <img src="{{ asset('assets/img/backgroundHomeDark.jpg') }}" alt="logo"
-            class="w-full h-full max-lg:object-cover lg:min-h-screen" />
-    </div>
 
-    <div class="mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col lg:flex-row justify-between items-end h-full gap-20 max-sm:pt-10">
+    <div class="mx-auto xl:xl:max-w-6xl 2xl:max-w-7xl flex flex-col lg:flex-row justify-between items-center h-full max-sm:pt-10">
         <div
-            class="w-full flex flex-col justify-center h-full gap-10 max-lg:text-center lg:pb-64">
+            class="w-full flex flex-col justify-center h-full gap-10 max-lg:text-center">
             <div>
                 <h1 class="text-4xl 2xl:text-5xl font-bold text-[#131010]" data-aos="fade-up" data-aos-duration="1000">{{ __('Mega Door') }}
                 </h1>
@@ -68,7 +64,7 @@
             </div>
 
             <a href="https://megakomposit.com" target="_blank"
-                class="text-[#131010] flex items-end gap-2 absolute bottom-10 lg:bottom-20 max-sm:left-6 lg:right-12">
+                class="text-[#131010] flex items-end gap-2 absolute bottom-10 lg:bottom-20 max-sm:left-6 lg:right-6">
                 <div class="w-12 lg:w-16">
                     <img src="{{ asset('assets/img/logomki.png') }}" alt="logo"
                         class="w-full h-auto max-lg:object-cover" />
@@ -77,8 +73,12 @@
             </a>
         </div>
     
-        <div class="w-[50%] h-auto max-sm:mx-auto max-sm:hidden">
-            <img src="{{ asset('assets/img/pintu.png') }}" alt="logo" class="w-full h-auto" />
+        {{-- COL 2 --}}
+        <div class="w-[50%] h-full flex flex-col min-h-screen justify-between items-stretch max-sm:mx-auto max-sm:hidden">
+            <div class="h-full"></div>
+            <div class="bg-red-500 h-full">
+                <img src="{{ asset('assets/img/pintu.png') }}" alt="logo" class="w-full h-auto" />
+            </div>
         </div>
     </div>
 </section>

@@ -100,8 +100,8 @@
                         <div>
                             <label for="product_type" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Tipe Produk') }}</label>
                             <select name="product_type" id="product_type" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required>
-                                <option value="0" {{ old('product_type', $product->product_type) == '0' ? 'selected' : '' }}>{{ __('SPC') }}</option>
-                                <option value="1" {{ old('product_type', $product->product_type) == '1' ? 'selected' : '' }}>{{ __('Vinyl') }}</option>
+                                <option value="0" {{ old('product_type', $product->product_type) == '0' ? 'selected' : '' }}>{{ __('Produk') }}</option>
+                                <option value="1" {{ old('product_type', $product->product_type) == '1' ? 'selected' : '' }}>{{ __('Aksesoris') }}</option>
                             </select>
                         </div>
                         

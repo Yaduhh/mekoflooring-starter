@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function showAksesoris($slug)
     {
         $product = Product::where('slug_produk', $slug)->firstOrFail();
-        return view('products.aksesorisDetail', compact('product'));
+        return view('products.aksesorisdetail', compact('product'));
     }
 
     public function showArticle($slug)
