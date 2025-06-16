@@ -108,6 +108,216 @@
                 @endforeach
             </div>
 
+            <div class="space-y-10 mt-12">
+                <!-- Judul Utama -->
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-white border-b-2 border-amber-500 dark:border-amber-400 pb-3">SPECIFICATION</h2>
+
+                <!-- DESCRIPTION -->
+                <div class="transform hover:scale-[1.01] transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-amber-700 dark:text-amber-400 mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-amber-500 dark:bg-amber-400 rounded-full mr-3"></span>
+                        DESCRIPTION
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <thead>
+                                <tr class="bg-gradient-to-r from-amber-50 to-amber-100 dark:from-gray-700 dark:to-gray-800">
+                                    <th class="p-4 border-b dark:border-gray-600 font-semibold text-gray-700 dark:text-gray-200">Item</th>
+                                    <th class="p-4 border-b dark:border-gray-600 font-semibold text-gray-700 dark:text-gray-200">Standard</th>
+                                    <th class="p-4 border-b dark:border-gray-600 font-semibold text-gray-700 dark:text-gray-200">Unit</th>
+                                    <th class="p-4 border-b dark:border-gray-600 font-semibold text-gray-700 dark:text-gray-200">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td rowspan="2" class="p-4 text-gray-700 dark:text-gray-300 font-medium">Total thickness</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO24346 (EN 428)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">m</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">5.0 (4+11XPE)</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">ASTM F386</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">inch</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">0.196</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td rowspan="2" class="p-4 text-gray-700 dark:text-gray-300 font-medium">Thickness of wear layer</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO24340 (EN 429)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">mm</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">0.3</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">ASTM F410</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">inch</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">0.012</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Weight</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO23997 (EN 430)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">kg/m²</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">&gt;8</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td rowspan="2" class="p-4 text-gray-700 dark:text-gray-300 font-medium">Size</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO24342 (EN 427)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">mm</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">182 x 1220</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">ASTM F536</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">inch</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">7.2 x 48"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- CLASSIFICATION -->
+                <div class="transform hover:scale-[1.01] transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-amber-700 dark:text-amber-400 mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-amber-500 dark:bg-amber-400 rounded-full mr-3"></span>
+                        CLASSIFICATION
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Norm/Product specification</td>
+                                    <td colspan="2" class="p-4 text-gray-600 dark:text-gray-400">ASTM F1700</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Class I Type B</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400"></td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">European classification</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO10874 (EN 685)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">clas5</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">33–42</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Fire rating</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN 13501-1</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">clas5</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Bfl-s1</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Static electrical propensity</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN 1815</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">Kv</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">{{"("}}2</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Slip resistance wet</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">DIN 51130</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">class</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">R10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- PERFORMANCES -->
+                <div class="transform hover:scale-[1.01] transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-amber-700 dark:text-amber-400 mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-amber-500 dark:bg-amber-400 rounded-full mr-3"></span>
+                        PERFORMANCES
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Wear Resistance</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN 6602</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">mm</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">&lt;2.0</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Wear Group</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">NF 189</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">group</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">T</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Type Binder content</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">ISO10582</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">group</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400"></td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Impact Sound Insulation</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO717-2</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">dB</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">4</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Dimensional Stability</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO23999 (EN 434)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">%</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">&lt;0.15</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Residual Indentation</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO24343-1 (EN 433)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">mm</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">&lt;0.10</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Castor Chair Test</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN 425</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400"></td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">OK</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Thermal Conductivity</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO10456 (EN 12524)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">W/(mk)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">0.25</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Colour Fastness</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN 20.105-802</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">degree</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">&gt;6</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Special maintenance treatment</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400"></td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400"></td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">PUR Matt</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">Chemical Products Resistance</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">EN ISO16000 (EN 423)</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400"></td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">OK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ENVIRONMENT -->
+                <div class="transform hover:scale-[1.01] transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-amber-700 dark:text-amber-400 mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-amber-500 dark:bg-amber-400 rounded-full mr-3"></span>
+                        ENVIRONMENT / INDOOR AIR QUALITY
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="hover:bg-amber-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <td class="p-4 text-gray-700 dark:text-gray-300 font-medium">TVOC after 28 days</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">ISO16000-6</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">µg/m³</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400">&lt;10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
             <div class="mt-6 lg:mt-12">
                 <a href="/floor/view-simulation/show" class="w-full">
                     <img src="{{ asset('assets/img/bannerAds.png') }}" alt="logo" />
