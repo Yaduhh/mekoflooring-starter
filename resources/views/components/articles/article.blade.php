@@ -16,7 +16,10 @@
                     </div>
                     <div class="w-full md:w-2/3 flex flex-col justify-between p-6">
                         <div class="flex flex-col">
-                            <h2 class="text-2xl font-bold text-[#333] dark:text-white mb-4">{{ $article->title }}</h2>
+                            <h2 class="text-2xl font-bold text-[#333] dark:text-white mb-2">{{ $article->title }}</h2>
+                            <p class="text-sm text-[#666] dark:text-gray-400 mb-4">
+                                {{ \Carbon\Carbon::parse($article->created_at)->locale('id')->isoFormat('D MMMM Y') }}
+                            </p>
                             <p class="text-[#555] dark:text-gray-300 text-lg mb-4 line-clamp-3 text-justify">
                                 {{ $article->sinopsis }}</p>
                         </div>

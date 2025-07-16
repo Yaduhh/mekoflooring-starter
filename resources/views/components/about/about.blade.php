@@ -56,7 +56,7 @@
                             </svg>
                             <p>WPC MEGA KOMPOSIT</p>
                         </a>
-                        <a href="https://wa.me/+628119112416" target="_blank"
+                        <a href="https://wa.me/+6281112016231" target="_blank"
                             class="text-[#543A14] dark:text-[#FDFDFC] hover:text-[#F0BB78] flex gap-2 hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                             <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">

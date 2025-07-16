@@ -45,7 +45,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="https://wa.me/+628119112416" target="_blank" aria-label="Hubungi Kami melalui whatsapp"
+                    <a href="https://wa.me/+6281112016231" target="_blank" aria-label="Hubungi Kami melalui whatsapp"
                         class="text-[#131010] dark:text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer"
                         data-aos="fade-up" data-aos-duration="2500">
                         <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor"

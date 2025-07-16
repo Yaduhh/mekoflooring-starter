@@ -25,7 +25,7 @@
 
         <!-- Form input untuk menghubungi via WhatsApp -->
         <div class="w-full max-lg:px-6 lg:w-[50%] max-lg:mx-auto" data-aos="fade-up" data-aos-duration="1600">
-            <form id="whatsapp-form" action="https://wa.me/628119112416" method="get" target="_blank">
+            <form id="whatsapp-form" action="https://wa.me/6281112016231" method="get" target="_blank">
                 <div class="bg-white/70 dark:bg-[#131010]/30 backdrop-blur flex items-center p-2 rounded-full">
                     <input id="whatsapp-message" name="text" class="w-full px-6 py-2 lg:py-4 rounded-l-full"
                         placeholder="Mau nanya apa nih?" required />

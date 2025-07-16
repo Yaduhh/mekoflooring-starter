@@ -50,7 +50,7 @@
                     <div class="space-y-6 text-justify">
                         <p>Hubungi kami untuk mendapatkan penawaran menarik dengan hubungi cs kami melalui WhatsApp.</p>
 
-                        <a href="https://wa.me/628119112416" target="_blank" data-aos="fade-up" data-aos-duration="1600"
+                        <a href="https://wa.me/6281112016231" target="_blank" data-aos="fade-up" data-aos-duration="1600"
                             class="w-fit text-[#131010] dark:text-white flex items-center gap-2 font-semibold hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                             <svg width="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path

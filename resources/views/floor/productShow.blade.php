@@ -213,7 +213,7 @@
                 const message =
                     `Hi, Admin\nPanjang Ruangan = ${length}m\nLebar Ruangan = ${width}m\nJumlah Box = ${areaDivided}\n\nSaya ingin mengetahui informasi lebih lanjut`;
 
-                whatsappBtn.href = `https://wa.me/+628119112416?text=${encodeURIComponent(message)}`;
+                whatsappBtn.href = `https://wa.me/+6281112016231?text=${encodeURIComponent(message)}`;
                 whatsappBtn.classList.remove('hidden');
             });
         });
