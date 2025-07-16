@@ -29,7 +29,7 @@ class HomeController extends Controller
                 ->where('product_type', 0)
                 ->get();
         }
-        $articles = Article::notDeleted()->orderBy('created_at', 'desc')->paginate(4);
+        $articles = Article::notDeleted()->orderBy('created_at', 'desc')->paginate(6);
         return view('welcome', compact('categories', 'productsSPC', 'articles', 'aksesories'));
     }
 
@@ -38,7 +38,8 @@ class HomeController extends Controller
     {
         $catalogueSPC = Catalogue::where('status_deleted', 0)->where('product_type', 0)->get();
         $catalogueVinyl = Catalogue::where('status_deleted', 0)->where('product_type', 1)->get();
-        return view('catalogue.catalogue', compact('catalogueSPC', 'catalogueVinyl'));
+        $catalogueLaminate = Catalogue::where('status_deleted', 0)->where('product_type', 2)->get();
+        return view('catalogue.catalogue', compact('catalogueSPC', 'catalogueVinyl', 'catalogueLaminate'));
     }
 
     public function show($slug)

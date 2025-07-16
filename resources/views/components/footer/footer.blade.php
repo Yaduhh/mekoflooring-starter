@@ -100,7 +100,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="https://wa.me/+628119112416" target="_blank" aria-label="Hubungi kami melalui whatsapp"
+                    <a href="https://wa.me/+6281112016231" target="_blank" aria-label="Hubungi kami melalui whatsapp"
                         class="text-white hover:text-[#F0BB78] hover:scale-110 duration-150 transition-all hover:cursor-pointer">
                         <svg width="28" height="28" viewBox="0 0 20 20" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +130,7 @@
     const fullMessage = `Hi, Saya dari Megadoor.id,\n\n${userMessage}`;
     const encodedMessage = encodeURIComponent(fullMessage);
     
-    const waUrl = `https://wa.me/628119112416?text=${encodedMessage}`;
+    const waUrl = `https://wa.me/6281112016231?text=${encodedMessage}`;
 
     window.open(waUrl, '_blank');
 });

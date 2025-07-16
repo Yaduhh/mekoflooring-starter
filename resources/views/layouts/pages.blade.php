@@ -65,76 +65,24 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const html = document.documentElement;
             const navbar = document.getElementById('navbar');
-            const darkModeToggle = document.getElementById("darkModeToggle");
-            const moonIcon = document.getElementById("moonIcon");
-            const sunIcon = document.getElementById("sunIcon");
-            const modeText = document.getElementById("modeText");
+            const html = document.documentElement;
 
-            // Function to update navbar background and text color based on theme
             function updateNavbarBackground() {
                 const darkModeActive = html.classList.contains("dark");
-
-                if (window.scrollY > 0) {
-                    let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
-                    navbar.style.backgroundColor = backgroundColor;
-                }
-
-                if (darkModeActive) {
-                    navbar.classList.add("text-white");
-                    navbar.classList.remove("text-[#543A14]");
-                } else {
-                    navbar.classList.remove("text-white");
-                    navbar.classList.add("text-[#543A14]");
-                }
+                let backgroundColor = darkModeActive ? 'rgba(84, 58, 20, 0)' : 'rgba(255, 255, 255, 0)';
+                navbar.style.backgroundColor = backgroundColor;
             }
-
-            if (localStorage.getItem("theme") === "dark") {
-                html.classList.add("dark");
-                sunIcon.classList.add("hidden");
-                moonIcon.classList.remove("hidden");
-                modeText.innerText = "Dark";
-            } else {
-                html.classList.remove("dark");
-                sunIcon.classList.remove("hidden");
-                moonIcon.classList.add("hidden");
-                modeText.innerText = "Light";
-            }
-
-            // Dark mode toggle
-            darkModeToggle.addEventListener("click", function() {
-                moonIcon.style.transform = "rotate(180deg)";
-                sunIcon.style.transform = "rotate(180deg)";
-                setTimeout(function() {
-                    if (html.classList.contains("dark")) {
-                        html.classList.remove("dark");
-                        localStorage.setItem("theme", "light");
-                        sunIcon.classList.remove("hidden");
-                        moonIcon.classList.add("hidden");
-                        modeText.innerText = "Light";
-                    } else {
-                        html.classList.add("dark");
-                        localStorage.setItem("theme", "dark");
-                        sunIcon.classList.add("hidden");
-                        moonIcon.classList.remove("hidden");
-                        modeText.innerText = "Dark";
-                    }
-                    moonIcon.style.transform = "rotate(0deg)";
-                    sunIcon.style.transform = "rotate(0deg)";
-
-                    updateNavbarBackground();
-                }, 300);
-            });
+            navbar.classList.add("text-[#1b1b18]");
 
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
-
                 if (scrollPosition > 0) {
                     navbar.classList.add("backdrop-blur");
                     navbar.classList.add("shadow-lg");
                     const opacityValue = Math.min(scrollPosition / 200, 0.7);
                     const darkModeActive = html.classList.contains("dark");
+                    navbar.classList.remove("text-white");
 
                     if (darkModeActive) {
                         navbar.style.backgroundColor = `rgba(84, 58, 20, ${opacityValue})`;
@@ -144,6 +92,7 @@
                 } else {
                     navbar.classList.remove("backdrop-blur");
                     navbar.classList.remove("shadow-lg");
+                    navbar.classList.add("text-[#1b1b18]");
                     updateNavbarBackground();
                 }
             });
@@ -154,6 +103,11 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
