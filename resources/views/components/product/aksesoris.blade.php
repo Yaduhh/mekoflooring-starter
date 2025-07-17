@@ -26,15 +26,15 @@
                             <ul class="splide__list">
                                 @foreach ($aksesories as $product)
                                     <li
-                                        class="splide__slide w-full relative z-0 overflow-hidden group hover:scale-105 duration-200 pt-6 lg:pt-10">
+                                        class="splide__slide w-full relative z-0 overflow-hidden group hover:scale-105 duration-200 pt-6 lg:py-10 lg:pb-14">
                                         <a href="{{ route('aksesoris.public.show', ['slug' => $product->slug_produk]) }}"
-                                            class="relative w-full h-full block" role="link"
+                                            class="relative w-full h-full block aspect-square" role="link"
                                             aria-label="View details for {{ $product->nama }}">
                                             <div class="relative w-full h-full">
                                                 @if ($product->image_produk)
                                                     <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}"
                                                         alt="{{ $product->nama }}"
-                                                        class="w-full h-full pb-14 object-cover rounded-lg transition duration-300">
+                                                        class="w-full h-full object-cover rounded-lg transition duration-300">
                                                 @else
                                                     <p
                                                         class="absolute inset-0 flex items-center justify-center text-white bg-gray-600 bg-opacity-60 text-lg">
@@ -42,12 +42,12 @@
                                                     </p>
                                                 @endif
                                             </div>
+                                            <div class="text-black pt-2">
+                                                <p class="text-sm font-semibold">
+                                                    {{ $product->nama }}
+                                                </p>
+                                            </div>
                                         </a>
-                                        <div class="absolute bottom-5 z-0 text-black">
-                                            <p class="text-xl font-semibold">
-                                                {{ $product->nama }}
-                                            </p>
-                                        </div>
                                     </li>
                                 @endforeach
                             </ul>

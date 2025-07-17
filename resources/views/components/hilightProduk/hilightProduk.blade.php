@@ -6,35 +6,37 @@
                 <img src="{{ asset('assets/img/logoWithoutText.png') }}" alt="logo" class="w-auto h-auto" />
             </div>
 
-            <div class="">
+            <div class="w-full">
                 <p class="bg-[#131010] w-fit text-white text-lg font-semibold px-6 py-2 rounded-r-full">{{ __('WPC DOOR BOARD') }}</p>
 
-                <table class="table-auto w-full mt-4 overflow-auto">
-                    <thead>
-                        <tr class="bg-[#131010] text-white">
-                            <th class="px-4 py-2 text-left">Dimension</th>
-                            <th class="px-4 py-2 text-left">CM</th>
-                            <th class="px-4 py-2 text-left"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-gray-300">
-                            <td class="px-4 py-2 font-semibold">TALL</td>
-                            <td class="px-4 py-2">190/200/210</td>
-                            <td class="px-4 py-2">210/220/240</td>
-                        </tr>
-                        <tr class="border-b border-gray-300">
-                            <td class="px-4 py-2 font-semibold">WIDE</td>
-                            <td class="px-4 py-2">60</td>
-                            <td class="px-4 py-2">3/8</td>
-                        </tr>
-                        <tr class="border-b border-gray-300">
-                            <td class="px-4 py-2 font-semibold">THICKNESS</td>
-                            <td class="px-4 py-2">72/82/83/94</td>
-                            <td class="px-4 py-2">3.8/5/7</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="overflow-x-hidden">
+                    <table class="table-auto w-full mt-4">
+                        <thead>
+                            <tr class="bg-[#131010] text-white">
+                                <th class="px-4 py-2 text-left">Dimension</th>
+                                <th class="px-4 py-2 text-left">CM</th>
+                                <th class="px-4 py-2 text-left"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-300">
+                                <td class="px-4 py-2 font-semibold">TALL</td>
+                                <td class="px-4 py-2">190/200/210</td>
+                                <td class="px-4 py-2">210/220/240</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="px-4 py-2 font-semibold">WIDE</td>
+                                <td class="px-4 py-2">60</td>
+                                <td class="px-4 py-2">3/8</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="px-4 py-2 font-semibold">THICKNESS</td>
+                                <td class="px-4 py-2">72/82/83/94</td>
+                                <td class="px-4 py-2">3.8/5/7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="mt-12">

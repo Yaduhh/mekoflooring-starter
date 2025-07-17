@@ -4,23 +4,11 @@
 
 @section('content')
     <!-- Hero Section with Breadcrumb -->
-    <section class="relative bg-gradient-to-br from-[#543A14] to-[#6B4E1A] py-16">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+    <section class="relative bg-gradient-to-br from-[#543A14] to-[#6B4E1A] py-6 lg:rounded-xl">
         <div class="relative xl:max-w-6xl 2xl:max-w-7xl mx-auto px-6">
-            <!-- Breadcrumb -->
-            <nav class="flex items-center space-x-2 text-white/80 text-sm mb-8" data-aos="fade-up">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                </svg>
-                <span class="text-white">{{ Str::limit($article->title, 50) }}</span>
-            </nav>
-            
             <!-- Article Meta -->
             <div class="text-center space-y-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full">
-                    📖 Artikel
-                </div>
-                <h1 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight max-w-4xl mx-auto">
+                <h1 class="text-2xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight max-w-4xl mx-auto">
                     {{ $article->title }}
                 </h1>
                 <div class="flex items-center justify-center gap-6 text-white/90">
@@ -44,10 +32,10 @@
     </section>
 
     <!-- Main Article Content -->
-    <section class="py-16">
+    <section class="py-12">
         <div class="w-full mx-auto">
             <!-- Featured Image -->
-            <div class="mb-12" data-aos="fade-up">
+            <div class="mb-12 max-sm:px-6" data-aos="fade-up">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img src="{{ Storage::url($article->thumbnail) }}" alt="{{ $article->title }}"
                         class="w-full h-auto object-cover">
@@ -57,7 +45,7 @@
 
             <!-- Article Content -->
             <article class="prose prose-lg max-w-none" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+                <div class="bg-white lg:rounded-2xl shadow-lg p-8 lg:p-12">
                     <div class="article-content text-gray-800 leading-relaxed">
                         {!! $article->content !!}
                     </div>
@@ -66,7 +54,7 @@
 
             <!-- Social Media Share Section -->
             <div class="mt-12" data-aos="fade-up" data-aos-delay="400">
-                <div class="bg-white rounded-2xl shadow-lg p-8">
+                <div class="bg-white lg:rounded-2xl shadow-lg p-8">
                     <div class="text-center mb-8">
                         <h2 class="text-2xl font-bold text-[#543A14] mb-3">Bagikan Artikel Ini</h2>
                         <p class="text-gray-600">Sebarkan informasi bermanfaat ini kepada teman dan keluarga</p>
@@ -117,7 +105,7 @@
     </section>
 
     <!-- Related Articles Section -->
-    <section class="py-16">
+    <section class="py-12 max-sm:px-6">
         <div class="w-full mx-auto">
             <div class="text-center mb-12" data-aos="fade-up">
                 <div class="inline-block px-4 py-2 bg-[#543A14]/10 text-[#543A14] text-sm font-semibold rounded-full mb-4">

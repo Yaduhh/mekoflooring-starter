@@ -20,7 +20,7 @@
             </div>
         @endif
 
-        <div class="grid auto-rows-min gap-6 md:grid-cols-6">
+        <div class="grid auto-rows-min gap-6 md:grid-cols-2">
             @foreach ($products as $product)
                 <div class="relative z-0 flex items-center justify-center w-full min-h-[380px] overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 group">
                     <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
