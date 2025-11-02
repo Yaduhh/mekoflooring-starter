@@ -41,6 +41,11 @@
                 <flux:navlist.group :heading="__('Artikel Manajemen')" class="pt-8">
                     <flux:navlist.item icon="folder" :href="route('articles.index')" :current="request()->routeIs('articles.index')" wire:navigate>{{ __('Daftar Artikel') }}</flux:navlist.item>
                 </flux:navlist.group>
+
+                <!-- Newsletter Subscription -->
+                <flux:navlist.group :heading="__('Newsletter')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('admin.newsletter.index')" :current="request()->routeIs('admin.newsletter.*')" wire:navigate>{{ __('Subscribers') }}</flux:navlist.item>
+                </flux:navlist.group>
                 
                 <!-- Recycle Produk -->
                 <flux:navlist.group :heading="__('Recycle')" class="pt-8">

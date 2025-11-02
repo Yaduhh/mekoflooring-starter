@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\GoogleAnalyticsController;
 use App\Http\Controllers\Admin\CatalogueController;
+use App\Http\Controllers\EmailSubscriptionController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -28,6 +29,10 @@ Route::delete('/articles/delete-image', [ArticleController::class, 'deleteImage'
 
 Route::get('show-catalogue', [HomeController::class, 'showCatalogue'])->name('catalogue.public.show');
 Route::get('show-aksesoris/{slug}', [HomeController::class, 'showAksesoris'])->name('aksesoris.public.show');
+
+// Email Subscription Routes
+Route::post('newsletter/subscribe', [EmailSubscriptionController::class, 'store'])->name('newsletter.subscribe');
+Route::get('newsletter/unsubscribe/{token}', [EmailSubscriptionController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
 
 Route::view('dashboard', 'dashboard')
 ->middleware(['auth', 'verified'])
@@ -56,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('catalogue', CatalogueController::class);
+    Route::get('newsletter', [EmailSubscriptionController::class, 'index'])->name('newsletter.index');
 });
 
 Route::get('product-image/{filename}', function ($filename) {
