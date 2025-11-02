@@ -51,6 +51,11 @@
                 <flux:navlist.group :heading="__('Google Analytics')" class="pt-8">
                     <flux:navlist.item icon="folder" :href="route('google.analytics')" :current="request()->routeIs('google.analytics')" wire:navigate>{{ __('Google Analytics') }}</flux:navlist.item>
                 </flux:navlist.group>
+
+                {{-- Email Subscription --}}
+                <flux:navlist.group :heading="__('Email Subscription')" class="pt-8">
+                    <flux:navlist.item icon="envelope" :href="route('admin.subscriptions.index')" :current="request()->routeIs('admin.subscriptions.index')" wire:navigate>{{ __('Daftar Email Subscription') }}</flux:navlist.item>
+                </flux:navlist.group>
             </flux:navlist.group>
         </flux:navlist>
 

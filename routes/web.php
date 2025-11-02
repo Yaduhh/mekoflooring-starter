@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\GoogleAnalyticsController;
 use App\Http\Controllers\Admin\CatalogueController;
+use App\Http\Controllers\SubscriptionController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -27,6 +28,9 @@ Route::post('/articles/upload-image', [ArticleController::class, 'uploadImage'])
 Route::delete('/articles/delete-image', [ArticleController::class, 'deleteImage'])->name('articles.deleteImage');
 
 Route::get('show-catalogue', [HomeController::class, 'showCatalogue'])->name('catalogue.public.show');
+
+// Route untuk email subscription
+Route::post('subscription', [SubscriptionController::class, 'store'])->name('subscription.store');
 
 Route::view('dashboard', 'dashboard')
 ->middleware(['auth', 'verified'])
@@ -50,6 +54,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
     Route::get('admin/google/analytics', [GoogleAnalyticsController::class, 'index'])->name('google.analytics');
+    
+    // Route untuk email subscription management
+    Route::get('admin/subscriptions', [SubscriptionController::class, 'index'])->name('admin.subscriptions.index');
 });
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {

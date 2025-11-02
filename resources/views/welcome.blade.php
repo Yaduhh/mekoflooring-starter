@@ -83,6 +83,9 @@
 
             @component('components.about.about')
             @endcomponent
+
+            @component('components.subscription.subscription')
+            @endcomponent
         </main>
     </div>
     @component('components.wa.wa')
