@@ -36,7 +36,7 @@
 
         <!-- Pagination -->
         <div class="flex justify-center mt-8">
-            <div class="inline-flex items-center space-x-2">
+            <div class="inline-flex items-center space-x-2 flex-wrap justify-center gap-2">
                 {{-- Previous Button --}}
                 @if ($articles->currentPage() > 1)
                     <a href="{{ $articles->previousPageUrl() }}#article"
@@ -50,14 +50,43 @@
                     </span>
                 @endif
 
-                {{-- Page Numbers --}}
-                @for ($i = 1; $i <= $articles->lastPage(); $i++)
+                {{-- Page Numbers with Smart Pagination --}}
+                @php
+                    $currentPage = $articles->currentPage();
+                    $lastPage = $articles->lastPage();
+                    $delta = 2; // Number of pages to show on each side of current page
+                @endphp
+
+                {{-- Always show first page --}}
+                @if ($currentPage > $delta + 1)
+                    <a href="{{ $articles->url(1) }}#article"
+                        class="px-4 py-2 text-sm font-medium text-[#F0BB78] dark:text-white border border-[#F0BB78] dark:border-[#F0BB78] rounded-lg hover:bg-[#F0BB78] hover:text-white transition duration-300 bg-transparent">
+                        1
+                    </a>
+                    @if ($currentPage > $delta + 2)
+                        <span class="px-2 text-[#F0BB78] dark:text-white">...</span>
+                    @endif
+                @endif
+
+                {{-- Show pages around current page --}}
+                @for ($i = max(1, $currentPage - $delta); $i <= min($lastPage, $currentPage + $delta); $i++)
                     <a href="{{ $articles->url($i) }}#article"
                         class="px-4 py-2 text-sm font-medium text-[#F0BB78] dark:text-white border border-[#F0BB78] dark:border-[#F0BB78] rounded-lg hover:bg-[#F0BB78] hover:text-white transition duration-300 
-                {{ $i == $articles->currentPage() ? 'bg-[#F0BB78] text-white' : 'bg-transparent' }}">
+                {{ $i == $currentPage ? 'bg-[#F0BB78] text-white' : 'bg-transparent' }}">
                         {{ $i }}
                     </a>
                 @endfor
+
+                {{-- Always show last page --}}
+                @if ($currentPage < $lastPage - $delta)
+                    @if ($currentPage < $lastPage - $delta - 1)
+                        <span class="px-2 text-[#F0BB78] dark:text-white">...</span>
+                    @endif
+                    <a href="{{ $articles->url($lastPage) }}#article"
+                        class="px-4 py-2 text-sm font-medium text-[#F0BB78] dark:text-white border border-[#F0BB78] dark:border-[#F0BB78] rounded-lg hover:bg-[#F0BB78] hover:text-white transition duration-300 bg-transparent">
+                        {{ $lastPage }}
+                    </a>
+                @endif
 
                 {{-- Next Button --}}
                 @if ($articles->hasMorePages())
