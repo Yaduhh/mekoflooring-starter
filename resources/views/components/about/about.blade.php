@@ -6,9 +6,9 @@
                     <h1 class="text-xl 2xl:text-2xl font-bold">{{'Kantor Kami'}}</h1>
                     <p>{{'Pt. Mega Komposit Indonesia'}}</p>
                 </div>
-    
+
                 <div class="text-white w-full lg:w-96 lg:text-right">
-                    <p>{{'Ruko Boulevard Tekno, Jl. Tekno Widya No.21 Blok B, Setu, Kec. Setu, Kota Tangerang Selatan,'}}</p>
+                    <p>{{'Jl. Joglo Raya No.21, RT.12/RW.1, Joglo, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11640'}}</p>
                 </div>
             </div>
             <div class="lg:mt-6 w-full lg:hidden">
