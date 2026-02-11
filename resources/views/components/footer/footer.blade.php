@@ -79,8 +79,9 @@
                         <img src="{{ asset('assets/icons/ilocation.svg') }}" alt="ilocation" />
                         <p class="text-lg font-semibold">ADDRESS</p>
                     </div>
-                    <p class="mt-2">Ruko Boulevard Tekno, Jl. Tekno Widya No.21 Blok B, Setu, Kec. Setu, Kota
-                        Tangerang Selatan, Banten 15314</p>
+                    <p class="mt-2">
+                        Jl. Joglo Raya No.21, RT.12/RW.1, Joglo, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11640
+                    </p>
                 </div>
             </div>
         </div>
