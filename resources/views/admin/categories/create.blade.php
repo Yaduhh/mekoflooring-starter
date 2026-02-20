@@ -1,74 +1,96 @@
-<x-layouts.app :title="__('Tambah Kategori Baru')">
-    <div class="flex flex-col gap-8 py-10 px-4 sm:px-6 lg:px-8 xl:px-16 mx-auto">
-        <div class="bg-white dark:bg-zinc-800 p-8">
-            <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">{{ __('Tambah Kategori Baru') }}</h2>
+{{-- resources/views/admin/categories/create.blade.php --}}
+<x-layouts.app :title="__('Create Door Type Category')">
+    <div class="max-w-2xl mx-auto p-8 bg-white dark:bg-zinc-800 rounded-xl">
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-8">
+            {{ __('Create Door Type Category') }}
+        </h2>
 
-            <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8">
-                @csrf
+        <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+            @csrf
 
-                <!-- Nama Kategori -->
-                <div class="space-y-2">
-                    <label for="name_category" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Nama Kategori') }}</label>
-                    <input type="text" name="name_category" id="name_category" class="w-full p-4 bg-transparent border-2 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
+            <!-- Door Type Name -->
+            <div>
+                <label for="name_category" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {{ __('Door Type Name') }} <span class="text-red-500">*</span>
+                </label>
+                <input type="text" name="name_category" id="name_category"
+                    value="{{ old('name_category') }}"
+                    class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
+                    placeholder="e.g., Classic Oak Doors, Modern Steel Doors"
+                    required oninput="generateSlug()">
+                @error('name_category')
+                    <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                @enderror
+                <p class="text-sm text-gray-500 mt-1">This will be shown to users as a door category</p>
+            </div>
+
+            <!-- Auto-generated Slug (hidden) -->
+            <input type="hidden" name="slug_category" id="slug_category" value="{{ old('slug_category') }}">
+
+            <!-- Representative Image (2D Only) -->
+            <div>
+                <label for="image_category" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {{ __('Door Type Image (2D Photo)') }} <span class="text-red-500">*</span>
+                </label>
+                <input type="file" name="image_category" id="image_category"
+                    class="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-gray-800 dark:text-white"
+                    accept="image/*" required>
+                <p class="text-sm text-gray-500 mt-1">
+                    <i class="fas fa-info-circle"></i>
+                    Upload a representative 2D photo of this door type (not a 3D model). This is for browsing only.
+                </p>
+                @error('image_category')
+                    <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label for="description" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {{ __('Description') }}
+                </label>
+                <textarea name="description" id="description" rows="4"
+                    class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
+                    placeholder="Describe this door type...">{{ old('description') }}</textarea>
+                @error('description')
+                    <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Info Box -->
+            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-lightbulb text-blue-600 dark:text-blue-400 text-xl mt-0.5"></i>
+                    <div class="text-sm text-blue-800 dark:text-blue-200">
+                        <p class="font-semibold mb-1">About Door Type Categories:</p>
+                        <p>This category will only store a 2D image and description. Actual 3D models (door + handle combinations) will be created separately in the "Complete Door Models" section.</p>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Slug Kategori (akan diisi otomatis) -->
-                <div class="space-y-2 hidden">
-                    <label for="slug_category" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Slug Kategori') }}</label>
-                    <input type="text" name="slug_category" id="slug_category" class="w-full p-4 bg-transparent border-2 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required readonly>
-                </div>
-
-                <!-- Gambar Kategori -->
-                <div class="space-y-2">
-                    <label for="image_category" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Gambar Kategori') }}</label>
-                    <input type="file" name="image_category" id="image_category" class="w-full p-4 bg-transparent border-2 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" onchange="previewImage()">
-                </div>
-
-                <!-- Preview Gambar -->
-                <div id="imagePreview" class="mt-4 hidden">
-                    <p class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('Pratinjau Gambar:') }}</p>
-                    <img id="preview" class="w-full h-auto rounded-lg shadow-lg" src="" alt="Pratinjau Gambar" />
-                </div>
-
-                <!-- Tombol Submit -->
-                <div>
-                    <button type="submit" class="w-full py-5 hover:cursor-pointer mt-12 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-500 transition duration-300">{{ __('Simpan Kategori') }}</button>
-                </div>
-            </form>
-        </div>
+            <!-- Submit Buttons -->
+            <div class="flex gap-4 pt-4">
+                <button type="submit"
+                    class="flex-1 bg-[#543A14] text-white px-6 py-3 rounded-xl hover:bg-[#6B4E1A] transition-colors font-semibold">
+                    <i class="fas fa-save mr-2"></i>
+                    {{ __('Create Category') }}
+                </button>
+                <a href="{{ route('categories.index') }}"
+                    class="px-8 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-xl hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-center font-semibold">
+                    <i class="fas fa-times mr-2"></i>
+                    {{ __('Cancel') }}
+                </a>
+            </div>
+        </form>
     </div>
 
     <script>
-        // JavaScript untuk membuat slug otomatis berdasarkan name_category
-        const nameCategoryInput = document.getElementById('name_category');
-        const slugCategoryInput = document.getElementById('slug_category');
-
-        nameCategoryInput.addEventListener('input', function() {
-            let slug = nameCategoryInput.value
-                .toLowerCase()
-                .replace(/\s+/g, '-') // Gantilah spasi dengan tanda "-"
-                .replace(/[^\w\-]+/g, '') // Hapus karakter selain huruf, angka, dan dash
-                .replace(/\-\-+/g, '-') // Menghindari spasi ganda
-                .replace(/^-+/, '') // Menghapus dash di depan
-                .replace(/-+$/, ''); // Menghapus dash di belakang
-
-            slugCategoryInput.value = slug; // Masukkan slug ke input slug_category
-        });
-
-        // Fungsi untuk menampilkan pratinjau gambar setelah memilih gambar
-        function previewImage() {
-            const file = document.getElementById('image_category').files[0];
-            const preview = document.getElementById('preview');
-            const imagePreview = document.getElementById('imagePreview');
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    imagePreview.classList.remove('hidden');
-                }
-                reader.readAsDataURL(file);
-            }
+        function generateSlug() {
+            const name = document.getElementById('name_category').value;
+            const slug = name.toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            document.getElementById('slug_category').value = slug;
         }
     </script>
 </x-layouts.app>

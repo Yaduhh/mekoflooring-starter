@@ -23,7 +23,7 @@
             <a href="/#about" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
                 Tentang
             </a>
-            <a href="{{ route('floor.index') }}" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
+            <a href="{{ route('door.index') }}" class="block px-5 py-1.5 hover:text-[#F0BB78] hover:cursor-pointer">
                 Door View
             </a>
         </div>
