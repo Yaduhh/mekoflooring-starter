@@ -1,11 +1,6 @@
-<x-layouts.app :title="__('Door Handles')">
+<x-layouts.app :title="__('Produk')">
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-        <div class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold">All Handles</h1>
-            <a href="{{ route('products.create') }}" class="bg-[#543A14] text-white px-4 py-2 rounded-lg">
-                <i class="fas fa-plus mr-2"></i>Create Handle
-            </a>
-        </div>
+        <h1>All Product</h1>
 
         <!-- Notifikasi Success -->
         @if (session('success'))
@@ -25,188 +20,60 @@
             </div>
         @endif
 
-        <!-- Filter Tabs -->
-        <div class="bg-white dark:bg-zinc-800 rounded-xl p-4 mb-4">
-            <div class="flex gap-4">
-                <button onclick="filterHandles('all')"
-                    class="filter-btn active px-6 py-2 rounded-lg font-semibold transition-all"
-                    data-filter="all">
-                    All Handles
-                </button>
-                <button onclick="filterHandles('3d')"
-                    class="filter-btn px-6 py-2 rounded-lg font-semibold transition-all"
-                    data-filter="3d">
-                    <i class="fas fa-cube mr-2"></i>3D Models
-                </button>
-                <button onclick="filterHandles('2d')"
-                    class="filter-btn px-6 py-2 rounded-lg font-semibold transition-all"
-                    data-filter="2d">
-                    <i class="fas fa-image mr-2"></i>2D Images
-                </button>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid auto-rows-min gap-6 md:grid-cols-2">
             @foreach ($products as $product)
-                <div class="handle-card relative bg-white dark:bg-zinc-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
-                     data-type="{{ $product->is_3d ? '3d' : '2d' }}">
-
-                    <!-- Thumbnail -->
-                    <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-                        @if($product->thumbnail_3d)
-                            <img src="{{ Storage::url($product->thumbnail_3d) }}"
-                                 alt="{{ $product->nama }}"
-                                 class="w-full h-full object-cover">
-                        @elseif($product->mockup_image)
-                            <img src="{{ Storage::url($product->mockup_image) }}"
-                                 alt="{{ $product->nama }}"
-                                 class="w-full h-full object-cover">
+                <div class="relative z-0 flex items-center justify-center w-full min-h-[380px] overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 group">
+                    <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
+                    
+                    <!-- Menampilkan Gambar Produk -->
+                    <div class="relative w-full h-full">
+                        @if ($product->image_produk)
+                            <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-full object-cover rounded-lg transition duration-300 group-hover:scale-105 group-hover:opacity-75">
                         @else
-                            <div class="flex items-center justify-center h-full text-gray-400">
-                                <i class="fas fa-image text-6xl"></i>
-                            </div>
+                            <p class="absolute inset-0 flex items-center justify-center text-white bg-gray-600 bg-opacity-60 text-lg">{{ __('Tidak ada gambar produk') }}</p>
                         @endif
+                    </div>
 
-                        <!-- Badge 2D/3D -->
-                        <div class="absolute top-4 right-4">
-                            @if($product->is_3d)
-                                <span class="bg-[#543A14] text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-2">
-                                    <i class="fas fa-cube"></i>
-                                    3D Model
-                                </span>
-                            @else
-                                <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-2">
-                                    <i class="fas fa-image"></i>
-                                    2D Image
-                                </span>
-                            @endif
+                    <!-- Nama Produk -->
+                    <div class="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center bg-gradient-to-t from-black to-transparent">
+                        <div class="flex items-center justify-center flex-col p-4">
+                            <img src="{{ Storage::url($product->mockup_image) }}" alt="{{ $product->mockup_image }}"  class="w-14 h-14 object-cover rounded-full opacity-70 transition duration-300 group-hover:opacity-100 border border-white">
+                            <h2 class="text-white font-semibold text-center px-4 pt-2">{{ $product->nama }}</h2>
+                        </div>
+
+                        <div class="text-xs grid grid-cols-2 p-4 place-content-between w-full">
+                            <p>Width : {{ $product->width }}mm</p>
+                            <p>Length : {{ $product->length }}mm</p>
+                            <p>Thickness : {{ $product->thickness }}mm</p>
                         </div>
                     </div>
 
-                    <!-- Info -->
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                            {{ $product->nama }}
-                        </h3>
+                    <p class="text-xs bg-orange-700 rounded-xl px-3 py-1 absolute top-4 right-4">{{ $product->category->name_category }}</p>
 
-                        @if($product->description)
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-                                {{ Str::limit($product->description, 60) }}
-                            </p>
-                        @endif
-
-                        <!-- Model Info -->
-                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
-                            @if($product->is_3d && $product->model_3d)
-                                <i class="fas fa-file-code"></i>
-                                <span>{{ strtoupper(pathinfo($product->model_3d, PATHINFO_EXTENSION)) }}</span>
-                                <span class="mx-1">•</span>
-                                <span>{{ number_format(Storage::size('public/' . $product->model_3d) / 1024, 2) }} KB</span>
-                            @elseif($product->model_2d)
-                                <i class="fas fa-file-image"></i>
-                                <span>2D Image</span>
-                            @endif
-                        </div>
-
-                        <!-- Actions -->
-                        <div class="flex gap-2">
-                            <a href="{{ route('products.edit', $product->id) }}"
-                               class="flex-1 bg-amber-600 text-white text-center py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm">
-                                <i class="fas fa-edit mr-1"></i>Edit
-                            </a>
-                            <form action="{{ route('products.destroy', $product->id) }}"
-                                  method="POST"
-                                  onsubmit="return confirm('Delete this handle?')"
-                                  class="flex-1">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                        class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors text-sm">
-                                    <i class="fas fa-trash-alt mr-1"></i>Delete
-                                </button>
-                            </form>
-                        </div>
+                    <!-- Tombol Edit dan Delete -->
+                    <div class="absolute z-0 flex gap-4 opacity-0 group-hover:opacity-100 transition duration-300 pb-20">
+                        <a href="{{ route('products.edit', $product->id) }}" class="bg-black/30 backdrop-blur py-1 px-3 rounded-full text-xs flex items-center gap-2 h-fit">
+                            <i class="fas fa-edit"></i> {{ __('Edit') }}
+                        </a>
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ __('Apakah Anda yakin ingin menghapus produk ini?') }}')"  class="bg-red-500/70 backdrop-blur py-1 px-3 rounded-full text-xs flex items-center gap-2 h-fit hover:cursor-pointer">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="flex items-center gap-2 hover:cursor-pointer">
+                                <i class="fas fa-trash-alt"></i> {{ __('Hapus') }}
+                            </button>
+                        </form>
                     </div>
                 </div>
             @endforeach
         </div>
-
-        @if($products->isEmpty())
-            <div class="text-center py-20 bg-white dark:bg-zinc-800 rounded-xl">
-                <i class="fas fa-inbox text-gray-300 text-6xl mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-600 dark:text-gray-400 mb-2">No Handles Yet</h3>
-                <p class="text-gray-500 dark:text-gray-500 mb-6">Create your first door handle</p>
-                <a href="{{ route('products.create') }}" class="inline-block bg-[#543A14] text-white px-6 py-3 rounded-lg hover:bg-[#6B4E1A]">
-                    <i class="fas fa-plus mr-2"></i>Create Handle
-                </a>
-            </div>
-        @endif
-
-        <!-- Pagination -->
+        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+            <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
+        </div>
+ 
+       <!-- Pagination Sederhana -->
         <div class="mt-6">
+            <!-- Pagination akan muncul disini -->
             {{ $products->links() }}
         </div>
     </div>
-
-    <script>
-        // Filter functionality
-        function filterHandles(type) {
-            const cards = document.querySelectorAll('.handle-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            // Update active button
-            buttons.forEach(btn => {
-                btn.classList.remove('active', 'bg-[#543A14]', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-700');
-            });
-
-            const activeBtn = document.querySelector(`[data-filter="${type}"]`);
-            activeBtn.classList.add('active', 'bg-[#543A14]', 'text-white');
-            activeBtn.classList.remove('bg-gray-200', 'text-gray-700');
-
-            // Filter cards
-            cards.forEach(card => {
-                if (type === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    if (card.dataset.type === type) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }
-            });
-        }
-
-        // Auto-hide notifications
-        setTimeout(() => {
-            const successNotification = document.getElementById('successNotification');
-            const errorNotification = document.getElementById('errorNotification');
-            if (successNotification) {
-                successNotification.style.display = 'none';
-            }
-            if (errorNotification) {
-                errorNotification.style.display = 'none';
-            }
-        }, 5000);
-    </script>
-
-    <style>
-        .filter-btn {
-            background: #e5e7eb;
-            color: #374151;
-        }
-
-        .filter-btn.active {
-            background: #543A14 !important;
-            color: white !important;
-        }
-
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-    </style>
 </x-layouts.app>

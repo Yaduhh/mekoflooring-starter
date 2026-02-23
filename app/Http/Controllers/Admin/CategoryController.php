@@ -1,5 +1,4 @@
 <?php
-// app/Http/Controllers/Admin/CategoryController.php
 
 namespace App\Http\Controllers\Admin;
 
@@ -7,160 +6,115 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display all door type categories
-     */
+    // Menampilkan semua kategori
     public function index()
     {
-        $categories = Category::notDeleted()
-            ->withCount(['completeModels'])
-            ->orderBy('name_category')
-            ->get();
-
+        $categories = Category::where('deleted_status', false)->get();
         return view('admin.categories.index', compact('categories'));
     }
-    /**
-     * Show recycle bin
-     */
+
+    // Menampilkan semua kategori
     public function recycle()
     {
         $categories = Category::where('deleted_status', true)->get();
         return view('admin.recycle.category', compact('categories'));
     }
-    /**
-     * Show create form
-     */
+
+    // Menampilkan form untuk membuat kategori baru
     public function create()
     {
         return view('admin.categories.create');
     }
 
-    /**
-     * Store new door type category
-     */
     public function store(Request $request)
     {
+        // Validasi input
         $validated = $request->validate([
-            'name_category' => 'required|string|max:255',
-            'slug_category' => [
-                'nullable',
-                'string',
-                Rule::unique('categories', 'slug_category')->where(function ($query) {
-                    return $query->where('deleted_status', false);
-                }),
-            ],
-            'image_category' => 'required|image|mimes:jpeg,png,jpg,webp|max:10240',
-            'description' => 'nullable|string',
+            'slug_category' => 'nullable|string|unique:categories,slug_category',
+            'name_category' => 'required|string',
+            'image_category' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:9048',
         ]);
 
-        // Auto-generate slug if empty
-        if (empty($validated['slug_category'])) {
-            $validated['slug_category'] = Str::slug($validated['name_category']);
+        // Buat slug otomatis berdasarkan name_category jika slug_category tidak diberikan
+        if (empty($request->slug_category)) {
+            $validated['slug_category'] = Str::slug($request->name_category);
         }
 
+        // Simpan kategori
         $category = new Category($validated);
 
-        // Upload door type image
+        // Menyimpan gambar kategori jika ada
         if ($request->hasFile('image_category')) {
-            $imagePath = $request->file('image_category')
-                ->store('categories/door-types', 'public');
+            $imagePath = $request->file('image_category')->store('category', 'public');
             $category->image_category = $imagePath;
         }
 
         $category->save();
 
-        return redirect()->route('categories.index')
-            ->with('success', 'Door type category created successfully.');
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dibuat.');
     }
 
-    /**
-     * Show edit form
-     */
+    // Menampilkan form untuk mengedit kategori
     public function edit(Category $category)
     {
         return view('admin.categories.edit', compact('category'));
     }
 
-    /**
-     * Update door type category
-     */
     public function update(Request $request, Category $category)
     {
-        $validated = $request->validate([
-            'name_category' => 'required|string|max:255',
-            'slug_category' => [
-                'required',
-                'string',
-                Rule::unique('categories', 'slug_category')
-                    ->where(function ($query) {
-                        return $query->where('deleted_status', false);
-                    })
-                    ->ignore($category->id),
-            ],
-            'image_category' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:10240',
-            'description' => 'nullable|string',
+        // Validasi input
+        $request->validate([
+            'slug_category' => 'required|string|unique:categories,slug_category,' . $category->id,
+            'name_category' => 'required|string',
+            'image_category' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:9048',
         ]);
 
-        $category->update($validated);
+        // Update nama kategori dan slug
+        $category->update($request->only(['slug_category', 'name_category']));
 
-        // Update image if uploaded
+        // Menyimpan gambar kategori jika ada
         if ($request->hasFile('image_category')) {
-            // Delete old image
+            // Hapus gambar lama jika ada
             if ($category->image_category) {
                 Storage::disk('public')->delete($category->image_category);
             }
 
-            $imagePath = $request->file('image_category')
-                ->store('categories/door-types', 'public');
+            // Simpan gambar baru
+            $imagePath = $request->file('image_category')->store('category', 'public');
             $category->image_category = $imagePath;
-            $category->save();
         }
 
-        return redirect()->route('categories.index')
-            ->with('success', 'Door type updated successfully.');
+        $category->save();
+
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');
     }
 
-    /**
-     * Soft delete category
-     */
+
+    // Menghapus kategori (mengubah deleted_status menjadi true)
     public function destroy(Category $category)
     {
         $category->update(['deleted_status' => true]);
-
-        return redirect()->route('categories.index')
-            ->with('success', 'Door type deleted.');
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
     }
 
-    /**
-     * Permanently delete category
-     */
     public function delete(Category $category)
     {
-        // Delete image
-        if ($category->image_category) {
-            Storage::disk('public')->delete($category->image_category);
-        }
-
         $category->update(['deleted_status' => '2']);
-        $category->save();
-
-        return redirect()->route('admin.category.recycle')
-            ->with('success', 'Door type permanently deleted.');
+        $category->save(); 
+        return redirect()->route('admin.category.recycle')->with('success', 'Kategori berhasil dihapus.');
     }
 
-    /**
-     * Restore deleted category
-     */
+    // Menambahkan fungsi untuk memulihkan kategori
     public function restore(Category $category)
     {
+        // Mengubah status deleted_status menjadi false
         $category->update(['deleted_status' => false]);
 
-        return redirect()->route('admin.category.recycle')
-            ->with('success', 'Door type restored.');
+        // Redirect ke halaman recycle kategori dengan pesan sukses
+        return redirect()->route('admin.category.recycle')->with('success', 'Kategori berhasil dipulihkan.');
     }
+
 }

@@ -3,50 +3,44 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
 document.addEventListener("DOMContentLoaded", function () {
     // Carousel kedua
-    const carousel2Element = document.querySelector("#product-carousel-2");
-    if (carousel2Element) {
-        const splide2 = new Splide("#product-carousel-2", {
-            type: "loop",
-            drag: "free",
-            focus: "center",
-            gap: "100px",
-            autoStart: true,
-            perPage: 5,
-            autoScroll: {
-                speed: -1,
+    const splide2 = new Splide("#product-carousel-2", {
+        type: "loop",
+        drag: "free",
+        focus: "center",
+        gap: "100px",
+        autoStart: true,
+        perPage: 5,
+        autoScroll: {
+            speed: -1,
+        },
+        pauseOnHover: true,
+        breakpoints: {
+            768: {
+                perPage: 2,
+                gap: "10px",
             },
-            pauseOnHover: true,
-            breakpoints: {
-                768: {
-                    perPage: 2,
-                    gap: "10px",
-                },
-            },
-        });
-        splide2.mount({ AutoScroll });
-    }
+        },
+    });
+    splide2.mount({ AutoScroll });
 
-    // Carousel pertama
-    const carousel1Element = document.querySelector("#product-carousel-1");
-    if (carousel1Element) {
-        const splide1 = new Splide("#product-carousel-1", {
-            type: "loop",
-            drag: "free",
-            focus: "center",
-            gap: "10px",
-            autoStart: true,
-            perPage: 3,
-            autoScroll: {
-                speed: -0.5,
+    const splide1 = new Splide("#product-carousel-1", {
+        type: "loop",
+        drag: "free",
+        focus: "center",
+        gap: "10px",
+        autoStart: true,
+        perPage: 3,
+        autoScroll: {
+            speed: -0.5,
+        },
+        pauseOnHover: true,
+        breakpoints: {
+            768: {
+                perPage: 2,
+                gap: "10px",
             },
-            pauseOnHover: true,
-            breakpoints: {
-                768: {
-                    perPage: 2,
-                    gap: "10px",
-                },
-            },
-        });
-        splide1.mount({ AutoScroll });
-    }
+        },
+    });
+
+    splide1.mount({ AutoScroll });
 });

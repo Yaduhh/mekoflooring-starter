@@ -12,8 +12,9 @@
             <div class="w-[70%] lg:w-[20%]">
                 <img src="{{ asset('assets/img/flooringView.png') }}" alt="logo" class="w-full h-auto"/>
             </div>
-            <a href="{{ route('doors.view') }}" class="bg-white/30 backdrop-blur px-6 py-1.5 rounded-xl hover:scale-110 duration-200 transition-all font-semibold text-white">
-                Try Now
+
+            <a href="#comingsoon" class="bg-white/30 backdrop-blur px-6 py-1.5 rounded-xl hover:scale-110 duration-200 transition-all font-semibold text-white">
+                COMING SOON
             </a>
         </div>
     </section>

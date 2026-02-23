@@ -1,247 +1,136 @@
-{{-- resources/views/admin/products/edit-complete.blade.php --}}
-<x-layouts.app :title="__('Edit Complete Door Model')">
-    <div class="max-w-4xl mx-auto p-8 bg-white dark:bg-zinc-800 rounded-xl">
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">
-            {{ __('Edit Complete Door Model') }}
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-8">
-            {{ $product->nama }}
-        </p>
+<x-layouts.app :title="__('Edit Produk')">
+    <div class="flex h-full w-full flex-1 flex-col gap-8">
+        <!-- Formulir untuk mengedit produk -->
+        <div class="mx-auto bg-white dark:bg-zinc-800 rounded-xl">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-8">{{ __('Edit Produk') }}</h2>
 
-        <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="space-y-8">
-            @csrf
-            @method('PUT')
+            <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="space-y-8">
+                @csrf
+                @method('PUT')
 
-            <input type="hidden" name="product_type" value="3">
-
-            <!-- Basic Info -->
-            <div class="border-b-2 border-gray-200 dark:border-gray-600 pb-6">
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
-                    <i class="fas fa-info-circle mr-2 text-[#543A14]"></i>
-                    Basic Information
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Category -->
-                    <div>
-                        <label for="id_category" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Door Type Category') }} <span class="text-red-500">*</span>
-                        </label>
-                        <select name="id_category" id="id_category"
-                            class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
-                            required>
-                            <option value="">Select category...</option>
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}"
-                                    {{ old('id_category', $product->id_category) == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name_category }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('id_category')
-                            <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <!-- Status -->
-                    <div>
-                        <label for="status" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Status') }} <span class="text-red-500">*</span>
-                        </label>
-                        <select name="status" id="status"
-                            class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
-                            required>
-                            <option value="1" {{ old('status', $product->status) == '1' ? 'selected' : '' }}>Active</option>
-                            <option value="0" {{ old('status', $product->status) == '0' ? 'selected' : '' }}>Inactive</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Door & Handle Info -->
-            <div class="border-b-2 border-gray-200 dark:border-gray-600 pb-6">
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
-                    <i class="fas fa-door-open mr-2 text-[#543A14]"></i>
-                    Door & Handle Details
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Door Base Name -->
-                    <div>
-                        <label for="door_base_name" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Door Base Name') }} <span class="text-red-500">*</span>
-                        </label>
-                        <input type="text" name="door_base_name" id="door_base_name"
-                            value="{{ old('door_base_name', $product->door_base_name) }}"
-                            class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
-                            required>
-                        @error('door_base_name')
-                            <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <!-- Handle Name -->
-                    <div>
-                        <label for="handle_name" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Handle Name') }} <span class="text-red-500">*</span>
-                        </label>
-                        <input type="text" name="handle_name" id="handle_name"
-                            value="{{ old('handle_name', $product->handle_name) }}"
-                            class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
-                            required>
-                        @error('handle_name')
-                            <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <!-- Handle Code -->
-                    <div>
-                        <label for="handle_code" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Handle Code') }} <span class="text-red-500">*</span>
-                        </label>
-                        <input type="text" name="handle_code" id="handle_code"
-                            value="{{ old('handle_code', $product->handle_code) }}"
-                            class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
-                            required>
-                        @error('handle_code')
-                            <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-            </div>
-
-            <!-- Current 3D Model -->
-            <div class="border-b-2 border-gray-200 dark:border-gray-600 pb-6">
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
-                    <i class="fas fa-cube mr-2 text-[#543A14]"></i>
-                    3D Model
-                </h3>
-
-                @if($product->complete_model_3d)
-                <div class="mb-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
-                    <p class="text-sm text-gray-600 dark:text-gray-300">
-                        <i class="fas fa-file mr-2"></i>
-                        <strong>Current file:</strong> {{ basename($product->complete_model_3d) }}
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
-                        <i class="fas fa-hdd mr-2"></i>
-                        <strong>File size:</strong> {{ $product->formatted_file_size }}
-                    </p>
-                </div>
-                @endif
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Update 3D Model -->
-                    <div class="md:col-span-2">
-                        <label for="complete_model_3d" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Update 3D Model File') }}
-                        </label>
-                        <input type="file" name="complete_model_3d" id="complete_model_3d"
-                            class="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-gray-800 dark:text-white"
-                            accept=".glb,.gltf">
-                        <p class="text-sm text-gray-500 mt-1">Leave empty to keep current model</p>
-                        @error('complete_model_3d')
-                            <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <!-- Model Complexity -->
-                    <div>
-                        <label for="model_complexity" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Model Complexity') }} <span class="text-red-500">*</span>
-                        </label>
-                        <select name="model_complexity" id="model_complexity"
-                            class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]"
-                            required>
-                            <option value="low" {{ old('model_complexity', $product->model_complexity) == 'low' ? 'selected' : '' }}>Low (&lt; 10MB)</option>
-                            <option value="medium" {{ old('model_complexity', $product->model_complexity) == 'medium' ? 'selected' : '' }}>Medium (10-30MB)</option>
-                            <option value="high" {{ old('model_complexity', $product->model_complexity) == 'high' ? 'selected' : '' }}>High (&gt; 30MB)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Display Images -->
-            <div class="border-b-2 border-gray-200 dark:border-gray-600 pb-6">
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
-                    <i class="fas fa-image mr-2 text-[#543A14]"></i>
-                    Display Images
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Catalog Image -->
-                    <div>
-                        @if($product->catalog_image)
-                        <div class="mb-3">
-                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Current catalog image:</p>
-                            <img src="{{ Storage::url($product->catalog_image) }}"
-                                alt="Catalog"
-                                class="w-full max-w-xs h-auto rounded-xl shadow-lg">
+                <!-- Grid Dua Kolom untuk Inputan -->
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="col-span-1">
+                        <div class="relative z-0 flex items-center justify-center w-full min-h-[280px] overflow-hidden rounded-xl group">
+                            @if ($product->image_produk)
+                                <div class="relative group">
+                                    <img src="{{ route('product.image', ['filename' => basename($product->image_produk)]) }}" alt="{{ $product->nama }}" class="w-full h-auto rounded-xl group-hover:scale-125 transition duration-300">
+                                    <!-- Hover Area with "Change Image" Button -->
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300">
+                                        <p class="text-white font-semibold cursor-pointer">Change Image</p>
+                                    </div>
+                                </div>
+                            @endif
+                            <input type="file" name="image_produk" id="image_produk" class="absolute inset-0 mt-1 block w-full text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-xl shadow-md opacity-0 cursor-pointer focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4">
+                            @error('image_produk') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         </div>
-                        @endif
-
-                        <label for="catalog_image" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Update Catalog Image') }}
-                        </label>
-                        <input type="file" name="catalog_image" id="catalog_image"
-                            class="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-gray-800 dark:text-white"
-                            accept="image/*">
-                        <p class="text-sm text-gray-500 mt-1">Leave empty to keep current image</p>
-                        @error('catalog_image')
-                            <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                        @enderror
                     </div>
+                    <!-- Gambar Produk -->
 
-                    <!-- Viewer Thumbnail -->
-                    <div>
-                        @if($product->viewer_thumbnail)
-                        <div class="mb-3">
-                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Current viewer thumbnail:</p>
-                            <img src="{{ Storage::url($product->viewer_thumbnail) }}"
-                                alt="Thumbnail"
-                                class="w-full max-w-xs h-auto rounded-xl shadow-lg">
+                    <div class="col-span-2 space-y-6">
+                        <div class="flex gap-8 justify-between">
+                            <!-- Nama Produk -->
+                            <div class="w-full">
+                                <label for="nama" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Nama Produk') }}</label>
+                                <input type="text" name="nama" id="nama" value="{{ old('nama', $product->nama) }}" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required oninput="generateSlug()">
+                                @error('nama') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+        
+                            <div class="hidden">
+                                <label for="slug_produk" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Slug Produk') }}</label>
+                                <input type="text" name="slug_produk" id="slug_produk" value="{{ old('slug_produk', $product->slug_produk) }}" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required readonly>
+                                @error('slug_produk') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+        
+                            <!-- Select Kategori -->
+                            <div class="w-full">
+                                <label for="id_category" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Kategori Produk') }}</label>
+                                <select name="id_category" id="id_category" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required>
+                                    <option value="" disabled selected>{{ __('Pilih Kategori') }}</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" {{ old('id_category', $product->id_category) == $category->id ? 'selected' : '' }}>{{ $category->name_category }}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_category') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
                         </div>
-                        @endif
+    
+                        <div class="flex gap-8 justify-between">
+                            <!-- Width Produk -->
+                            <div class="w-full">
+                                <label for="width" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Length (mm)') }}</label>
+                                <input type="number" name="width" id="width" value="{{ old('width', $product->width) }}" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required>
+                                @error('width') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>  
+        
+                            <!-- Length Produk -->
+                            <div class="w-full">
+                                <label for="length" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Width (mm)')}}</label>
+                                <input type="number" name="length" id="length" value="{{ old('length', $product->length) }}" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required>
+                                @error('length') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+        
+                            <!-- Thickness Produk -->
+                            <div class="w-full">
+                                <label for="thickness" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Thickness (mm)') }}</label>
+                                <input type="number" name="thickness" id="thickness" value="{{ old('thickness', $product->thickness) }}" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required>
+                                @error('thickness') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+    
+                        <!-- Mockup Image -->
+                        <div>
+                            @error('mockup_image') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                            @if ($product->mockup_image)
+                            <div class="mt-2">
+                                <img src="{{ Storage::url($product->mockup_image) }}" alt="{{ $product->mockup_image }}"  class="w-full h-auto rounded-xl">
+                            </div>
+                            @endif
+                            <input type="file" name="mockup_image" id="mockup_image" class="mt-1 block w-full text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4">
+                        </div>
+    
+                        <!-- Deskripsi Produk -->
+                        <div class="md:col-span-2">
+                            <label for="description" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Deskripsi Produk') }}</label>
+                            <textarea name="description" id="description" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4">{{ old('description', $product->description) }}</textarea>
+                            @error('description') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                        </div>
 
-                        <label for="viewer_thumbnail" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Update Viewer Thumbnail') }}
-                        </label>
-                        <input type="file" name="viewer_thumbnail" id="viewer_thumbnail"
-                            class="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 text-gray-800 dark:text-white"
-                            accept="image/*">
-                        <p class="text-sm text-gray-500 mt-1">Leave empty to keep current image</p>
-                        @error('viewer_thumbnail')
-                            <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                        @enderror
+                        <!-- Type Product -->
+                        <div>
+                            <label for="product_type" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Tipe Produk') }}</label>
+                            <select name="product_type" id="product_type" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required>
+                                <option value="0" {{ old('product_type', $product->product_type) == '0' ? 'selected' : '' }}>{{ __('Produk') }}</option>
+                                <option value="1" {{ old('product_type', $product->product_type) == '1' ? 'selected' : '' }}>{{ __('Aksesoris') }}</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Status Produk -->
+                        <div>
+                            <label for="status" class="block text-lg font-medium text-gray-700 dark:text-gray-300">{{ __('Status Produk') }}</label>
+                            <select name="status" id="status" class="mt-1 block w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white rounded-xl shadow-md focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none py-3 px-4" required>
+                                <option value="1" {{ old('status', $product->status) == '1' ? 'selected' : '' }}>{{ __('Aktif') }}</option>
+                                <option value="0" {{ old('status', $product->status) == '0' ? 'selected' : '' }}>{{ __('Non-Aktif') }}</option>
+                            </select>
+                        </div>
+                        <!-- Tombol Submit -->
+                        <div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded-xl hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500 focus:outline-none">{{ __('Simpan Produk') }}</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Description -->
-            <div>
-                <label for="description" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    {{ __('Description') }}
-                </label>
-                <textarea name="description" id="description" rows="5"
-                    class="w-full border border-gray-300 dark:border-gray-600 bg-transparent text-gray-800 dark:text-white rounded-xl px-4 py-3 focus:ring-[#543A14] focus:border-[#543A14]">{{ old('description', $product->description) }}</textarea>
-                @error('description')
-                    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <!-- Submit Buttons -->
-            <div class="flex gap-4 pt-4 border-t-2 border-gray-200 dark:border-gray-600">
-                <button type="submit"
-                    class="flex-1 bg-[#543A14] text-white px-6 py-4 rounded-xl hover:bg-[#6B4E1A] transition-colors font-semibold text-lg">
-                    <i class="fas fa-save mr-2"></i>
-                    {{ __('Update Model') }}
-                </button>
-                <a href="{{ route('admin.products.complete-doors') }}"
-                    class="px-8 py-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-xl hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-center font-semibold">
-                    <i class="fas fa-times mr-2"></i>
-                    {{ __('Cancel') }}
-                </a>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+
+    <!-- JavaScript untuk Membuat Slug -->
+    <script>
+        function generateSlug() {
+            let nama = document.getElementById('nama').value;
+            let slug = nama.toLowerCase()
+                           .replace(/[^a-z0-9]+/g, '-')
+                           .replace(/^-+|-+$/g, '');
+            document.getElementById('slug_produk').value = slug;
+        }
+    </script>
 </x-layouts.app>

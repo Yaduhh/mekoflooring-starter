@@ -22,20 +22,19 @@
                 <!-- Katalog Produk -->
                 <flux:navlist.item icon="folder" :href="route('admin.catalogue.index')" :current="request()->routeIs('admin.catalogue.index')"
                     wire:navigate>{{ __('Catalogue') }}
-                </flux:navlist.item>
+                </flux:navlist.item>      
 
                 <!-- Kategori Produk -->
                 <flux:navlist.item icon="folder" :href="route('categories.index')" :current="request()->routeIs('categories.index')"
                     wire:navigate>{{ __('Category') }}
-                </flux:navlist.item>
+                </flux:navlist.item>    
 
 
                 <!-- Submenu Produk -->
                 <flux:navlist.group :heading="__('Produk Manajemen')" class="pt-8">
                     <flux:navlist.item icon="folder" :href="route('products.create')" :current="request()->routeIs('products.create')" wire:navigate>{{ __('Buat Produk Baru') }}</flux:navlist.item>
                     <flux:navlist.item icon="folder" :href="route('products.index')" :current="request()->routeIs('products.index')" wire:navigate>{{ __('Daftar Produk') }}</flux:navlist.item>
-                    <flux:navlist.item icon="folder" :href="route('admin.products.aksesoris')" :current="request()->routeIs('admin.products.aksesoris')" wire:navigate>{{ __('Daftar Aksesoris') }}</flux:navlist.item>
-                    <flux:navlist.item icon="cube" :href="route('admin.products.complete-doors')" :current="request()->routeIs('admin.products.complete-doors')" wire:navigate>{{ __('Daftar 3D Doors') }}</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.product.aksesoris')" :current="request()->routeIs('admin.product.aksesoris')" wire:navigate>{{ __('Daftar Aksesoris') }}</flux:navlist.item>
                 </flux:navlist.group>
 
                 <!-- Submenu Produk -->
@@ -47,11 +46,11 @@
                 <flux:navlist.group :heading="__('Newsletter')" class="pt-8">
                     <flux:navlist.item icon="folder" :href="route('admin.newsletter.index')" :current="request()->routeIs('admin.newsletter.*')" wire:navigate>{{ __('Subscribers') }}</flux:navlist.item>
                 </flux:navlist.group>
-
+                
                 <!-- Recycle Produk -->
                 <flux:navlist.group :heading="__('Recycle')" class="pt-8">
                     <flux:navlist.item icon="folder" :href="route('admin.category.recycle')" :current="request()->routeIs('admin.category.recycle')" wire:navigate>{{ __('Category') }}</flux:navlist.item>
-                    <flux:navlist.item icon="folder" :href="route('admin.products.recycle')" :current="request()->routeIs('admin.products.recycle')" wire:navigate>{{ __('Product') }}</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.product.recycle')" :current="request()->routeIs('admin.product.recycle')" wire:navigate>{{ __('Product') }}</flux:navlist.item>
                 </flux:navlist.group>
 
                 {{-- Google Index --}}

@@ -24,7 +24,7 @@
             @foreach ($products as $product)
                 <div class="relative z-0 flex items-center justify-center w-full min-h-[380px] overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 group">
                     <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-
+                    
                     <!-- Menampilkan Gambar Produk -->
                     <div class="relative w-full h-full">
                         @if ($product->image_produk)
@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <p class="text-xs bg-orange-700 rounded-xl px-3 py-1 absolute top-4 right-4">{{ $product->category?->name_category ?? 'No Category' }}</p>
+                    <p class="text-xs bg-orange-700 rounded-xl px-3 py-1 absolute top-4 right-4">{{ $product->category->name_category }}</p>
 
                     <!-- Tombol Edit dan Delete -->
                     <div class="absolute z-0 flex gap-4 opacity-0 group-hover:opacity-100 transition duration-300 pb-20">
@@ -69,7 +69,7 @@
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
             <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
         </div>
-
+ 
        <!-- Pagination Sederhana -->
         <div class="mt-6">
             <!-- Pagination akan muncul disini -->

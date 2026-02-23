@@ -16,6 +16,7 @@
                     <p class="truncate">Semua Produk</p>
                 </a>
 
+                <!-- Links for categories -->
                 @foreach ($categories as $category)
                     <a href="{{ route('home', ['category' => $category->id]) }}#produk" class="flex items-center px-8 py-2 border border-white bg-white/30 backdrop-blur w-fit rounded-full hover:cursor-pointer hover:scale-110 duration-200">
                         <p class="truncate">{{ $category->name_category }}</p>
@@ -48,7 +49,7 @@
                             </a>
                             <div class="absolute bottom-5 z-0 text-white">
                                 <p class="text-xl font-semibold">
-                                    {{ $product->category->name_category ?? '-'}}
+                                    {{ $product->category->name_category }}
                                 </p>
                             </div>
                         </li>

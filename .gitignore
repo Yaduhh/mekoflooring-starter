@@ -6,7 +6,6 @@
 /storage/*.key
 /storage/pail
 /vendor
-/public/js/three.js-master/
 .env
 .env.backup
 .env.production
