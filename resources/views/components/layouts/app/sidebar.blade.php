@@ -15,48 +15,91 @@
 
         <flux:navlist variant="outline">
             <flux:navlist.group :heading="__('Platform')" class="grid">
-                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()-> routeIs('dashboard')"
+
+                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
                     wire:navigate>{{ __('Dashboard') }}
                 </flux:navlist.item>
 
-                <!-- Katalog Produk -->
-                <flux:navlist.item icon="folder" :href="route('admin.catalogue.index')" :current="request()->routeIs('admin.catalogue.index')"
+                <!-- Katalog -->
+                <flux:navlist.item icon="folder" :href="route('admin.catalogue.index')"
+                    :current="request()->routeIs('admin.catalogue.*')"
                     wire:navigate>{{ __('Catalogue') }}
-                </flux:navlist.item>      
+                </flux:navlist.item>
 
-                <!-- Kategori Produk -->
-                <flux:navlist.item icon="folder" :href="route('categories.index')" :current="request()->routeIs('categories.index')"
+                <!-- Kategori Produk (untuk produk biasa) -->
+                <flux:navlist.item icon="folder" :href="route('categories.index')"
+                    :current="request()->routeIs('categories.*')"
                     wire:navigate>{{ __('Category') }}
-                </flux:navlist.item>    
+                </flux:navlist.item>
 
-
-                <!-- Submenu Produk -->
+                <!-- Produk Manajemen -->
                 <flux:navlist.group :heading="__('Produk Manajemen')" class="pt-8">
-                    <flux:navlist.item icon="folder" :href="route('products.create')" :current="request()->routeIs('products.create')" wire:navigate>{{ __('Buat Produk Baru') }}</flux:navlist.item>
-                    <flux:navlist.item icon="folder" :href="route('products.index')" :current="request()->routeIs('products.index')" wire:navigate>{{ __('Daftar Produk') }}</flux:navlist.item>
-                    <flux:navlist.item icon="folder" :href="route('admin.product.aksesoris')" :current="request()->routeIs('admin.product.aksesoris')" wire:navigate>{{ __('Daftar Aksesoris') }}</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('products.create')"
+                        :current="request()->routeIs('products.create')"
+                        wire:navigate>{{ __('Buat Produk Baru') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('products.index')"
+                        :current="request()->routeIs('products.index')"
+                        wire:navigate>{{ __('Daftar Produk') }}
+                    </flux:navlist.item>
                 </flux:navlist.group>
 
-                <!-- Submenu Produk -->
+                <!-- Door 3D Manajemen -->
+                <flux:navlist.group :heading="__('Door 3D')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('admin.door-types.index')"
+                        :current="request()->routeIs('admin.door-types.*')"
+                        wire:navigate>{{ __('Door Types') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.door-models.index')"
+                        :current="request()->routeIs('admin.door-models.*')"
+                        wire:navigate>{{ __('Door Models 3D') }}
+                    </flux:navlist.item>
+                </flux:navlist.group>
+
+                <!-- Artikel Manajemen -->
                 <flux:navlist.group :heading="__('Artikel Manajemen')" class="pt-8">
-                    <flux:navlist.item icon="folder" :href="route('articles.index')" :current="request()->routeIs('articles.index')" wire:navigate>{{ __('Daftar Artikel') }}</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('articles.index')"
+                        :current="request()->routeIs('articles.*')"
+                        wire:navigate>{{ __('Daftar Artikel') }}
+                    </flux:navlist.item>
                 </flux:navlist.group>
 
-                <!-- Newsletter Subscription -->
+                <!-- Newsletter -->
                 <flux:navlist.group :heading="__('Newsletter')" class="pt-8">
-                    <flux:navlist.item icon="folder" :href="route('admin.newsletter.index')" :current="request()->routeIs('admin.newsletter.*')" wire:navigate>{{ __('Subscribers') }}</flux:navlist.item>
-                </flux:navlist.group>
-                
-                <!-- Recycle Produk -->
-                <flux:navlist.group :heading="__('Recycle')" class="pt-8">
-                    <flux:navlist.item icon="folder" :href="route('admin.category.recycle')" :current="request()->routeIs('admin.category.recycle')" wire:navigate>{{ __('Category') }}</flux:navlist.item>
-                    <flux:navlist.item icon="folder" :href="route('admin.product.recycle')" :current="request()->routeIs('admin.product.recycle')" wire:navigate>{{ __('Product') }}</flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.newsletter.index')"
+                        :current="request()->routeIs('admin.newsletter.*')"
+                        wire:navigate>{{ __('Subscribers') }}
+                    </flux:navlist.item>
                 </flux:navlist.group>
 
-                {{-- Google Index --}}
-                <flux:navlist.group :heading="__('Google Analytics')" class="pt-8">
-                    <flux:navlist.item icon="folder" :href="route('google.analytics')" :current="request()->routeIs('google.analytics')" wire:navigate>{{ __('Google Analytics') }}</flux:navlist.item>
+                <!-- Recycle -->
+                <flux:navlist.group :heading="__('Recycle')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('admin.category.recycle')"
+                        :current="request()->routeIs('admin.category.recycle')"
+                        wire:navigate>{{ __('Category') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.product.recycle')"
+                        :current="request()->routeIs('admin.product.recycle')"
+                        wire:navigate>{{ __('Product') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.door-types.recycle')"
+                        :current="request()->routeIs('admin.door-types.recycle')"
+                        wire:navigate>{{ __('Door Types') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="folder" :href="route('admin.door-models.recycle')"
+                        :current="request()->routeIs('admin.door-models.recycle')"
+                        wire:navigate>{{ __('Door Models') }}
+                    </flux:navlist.item>
                 </flux:navlist.group>
+
+                <!-- Google Analytics -->
+                <flux:navlist.group :heading="__('Google Analytics')" class="pt-8">
+                    <flux:navlist.item icon="folder" :href="route('google.analytics')"
+                        :current="request()->routeIs('google.analytics')"
+                        wire:navigate>{{ __('Google Analytics') }}
+                    </flux:navlist.item>
+                </flux:navlist.group>
+
             </flux:navlist.group>
         </flux:navlist>
 
@@ -75,7 +118,7 @@
 
         <!-- Desktop User Menu -->
         <flux:dropdown position="bottom" align="start">
-            <flux:profile :name="auth()-> user()-> name" :initials="auth()-> user()-> initials()"
+            <flux:profile :name="auth()->user()->name" :initials="auth()->user()->initials()"
                 icon-trailing="chevrons-up-down" />
 
             <flux:menu class="w-[220px]">
@@ -83,12 +126,10 @@
                     <div class="p-0 text-sm font-normal">
                         <div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                             <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
-                                <span
-                                    class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
+                                <span class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
                                     {{ auth()->user()->initials() }}
                                 </span>
                             </span>
-
                             <div class="grid flex-1 text-left text-sm leading-tight">
                                 <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
                                 <span class="truncate text-xs">{{ auth()->user()->email }}</span>
@@ -100,7 +141,8 @@
                 <flux:menu.separator />
 
                 <flux:menu.radio.group>
-                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}
+                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>
+                        {{ __('Settings') }}
                     </flux:menu.item>
                 </flux:menu.radio.group>
 
@@ -123,19 +165,17 @@
         <flux:spacer />
 
         <flux:dropdown position="top" align="end">
-            <flux:profile :initials="auth()-> user()-> initials()" icon-trailing="chevron-down" />
+            <flux:profile :initials="auth()->user()->initials()" icon-trailing="chevron-down" />
 
             <flux:menu>
                 <flux:menu.radio.group>
                     <div class="p-0 text-sm font-normal">
                         <div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                             <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
-                                <span
-                                    class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
+                                <span class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
                                     {{ auth()->user()->initials() }}
                                 </span>
                             </span>
-
                             <div class="grid flex-1 text-left text-sm leading-tight">
                                 <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
                                 <span class="truncate text-xs">{{ auth()->user()->email }}</span>
@@ -147,7 +187,8 @@
                 <flux:menu.separator />
 
                 <flux:menu.radio.group>
-                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}
+                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>
+                        {{ __('Settings') }}
                     </flux:menu.item>
                 </flux:menu.radio.group>
 
