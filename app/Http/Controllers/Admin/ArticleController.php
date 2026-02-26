@@ -35,7 +35,7 @@ class ArticleController extends Controller
         ]);
 
         // Generate slug otomatis
-        $validated['slug'] = \Str::slug($validated['title']);
+        $validated['slug'] = Str::slug($validated['title']);
 
         if ($request->hasFile('thumbnail')) {
             $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public'); // Simpan di folder 'public/thumbnails'
