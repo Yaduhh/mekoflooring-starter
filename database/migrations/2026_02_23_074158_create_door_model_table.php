@@ -22,7 +22,7 @@ return new class extends Migration
             $table->enum('model_complexity', ['low', 'medium', 'high'])->default('medium');
             $table->text('description')->nullable();
             $table->boolean('status')->default(true);
-            $table->boolean('deleted_status')->default(false);
+            $table->tinyInteger('deleted_status')->default(0);
             $table->timestamps();
         });
     }

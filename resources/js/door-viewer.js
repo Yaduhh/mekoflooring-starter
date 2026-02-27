@@ -31,6 +31,12 @@ function init() {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene.environment = texture;
     scene.environmentIntensity = 0.6;
+    // scene.background = texture;
+    });
+
+    new THREE.TextureLoader().load('/img/Room.png', (bg) => {
+    bg.colorSpace = THREE.SRGBColorSpace;
+    scene.background = bg;
     });
 
     const rimLight = new THREE.DirectionalLight(0xffffff, 1.3);
@@ -57,6 +63,7 @@ function init() {
     controls.dampingFactor    = 0.05;
     controls.minDistance      = 2;
     controls.maxDistance      = 15;
+    controls.minPolarAngle    = Math.PI / 2;
     controls.maxPolarAngle    = Math.PI / 2;
     controls.target.set(0, 1, 0);
     controls.update();
@@ -134,7 +141,7 @@ function loadModel(url) {
 
 function animate() {
     requestAnimationFrame(animate);
-    if (autoRotate && doorModel) doorModel.rotation.y += 0.005;
+    if (autoRotate && doorModel) doorModel.rotation.y += 0.01;
     controls.update();
     renderer.render(scene, camera);
 }
@@ -151,7 +158,6 @@ function showLoading(msg)         { document.getElementById('loading-overlay').s
 function hideLoading()            { document.getElementById('loading-overlay').style.display = 'none'; }
 function updateLoadingProgress(m) { const el = document.getElementById('loading-progress'); if (el) el.textContent = m; }
 
-// ─── CONTROL BUTTONS ─────────────────────────────────────────────────────────
 document.getElementById('reset-view')?.addEventListener('click', () => {
     camera.position.set(0, 1.5, 5);
     controls.target.set(0, 1, 0);

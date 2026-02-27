@@ -21,16 +21,13 @@ class DoorType extends Model
     ];
 
     protected $casts = [
-        'deleted_status' => 'boolean',
+        'deleted_status' => 'integer',
     ];
+
     public function scopeNotDeleted($query)
     {
-        return $query->where('deleted_status', false);
+        return $query->where('deleted_status', 0);
     }
-
-    // ========================================
-    // RELATIONSHIPS
-    // ========================================
 
     public function doorModels()
     {
@@ -41,7 +38,7 @@ class DoorType extends Model
     {
         return $this->hasMany(DoorModel::class, 'door_type_id')
             ->where('status', true)
-            ->where('deleted_status', false);
+            ->where('deleted_status', 0);
     }
 
     public function getImageUrl()
@@ -52,9 +49,6 @@ class DoorType extends Model
         return asset('images/placeholder-door.png');
     }
 
-    /**
-     * Get active models grouped by door_base_name for the viewer
-     */
     public function getGroupedModels()
     {
         return $this->activeDoorModels()

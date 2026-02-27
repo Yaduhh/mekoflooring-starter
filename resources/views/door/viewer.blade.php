@@ -49,7 +49,8 @@
                     </div>
 
                     <div class="absolute top-3 right-3 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg">
-                        <p class="text-xs text-white/70"><i class="fas fa-mouse mr-1"></i>Drag · Scroll</p>
+                        <p class="text-xl text-white/70"><i class="fas fa-mouse mr-1"></i>Drag · Rotate</p>
+                        <p class="text-xl text-white/70"><i class="fas fa-mouse mr-1"></i>Zoom · Scroll</p>
                     </div>
                 </div>
 

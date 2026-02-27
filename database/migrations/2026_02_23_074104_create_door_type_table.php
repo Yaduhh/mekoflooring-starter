@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('deleted_status')->default(false);
+            $table->tinyInteger('deleted_status')->default(0);
             $table->timestamps();
         });
     }

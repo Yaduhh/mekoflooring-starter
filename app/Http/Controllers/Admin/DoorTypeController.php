@@ -22,7 +22,11 @@ class DoorTypeController extends Controller
 
     public function recycle()
     {
-        $doorTypes = DoorType::where('deleted_status', true)->get();
+        // Hanya tampilkan status 1 (soft delete), status 2 tidak ditampilkan
+        $doorTypes = DoorType::where('deleted_status', 1)
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
         return view('admin.door-types.recycle', compact('doorTypes'));
     }
 
@@ -41,7 +45,6 @@ class DoorTypeController extends Controller
 
         $validated['slug'] = Str::slug($validated['name']);
 
-        // Ensure slug uniqueness
         $base  = $validated['slug'];
         $count = 1;
         while (DoorType::where('slug', $validated['slug'])->exists()) {
@@ -74,7 +77,6 @@ class DoorTypeController extends Controller
             'description' => 'nullable|string',
         ]);
 
-        // Regenerate slug from name
         $newSlug = Str::slug($validated['name']);
         if ($newSlug !== $doorType->slug) {
             $base  = $newSlug;
@@ -101,7 +103,7 @@ class DoorTypeController extends Controller
 
     public function destroy(DoorType $doorType)
     {
-        $doorType->update(['deleted_status' => true]);
+        $doorType->update(['deleted_status' => 1]);
 
         return redirect()->route('admin.door-types.index')
             ->with('success', 'Door type deleted.');
@@ -109,7 +111,7 @@ class DoorTypeController extends Controller
 
     public function restore(DoorType $doorType)
     {
-        $doorType->update(['deleted_status' => false]);
+        $doorType->update(['deleted_status' => 0]);
 
         return redirect()->route('admin.door-types.recycle')
             ->with('success', 'Door type restored.');
@@ -117,10 +119,7 @@ class DoorTypeController extends Controller
 
     public function forceDelete(DoorType $doorType)
     {
-        if ($doorType->image) {
-            Storage::disk('public')->delete($doorType->image);
-        }
-        $doorType->delete();
+        $doorType->update(['deleted_status' => 2]);
 
         return redirect()->route('admin.door-types.recycle')
             ->with('success', 'Door type permanently deleted.');

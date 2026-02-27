@@ -23,7 +23,8 @@ class DoorModelController extends Controller
 
     public function recycle()
     {
-        $doorModels = DoorModel::where('deleted_status', true)
+        // Hanya tampilkan status 1 (soft delete), status 2 tidak ditampilkan
+        $doorModels = DoorModel::where('deleted_status', 1)
             ->with('doorType')
             ->orderBy('updated_at', 'desc')
             ->get();
@@ -44,7 +45,7 @@ class DoorModelController extends Controller
             'door_base_name'  => 'required|string|max:255',
             'handle_name'     => 'required|string|max:255',
             'handle_code'     => 'required|string|max:20',
-            'model_file'      => 'required|file|max:102400', // 100MB
+            'model_file'      => 'required|file|max:102400',
             'catalog_image'   => 'required|image|mimes:jpeg,png,jpg,webp|max:10240',
             'viewer_thumbnail'=> 'nullable|image|mimes:jpeg,png,jpg,webp|max:10240',
             'model_complexity'=> 'required|in:low,medium,high',
@@ -62,9 +63,9 @@ class DoorModelController extends Controller
 
         // Upload 3D model
         if ($request->hasFile('model_file')) {
-            $file      = $request->file('model_file');
-            $ext       = $file->getClientOriginalExtension() ?: 'glb';
-            $filename  = \Illuminate\Support\Str::random(40) . '.' . $ext;
+            $file                       = $request->file('model_file');
+            $ext                        = $file->getClientOriginalExtension() ?: 'glb';
+            $filename                   = \Illuminate\Support\Str::random(40) . '.' . $ext;
             $doorModel->model_file      = $file->storeAs('door-models/3d', $filename, 'public');
             $doorModel->model_file_size = $file->getSize();
         }
@@ -75,7 +76,7 @@ class DoorModelController extends Controller
                 ->store('door-models/catalog', 'public');
         }
 
-        // Upload viewer thumbnail (fallback to catalog image)
+        // Upload viewer thumbnail (fallback ke catalog image)
         if ($request->hasFile('viewer_thumbnail')) {
             $doorModel->viewer_thumbnail = $request->file('viewer_thumbnail')
                 ->store('door-models/thumbnails', 'public');
@@ -110,14 +111,7 @@ class DoorModelController extends Controller
             'status'          => 'required|boolean',
         ]);
 
-        // Regenerate slug if name changed
-        $newSlug = DoorModel::generateSlug(
-            $validated['door_base_name'],
-            $validated['handle_name'],
-            $validated['handle_code']
-        );
-        // generateSlug already checks uniqueness excluding self — but we need to exclude self
-        // Override with safe version:
+        // Regenerate slug, exclude self
         $base  = \Illuminate\Support\Str::slug("{$validated['door_base_name']} {$validated['handle_name']} {$validated['handle_code']}");
         $slug  = $base;
         $count = 1;
@@ -133,9 +127,9 @@ class DoorModelController extends Controller
             if ($doorModel->model_file) {
                 Storage::disk('public')->delete($doorModel->model_file);
             }
-            $file      = $request->file('model_file');
-            $ext       = $file->getClientOriginalExtension() ?: 'glb';
-            $filename  = \Illuminate\Support\Str::random(40) . '.' . $ext;
+            $file                       = $request->file('model_file');
+            $ext                        = $file->getClientOriginalExtension() ?: 'glb';
+            $filename                   = \Illuminate\Support\Str::random(40) . '.' . $ext;
             $doorModel->model_file      = $file->storeAs('door-models/3d', $filename, 'public');
             $doorModel->model_file_size = $file->getSize();
         }
@@ -166,7 +160,7 @@ class DoorModelController extends Controller
 
     public function destroy(DoorModel $doorModel)
     {
-        $doorModel->update(['deleted_status' => true]);
+        $doorModel->update(['deleted_status' => 1]);
 
         return redirect()->route('admin.door-models.index')
             ->with('success', 'Door model deleted.');
@@ -174,7 +168,7 @@ class DoorModelController extends Controller
 
     public function restore(DoorModel $doorModel)
     {
-        $doorModel->update(['deleted_status' => false]);
+        $doorModel->update(['deleted_status' => 0]);
 
         return redirect()->route('admin.door-models.recycle')
             ->with('success', 'Door model restored.');
@@ -182,13 +176,7 @@ class DoorModelController extends Controller
 
     public function forceDelete(DoorModel $doorModel)
     {
-        Storage::disk('public')->delete(array_filter([
-            $doorModel->model_file,
-            $doorModel->catalog_image,
-            $doorModel->viewer_thumbnail !== $doorModel->catalog_image ? $doorModel->viewer_thumbnail : null,
-        ]));
-
-        $doorModel->delete();
+        $doorModel->update(['deleted_status' => 2]);
 
         return redirect()->route('admin.door-models.recycle')
             ->with('success', 'Door model permanently deleted.');

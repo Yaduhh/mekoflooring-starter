@@ -30,43 +30,29 @@ class DoorModel extends Model
     ];
 
     protected $casts = [
-        'status'         => 'boolean',
-        'deleted_status' => 'boolean',
-        'model_file_size'=> 'integer',
+        'status'          => 'boolean',
+        'deleted_status'  => 'integer',
+        // 0 = aktif, 1 = soft delete (recycle bin), 2 = permanent delete (record tetap, file dihapus)
+        'model_file_size' => 'integer',
     ];
 
     protected $appends = ['formatted_file_size'];
 
-    // ========================================
-    // SCOPES
-    // ========================================
-
     public function scopeNotDeleted($query)
     {
-        return $query->where('deleted_status', false);
+        return $query->where('deleted_status', 0);
     }
 
     public function scopeActive($query)
     {
-        return $query->where('status', true)->where('deleted_status', false);
+        return $query->where('status', true)
+                     ->where('deleted_status', 0);
     }
-
-    // ========================================
-    // RELATIONSHIPS
-    // ========================================
-
     public function doorType()
     {
         return $this->belongsTo(DoorType::class, 'door_type_id');
     }
 
-    // ========================================
-    // HANDLE VARIATIONS
-    // ========================================
-
-    /**
-     * Other handle variations for the same door base within the same door type
-     */
     public function handleVariations()
     {
         return self::where('door_type_id', $this->door_type_id)
@@ -76,10 +62,6 @@ class DoorModel extends Model
             ->orderBy('handle_code')
             ->get();
     }
-
-    // ========================================
-    // URL / IMAGE HELPERS
-    // ========================================
 
     public function getModelUrl()
     {
@@ -101,10 +83,6 @@ class DoorModel extends Model
         return asset('images/placeholder-door.png');
     }
 
-    // ========================================
-    // COMPUTED ATTRIBUTES
-    // ========================================
-
     public function getFormattedFileSizeAttribute()
     {
         if (!$this->model_file_size) return 'Unknown';
@@ -120,14 +98,6 @@ class DoorModel extends Model
 
         return round($size, 2) . ' ' . $units[$unit];
     }
-
-    // ========================================
-    // STATIC HELPERS
-    // ========================================
-
-    /**
-     * Auto-generate slug from door base + handle name + handle code
-     */
     public static function generateSlug($doorBase, $handleName, $handleCode)
     {
         $base  = Str::slug("{$doorBase} {$handleName} {$handleCode}");
